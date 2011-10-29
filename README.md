@@ -7,11 +7,9 @@ Installation
 ------------
 
 Add the following line to your Gemfile:
-
-    gem 'suitcase', :git => "http://github.com/thoughtfusion/suitcase.git"
+`gem 'suitcase', :git => "http://github.com/thoughtfusion/suitcase.git"`
 Then run
-
-    bundle install
+`bundle install`
 
 Usage
 -----
