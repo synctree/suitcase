@@ -2,3 +2,4 @@
 .bundle
 Gemfile.lock
 pkg/*
+lib/suitcase/hotel/api_key.rb
