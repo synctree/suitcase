@@ -2,7 +2,6 @@ require 'net/http'
 require 'uri'
 require 'json'
 require '../country_codes'
-load 'api_key.rb'
 
 module Suitcase
   class Hotel
@@ -10,7 +9,8 @@ module Suitcase
 
     def self.near(location, number_of_results)
       hotels = []
-      unparsed = Net::HTTP.get_response(URI.parse("http://api.ean.com/ean-services/rs/hotel/v3/list?apiKey=#{API_KEY}&city=#{location}&numberOfResults=#{number_of_results}".gsub!(" ", "%20"))).body
+      puts "http://api.ean.com/ean-services/rs/hotel/v3/list?apiKey=#{Suitcase::Hotel::API_KEY}&city=#{location}&numberOfResults=#{number_of_results}".gsub!(" ", "%20")
+      unparsed = Net::HTTP.get_response(URI.parse("http://api.ean.com/ean-services/rs/hotel/v3/list?apiKey=#{Suitcase::Hotel::API_KEY}&city=#{location}&numberOfResults=#{number_of_results}".gsub!(" ", "%20"))).body
       puts unparsed
       json = JSON.parse unparsed
       if json["HotelListResponse"]["HotelList"]
