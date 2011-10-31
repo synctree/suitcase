@@ -1,7 +1,7 @@
 require 'net/http'
 require 'uri'
 require 'json'
-require '../country_codes'
+require 'country_codes'
 
 module Suitcase
   class Hotel

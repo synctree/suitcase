@@ -1,1 +1,0 @@
-{"HotelListResponse":{"EanWsError":{"itineraryId":-1,"handling":"RECOVERABLE","category":"DATA_VALIDATION","exceptionConditionId":-1,"presentationMessage":"TravelNow.com cannot service this request.","verboseMessage":"Data in this request could not be validated: Specified city could not be resolved as valid location."},"customerSessionId":"0ABAA82D-6663-8913-3512-CF81259045F5"}}
