@@ -1,7 +1,7 @@
 require 'net/http'
 require 'uri'
 require 'json'
-require File.dirname(__FILE__) + '/country_codes'
+require File.dirname(__FILE__) + '/../country_codes'
 
 module Suitcase
   class Hotel
@@ -9,9 +9,7 @@ module Suitcase
 
     def self.near(location, number_of_results)
       hotels = []
-      puts "http://api.ean.com/ean-services/rs/hotel/v3/list?apiKey=#{Suitcase::Hotel::API_KEY}&city=#{location}&numberOfResults=#{number_of_results}".gsub!(" ", "%20")
-      unparsed = Net::HTTP.get_response(URI.parse("http://api.ean.com/ean-services/rs/hotel/v3/list?apiKey=#{Suitcase::Hotel::API_KEY}&city=#{location}&numberOfResults=#{number_of_results}".gsub!(" ", "%20"))).body
-      puts unparsed
+      unparsed = Net::HTTP.get_response(URI.parse("http://api.ean.com/ean-services/rs/hotel/v3/list?apiKey=#{Suitcase::Hotel::API_KEY}&city=#{location}&numberOfResults=#{number_of_results}".gsub!(" ", "%20").empty? ? "http://api.ean.com/ean-services/rs/hotel/v3/list?apiKey=#{Suitcase::Hotel::API_KEY}&city=#{location}&numberOfResults=#{number_of_results}" : "http://api.ean.com/ean-services/rs/hotel/v3/list?apiKey=#{Suitcase::Hotel::API_KEY}&city=#{location}&numberOfResults=#{number_of_results}".gsub!(" ", "%20"))).body
       json = JSON.parse unparsed
       if json["HotelListResponse"]["HotelList"]
         json["HotelListResponse"]["HotelList"]["HotelSummary"].each do |hotel_data|
