@@ -47,6 +47,3 @@ module Suitcase
     end
   end
 end
-
-Suitcase::Hotel::API_KEY = "blah"
-Suitcase::Hotel.near('Boston', 10)
