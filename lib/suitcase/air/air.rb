@@ -1,11 +1,14 @@
-require 'net/http'
-require 'uri'
+require 'open-uri'
 require 'json'
+require 'nokogiri'
 require File.dirname(__FILE__) + '/../airport_codes'
 
 module Suitcase
   class Flight
     attr_accessor :origin, :destrination, :departure, :arrival, :adults, :children, :seniors, :fare, :direct, :round_trip, :currency, :search_window, :results
+
+    CID = "55505"
+    API_KEY = "hidden"
 
     def self.available(data)
       origin_city = data[:origin]
@@ -38,7 +41,9 @@ module Suitcase
   </AirAvailabilityQuery>
 </AirSessionRequest>
 EOS
-      puts xml_format
+      uri = URI.escape("http://api.ean.com/ean-services/rs/air/200919/xmlinterface.jsp?cid=#{CID}&resType=air&intfc=ws&apiKey=#{API_KEY}&xml=#{xml_format}")
+      xml = Nokogiri::XML(open(uri))
+      puts xml
     end
   end
 end
