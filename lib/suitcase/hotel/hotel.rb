@@ -31,7 +31,7 @@ module Suitcase
           h.low_rate = hotel_data["lowRate"]
           hotels.push(h)
         end
-        hotels[0..number_of_results]
+        hotels[0..number_of_results-1]
       else
         if json["HotelListResponse"]["EanWsError"]
           raise "An error occured. Check data."
