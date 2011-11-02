@@ -1,7 +1,7 @@
-require 'open-uri'
+require 'net/http'
+require 'uri'
 require 'json'
 require File.dirname(__FILE__) + '/../country_codes'
-require 'cgi'
 
 module Suitcase
   class Hotel
@@ -9,7 +9,7 @@ module Suitcase
 
     def self.near(location, number_of_results)
       hotels = []
-      json = JSON.parse open(URI.escape("http://api.ean.com/ean-services/rs/hotel/v3/list?apiKey=#{Suitcase::Hotel::API_KEY}&city=#{location}&numberOfResults=#{number_of_results}"))
+      json = JSON.parse Net::HTTP.get_response(URI.parse(URI.escape("http://api.ean.com/ean-services/rs/hotel/v3/list?apiKey=#{Suitcase::Hotel::API_KEY}&city=#{location}&numberOfResults=#{number_of_results}"))).body
       if json["HotelListResponse"]["HotelList"]
         json["HotelListResponse"]["HotelList"]["HotelSummary"].each do |hotel_data|
           h = Hotel.new
