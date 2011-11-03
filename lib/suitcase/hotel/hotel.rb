@@ -7,9 +7,9 @@ module Suitcase
   class Hotel
     attr_accessor :id, :name, :address, :city, :postal_code, :country, :airport_code, :rating, :confidence_rating, :description, :high_rate, :low_rate, :tripadvisor_rating, :currency_code, :latitude, :longitude
 
-    def self.near(location, number_of_results)
+    def self.find(hash)
       hotels = []
-      json = JSON.parse Net::HTTP.get_response(URI.parse(URI.escape("http://api.ean.com/ean-services/rs/hotel/v3/list?apiKey=#{Suitcase::Hotel::API_KEY}&city=#{location}&numberOfResults=#{number_of_results}"))).body
+      json = JSON.parse Net::HTTP.get_response(URI.parse(URI.escape("http://api.ean.com/ean-services/rs/hotel/v3/list?apiKey=#{Suitcase::Hotel::API_KEY}&city=#{hash[:near]}&numberOfResults=#{hash[:results]}"))).body
       if json["HotelListResponse"]["HotelList"]
         json["HotelListResponse"]["HotelList"]["HotelSummary"].each do |hotel_data|
           h = Hotel.new
@@ -30,7 +30,7 @@ module Suitcase
           h.low_rate = hotel_data["lowRate"]
           hotels.push(h)
         end
-        hotels[0..number_of_results-1]
+        hotels[0..hash[:results]-1]
       else
         if json["HotelListResponse"]["EanWsError"]
           raise "An error occured. Check data."

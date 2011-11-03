@@ -48,7 +48,7 @@ EOS
         f.key = segment.xpath("@key")
         f.origin = segment.xpath("//originCity") + segment.xpath("//originStateProvince") + segment.xpath("//originCountry")
         f.destination = segment.xpath("//destinationCity") + segment.xpath("//destinationStateProvince") + segment.xpath("//destinationCountry")
-        f.airline = segment.xpath("
+#       f.airline = segment.xpath("
       end
     end
   end
