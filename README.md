@@ -10,11 +10,14 @@ Add the following line to your Gemfile:
 
 `gem 'suitcase', :git => "http://github.com/thoughtfusion/suitcase.git"` then run `bundle install`. Or install the gem: `gem install suitcase`.
 
-Next, include the module where you'll need it: `include Suitcase`.
-
 
 Usage
 -----
+
+First, include the module in your code:
+
+      include Suitcase
+
 Find nearby hotels:
 
       Hotel::API_KEY = "your_api_key_here"
