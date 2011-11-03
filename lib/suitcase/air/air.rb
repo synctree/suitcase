@@ -5,10 +5,9 @@ require File.dirname(__FILE__) + '/../airport_codes'
 
 module Suitcase
   class Flight
-    attr_accessor :origin, :destrination, :departure, :arrival, :adults, :children, :seniors, :fare, :direct, :round_trip, :currency, :search_window, :results
+    attr_accessor :flights, :key, :origin, :destrination, :departure, :arrival, :adults, :children, :seniors, :fare, :direct, :round_trip, :currency, :search_window, :results, :airline, :airline_code
 
     CID = "55505"
-    API_KEY = "hidden"
 
     def self.available(data)
       origin_city = data[:from]
@@ -43,7 +42,14 @@ module Suitcase
 EOS
       uri = URI.escape("http://api.ean.com/ean-services/rs/air/200919/xmlinterface.jsp?cid=#{CID}&resType=air&intfc=ws&apiKey=#{API_KEY}&xml=#{xml_format}")
       xml = Nokogiri::XML(open(uri))
-      puts xml
+      xml.xpath('//Segment').each do |segment|
+        puts segment
+        f = Flight.new
+        f.key = segment.xpath("@key")
+        f.origin = segment.xpath("//originCity") + segment.xpath("//originStateProvince") + segment.xpath("//originCountry")
+        f.destination = segment.xpath("//destinationCity") + segment.xpath("//destinationStateProvince") + segment.xpath("//destinationCountry")
+        f.airline = segment.xpath("
+      end
     end
   end
 end

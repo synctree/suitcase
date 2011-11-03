@@ -1,0 +1,2649 @@
+<?xml version="1.0"?>
+<AirAvailabilityResults size="59">
+  <SegmentList>
+    <Segment key="KL9084">
+      <airlineCode>KL</airlineCode>
+      <airline>KLM</airline>
+      <flightNumber>9084</flightNumber>
+      <originCityCode>JFK</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 6:30 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 7:05 AM</arrivalDateTime>
+      <equipmentCode>767</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>New York</originCity>
+      <originStateProvince>NY</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="FI630">
+      <airlineCode>FI</airlineCode>
+      <airline>ICELANDAIR</airline>
+      <flightNumber>630</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>KEF</destinationCityCode>
+      <departureDateTime>01/07/2012 8:35 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 6:40 AM</arrivalDateTime>
+      <equipmentCode>75W</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>Reykjavik</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>IS</destinationCountry>
+    </Segment>
+    <Segment key="CO110">
+      <airlineCode>CO</airlineCode>
+      <airline>CONTINENTAL</airline>
+      <flightNumber>110</flightNumber>
+      <originCityCode>EWR</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 6:05 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 6:20 AM</arrivalDateTime>
+      <equipmentCode>752</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Newark</originCity>
+      <originStateProvince>NJ</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="KL9082">
+      <airlineCode>KL</airlineCode>
+      <airline>KLM</airline>
+      <flightNumber>9082</flightNumber>
+      <originCityCode>JFK</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 9:00 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 9:25 AM</arrivalDateTime>
+      <equipmentCode>767</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>New York</originCity>
+      <originStateProvince>NY</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="UA4951">
+      <airlineCode>UA</airlineCode>
+      <airline>UNITED AIRLINES</airline>
+      <flightNumber>4951</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>EWR</destinationCityCode>
+      <departureDateTime>01/07/2012 3:32 PM</departureDateTime>
+      <arrivalDateTime>01/07/2012 5:06 PM</arrivalDateTime>
+      <equipmentCode>DH4</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>Newark</destinationCity>
+      <desintationStateProvince>NJ</desintationStateProvince>
+      <destinationCountry>US</destinationCountry>
+    </Segment>
+    <Segment key="CO8852">
+      <airlineCode>CO</airlineCode>
+      <airline>CONTINENTAL</airline>
+      <flightNumber>8852</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>FRA</destinationCityCode>
+      <departureDateTime>01/07/2012 4:30 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 5:35 AM</arrivalDateTime>
+      <equipmentCode>744</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>Frankfurt</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>DE</destinationCountry>
+    </Segment>
+    <Segment key="DL2857">
+      <airlineCode>DL</airlineCode>
+      <airline>DELTA AIRLINES</airline>
+      <flightNumber>2857</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>JFK</destinationCityCode>
+      <departureDateTime>01/07/2012 3:00 PM</departureDateTime>
+      <arrivalDateTime>01/07/2012 4:33 PM</arrivalDateTime>
+      <equipmentCode>CR9</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>New York</destinationCity>
+      <desintationStateProvince>NY</desintationStateProvince>
+      <destinationCountry>US</destinationCountry>
+    </Segment>
+    <Segment key="CO18">
+      <airlineCode>CO</airlineCode>
+      <airline>CONTINENTAL</airline>
+      <flightNumber>18</flightNumber>
+      <originCityCode>EWR</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 9:00 AM</departureDateTime>
+      <arrivalDateTime>01/07/2012 9:20 PM</arrivalDateTime>
+      <equipmentCode>752</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Newark</originCity>
+      <originStateProvince>NJ</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="DL2859">
+      <airlineCode>DL</airlineCode>
+      <airline>DELTA AIRLINES</airline>
+      <flightNumber>2859</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>JFK</destinationCityCode>
+      <departureDateTime>01/07/2012 6:10 PM</departureDateTime>
+      <arrivalDateTime>01/07/2012 8:07 PM</arrivalDateTime>
+      <equipmentCode>CR7</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>New York</destinationCity>
+      <desintationStateProvince>NY</desintationStateProvince>
+      <destinationCountry>US</destinationCountry>
+    </Segment>
+    <Segment key="UA18">
+      <airlineCode>UA</airlineCode>
+      <airline>UNITED AIRLINES</airline>
+      <flightNumber>18</flightNumber>
+      <originCityCode>EWR</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 9:00 AM</departureDateTime>
+      <arrivalDateTime>01/07/2012 9:20 PM</arrivalDateTime>
+      <equipmentCode>752</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Newark</originCity>
+      <originStateProvince>NJ</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="UA1194">
+      <airlineCode>UA</airlineCode>
+      <airline>UNITED AIRLINES</airline>
+      <flightNumber>1194</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>EWR</destinationCityCode>
+      <departureDateTime>01/07/2012 6:30 AM</departureDateTime>
+      <arrivalDateTime>01/07/2012 8:00 AM</arrivalDateTime>
+      <equipmentCode>735</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>Newark</destinationCity>
+      <desintationStateProvince>NJ</desintationStateProvince>
+      <destinationCountry>US</destinationCountry>
+    </Segment>
+    <Segment key="IB4643">
+      <airlineCode>IB</airlineCode>
+      <airline>IBERIA AIRLINES</airline>
+      <flightNumber>4643</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 8:15 AM</departureDateTime>
+      <arrivalDateTime>01/07/2012 7:30 PM</arrivalDateTime>
+      <equipmentCode>777</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="CO924">
+      <airlineCode>CO</airlineCode>
+      <airline>CONTINENTAL</airline>
+      <flightNumber>924</flightNumber>
+      <originCityCode>IAD</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 10:02 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 10:15 AM</arrivalDateTime>
+      <equipmentCode>777</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Washington</originCity>
+      <originStateProvince>DC</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="IB4641">
+      <airlineCode>IB</airlineCode>
+      <airline>IBERIA AIRLINES</airline>
+      <flightNumber>4641</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 9:00 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 8:25 AM</arrivalDateTime>
+      <equipmentCode>744</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="AA1851">
+      <airlineCode>AA</airlineCode>
+      <airline>AMERICAN AIRLINES</airline>
+      <flightNumber>1851</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>JFK</destinationCityCode>
+      <departureDateTime>01/07/2012 3:50 PM</departureDateTime>
+      <arrivalDateTime>01/07/2012 5:20 PM</arrivalDateTime>
+      <equipmentCode>738</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>New York</destinationCity>
+      <desintationStateProvince>NY</desintationStateProvince>
+      <destinationCountry>US</destinationCountry>
+    </Segment>
+    <Segment key="EI152">
+      <airlineCode>EI</airlineCode>
+      <airline>AER LINGUS</airline>
+      <flightNumber>152</flightNumber>
+      <originCityCode>DUB</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/08/2012 6:40 AM</departureDateTime>
+      <arrivalDateTime>01/08/2012 8:05 AM</arrivalDateTime>
+      <equipmentCode>320</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Dublin</originCity>
+      <originStateProvince/>
+      <originCountry>IE</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="AA106">
+      <airlineCode>AA</airlineCode>
+      <airline>AMERICAN AIRLINES</airline>
+      <flightNumber>106</flightNumber>
+      <originCityCode>JFK</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 10:25 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 10:30 AM</arrivalDateTime>
+      <equipmentCode>777</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>New York</originCity>
+      <originStateProvince>NY</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="CO8483">
+      <airlineCode>CO</airlineCode>
+      <airline>CONTINENTAL</airline>
+      <flightNumber>8483</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>YUL</destinationCityCode>
+      <departureDateTime>01/07/2012 4:40 PM</departureDateTime>
+      <arrivalDateTime>01/07/2012 6:04 PM</arrivalDateTime>
+      <equipmentCode>DH1</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>Montreal</destinationCity>
+      <desintationStateProvince>PQ</desintationStateProvince>
+      <destinationCountry>CA</destinationCountry>
+    </Segment>
+    <Segment key="IB4639">
+      <airlineCode>IB</airlineCode>
+      <airline>IBERIA AIRLINES</airline>
+      <flightNumber>4639</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 5:50 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 5:15 AM</arrivalDateTime>
+      <equipmentCode>777</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="EI154">
+      <airlineCode>EI</airlineCode>
+      <airline>AER LINGUS</airline>
+      <flightNumber>154</flightNumber>
+      <originCityCode>DUB</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/08/2012 7:45 AM</departureDateTime>
+      <arrivalDateTime>01/08/2012 9:10 AM</arrivalDateTime>
+      <equipmentCode>321</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Dublin</originCity>
+      <originStateProvince/>
+      <originCountry>IE</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="BA238">
+      <airlineCode>BA</airlineCode>
+      <airline>BRITISH AIRWAYS</airline>
+      <flightNumber>238</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 8:15 AM</departureDateTime>
+      <arrivalDateTime>01/07/2012 7:30 PM</arrivalDateTime>
+      <equipmentCode>777</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="AA100">
+      <airlineCode>AA</airlineCode>
+      <airline>AMERICAN AIRLINES</airline>
+      <flightNumber>100</flightNumber>
+      <originCityCode>JFK</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 6:10 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 6:20 AM</arrivalDateTime>
+      <equipmentCode>777</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>New York</originCity>
+      <originStateProvince>NY</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="UA8296">
+      <airlineCode>UA</airlineCode>
+      <airline>UNITED AIRLINES</airline>
+      <flightNumber>8296</flightNumber>
+      <originCityCode>YUL</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 7:40 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 7:30 AM</arrivalDateTime>
+      <equipmentCode>333</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Montreal</originCity>
+      <originStateProvince>PQ</originStateProvince>
+      <originCountry>CA</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="KL1015">
+      <airlineCode>KL</airlineCode>
+      <airline>KLM</airline>
+      <flightNumber>1015</flightNumber>
+      <originCityCode>AMS</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/08/2012 10:40 AM</departureDateTime>
+      <arrivalDateTime>01/08/2012 11:05 AM</arrivalDateTime>
+      <equipmentCode>F70</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Amsterdam</originCity>
+      <originStateProvince/>
+      <originCountry>NL</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="AA108">
+      <airlineCode>AA</airlineCode>
+      <airline>AMERICAN AIRLINES</airline>
+      <flightNumber>108</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 7:10 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 7:05 AM</arrivalDateTime>
+      <equipmentCode>757</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="DL3">
+      <airlineCode>DL</airlineCode>
+      <airline>DELTA AIRLINES</airline>
+      <flightNumber>3</flightNumber>
+      <originCityCode>JFK</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 6:30 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 7:05 AM</arrivalDateTime>
+      <equipmentCode>764</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>New York</originCity>
+      <originStateProvince>NY</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="DL1">
+      <airlineCode>DL</airlineCode>
+      <airline>DELTA AIRLINES</airline>
+      <flightNumber>1</flightNumber>
+      <originCityCode>JFK</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 9:00 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 9:25 AM</arrivalDateTime>
+      <equipmentCode>764</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>New York</originCity>
+      <originStateProvince>NY</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="IB4224">
+      <airlineCode>IB</airlineCode>
+      <airline>IBERIA AIRLINES</airline>
+      <flightNumber>4224</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 7:10 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 7:05 AM</arrivalDateTime>
+      <equipmentCode>757</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="IB4323">
+      <airlineCode>IB</airlineCode>
+      <airline>IBERIA AIRLINES</airline>
+      <flightNumber>4323</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>JFK</destinationCityCode>
+      <departureDateTime>01/07/2012 3:50 PM</departureDateTime>
+      <arrivalDateTime>01/07/2012 5:20 PM</arrivalDateTime>
+      <equipmentCode>738</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>New York</destinationCity>
+      <desintationStateProvince>NY</desintationStateProvince>
+      <destinationCountry>US</destinationCountry>
+    </Segment>
+    <Segment key="BD4639">
+      <airlineCode>BD</airlineCode>
+      <airline>BRITISH MIDLAND</airline>
+      <flightNumber>4639</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>IAD</destinationCityCode>
+      <departureDateTime>01/07/2012 7:22 PM</departureDateTime>
+      <arrivalDateTime>01/07/2012 9:07 PM</arrivalDateTime>
+      <equipmentCode>E70</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>Washington</destinationCity>
+      <desintationStateProvince>DC</desintationStateProvince>
+      <destinationCountry>US</destinationCountry>
+    </Segment>
+    <Segment key="LX332">
+      <airlineCode>LX</airlineCode>
+      <airline>CROSSAIR A.G</airline>
+      <flightNumber>332</flightNumber>
+      <originCityCode>ZRH</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/08/2012 12:05 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 1:00 PM</arrivalDateTime>
+      <equipmentCode>321</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Zurich</originCity>
+      <originStateProvince/>
+      <originCountry>CH</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="UA8809">
+      <airlineCode>UA</airlineCode>
+      <airline>UNITED AIRLINES</airline>
+      <flightNumber>8809</flightNumber>
+      <originCityCode>FRA</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/08/2012 7:30 AM</departureDateTime>
+      <arrivalDateTime>01/08/2012 8:10 AM</arrivalDateTime>
+      <equipmentCode>320</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Frankfurt</originCity>
+      <originStateProvince/>
+      <originCountry>DE</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="UA8852">
+      <airlineCode>UA</airlineCode>
+      <airline>UNITED AIRLINES</airline>
+      <flightNumber>8852</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>FRA</destinationCityCode>
+      <departureDateTime>01/07/2012 4:30 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 5:35 AM</arrivalDateTime>
+      <equipmentCode>744</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>Frankfurt</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>DE</destinationCountry>
+    </Segment>
+    <Segment key="DL8718">
+      <airlineCode>DL</airlineCode>
+      <airline>DELTA AIRLINES</airline>
+      <flightNumber>8718</flightNumber>
+      <originCityCode>CDG</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/08/2012 7:40 AM</departureDateTime>
+      <arrivalDateTime>01/08/2012 8:00 AM</arrivalDateTime>
+      <equipmentCode>321</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Paris</originCity>
+      <originStateProvince/>
+      <originCountry>FR</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="AA6141">
+      <airlineCode>AA</airlineCode>
+      <airline>AMERICAN AIRLINES</airline>
+      <flightNumber>6141</flightNumber>
+      <originCityCode>JFK</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 7:30 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 7:30 AM</arrivalDateTime>
+      <equipmentCode>744</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>New York</originCity>
+      <originStateProvince>NY</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="KL1009">
+      <airlineCode>KL</airlineCode>
+      <airline>KLM</airline>
+      <flightNumber>1009</flightNumber>
+      <originCityCode>AMS</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/08/2012 10:20 AM</departureDateTime>
+      <arrivalDateTime>01/08/2012 10:50 AM</arrivalDateTime>
+      <equipmentCode>737</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Amsterdam</originCity>
+      <originStateProvince/>
+      <originCountry>NL</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="AA1807">
+      <airlineCode>AA</airlineCode>
+      <airline>AMERICAN AIRLINES</airline>
+      <flightNumber>1807</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>JFK</destinationCityCode>
+      <departureDateTime>01/07/2012 7:10 PM</departureDateTime>
+      <arrivalDateTime>01/07/2012 8:30 PM</arrivalDateTime>
+      <equipmentCode>738</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>New York</destinationCity>
+      <desintationStateProvince>NY</desintationStateProvince>
+      <destinationCountry>US</destinationCountry>
+    </Segment>
+    <Segment key="LO279">
+      <airlineCode>LO</airlineCode>
+      <airline>LOT POLISH AIRLINES</airline>
+      <flightNumber>279</flightNumber>
+      <originCityCode>WAW</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/08/2012 2:50 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 4:40 PM</arrivalDateTime>
+      <equipmentCode>734</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Warsaw</originCity>
+      <originStateProvince/>
+      <originCountry>PL</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="UA8483">
+      <airlineCode>UA</airlineCode>
+      <airline>UNITED AIRLINES</airline>
+      <flightNumber>8483</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>YUL</destinationCityCode>
+      <departureDateTime>01/07/2012 4:40 PM</departureDateTime>
+      <arrivalDateTime>01/07/2012 6:04 PM</arrivalDateTime>
+      <equipmentCode>DH1</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>Montreal</destinationCity>
+      <desintationStateProvince>PQ</desintationStateProvince>
+      <destinationCountry>CA</destinationCountry>
+    </Segment>
+    <Segment key="CO3445">
+      <airlineCode>CO</airlineCode>
+      <airline>CONTINENTAL</airline>
+      <flightNumber>3445</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>IAD</destinationCityCode>
+      <departureDateTime>01/07/2012 7:22 PM</departureDateTime>
+      <arrivalDateTime>01/07/2012 9:07 PM</arrivalDateTime>
+      <equipmentCode>E70</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>Washington</destinationCity>
+      <desintationStateProvince>DC</desintationStateProvince>
+      <destinationCountry>US</destinationCountry>
+    </Segment>
+    <Segment key="KL6030">
+      <airlineCode>KL</airlineCode>
+      <airline>KLM</airline>
+      <flightNumber>6030</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>AMS</destinationCityCode>
+      <departureDateTime>01/07/2012 6:25 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 7:40 AM</arrivalDateTime>
+      <equipmentCode>330</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>Amsterdam</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>NL</destinationCountry>
+    </Segment>
+    <Segment key="LH900">
+      <airlineCode>LH</airlineCode>
+      <airline>LUFTHANSA</airline>
+      <flightNumber>900</flightNumber>
+      <originCityCode>FRA</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/08/2012 7:30 AM</departureDateTime>
+      <arrivalDateTime>01/08/2012 8:10 AM</arrivalDateTime>
+      <equipmentCode>320</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Frankfurt</originCity>
+      <originStateProvince/>
+      <originCountry>DE</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="LH5525">
+      <airlineCode>LH</airlineCode>
+      <airline>LUFTHANSA</airline>
+      <flightNumber>5525</flightNumber>
+      <originCityCode>YUL</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 7:40 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 7:30 AM</arrivalDateTime>
+      <equipmentCode>333</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Montreal</originCity>
+      <originStateProvince>PQ</originStateProvince>
+      <originCountry>CA</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="IB4218">
+      <airlineCode>IB</airlineCode>
+      <airline>IBERIA AIRLINES</airline>
+      <flightNumber>4218</flightNumber>
+      <originCityCode>JFK</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 6:10 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 6:20 AM</arrivalDateTime>
+      <equipmentCode>777</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>New York</originCity>
+      <originStateProvince>NY</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="VS12">
+      <airlineCode>VS</airlineCode>
+      <airline>VIRGIN ATLANTIC</airline>
+      <flightNumber>12</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 7:40 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 7:20 AM</arrivalDateTime>
+      <equipmentCode>343</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="AA6175">
+      <airlineCode>AA</airlineCode>
+      <airline>AMERICAN AIRLINES</airline>
+      <flightNumber>6175</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 8:15 AM</departureDateTime>
+      <arrivalDateTime>01/07/2012 7:30 PM</arrivalDateTime>
+      <equipmentCode>777</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="AC8647">
+      <airlineCode>AC</airlineCode>
+      <airline>AIR CANADA</airline>
+      <flightNumber>8647</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>YYZ</destinationCityCode>
+      <departureDateTime>01/07/2012 4:45 PM</departureDateTime>
+      <arrivalDateTime>01/07/2012 6:33 PM</arrivalDateTime>
+      <equipmentCode>CRJ</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>Toronto</destinationCity>
+      <desintationStateProvince>ON</desintationStateProvince>
+      <destinationCountry>CA</destinationCountry>
+    </Segment>
+    <Segment key="UA9767">
+      <airlineCode>UA</airlineCode>
+      <airline>UNITED AIRLINES</airline>
+      <flightNumber>9767</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>ZRH</destinationCityCode>
+      <departureDateTime>01/07/2012 9:35 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 10:50 AM</arrivalDateTime>
+      <equipmentCode>343</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>Zurich</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>CH</destinationCountry>
+    </Segment>
+    <Segment key="AC848">
+      <airlineCode>AC</airlineCode>
+      <airline>AIR CANADA</airline>
+      <flightNumber>848</flightNumber>
+      <originCityCode>YYZ</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 8:15 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 8:25 AM</arrivalDateTime>
+      <equipmentCode>333</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Toronto</originCity>
+      <originStateProvince>ON</originStateProvince>
+      <originCountry>CA</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="KL5707">
+      <airlineCode>KL</airlineCode>
+      <airline>KLM</airline>
+      <flightNumber>5707</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>JFK</destinationCityCode>
+      <departureDateTime>01/07/2012 6:10 PM</departureDateTime>
+      <arrivalDateTime>01/07/2012 8:07 PM</arrivalDateTime>
+      <equipmentCode>CRJ</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>New York</destinationCity>
+      <desintationStateProvince>NY</desintationStateProvince>
+      <destinationCountry>US</destinationCountry>
+    </Segment>
+    <Segment key="EI136">
+      <airlineCode>EI</airlineCode>
+      <airline>AER LINGUS</airline>
+      <flightNumber>136</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>DUB</destinationCityCode>
+      <departureDateTime>01/07/2012 6:15 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 5:25 AM</arrivalDateTime>
+      <equipmentCode>330</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>Dublin</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>IE</destinationCountry>
+    </Segment>
+    <Segment key="LO27">
+      <airlineCode>LO</airlineCode>
+      <airline>LOT POLISH AIRLINES</airline>
+      <flightNumber>27</flightNumber>
+      <originCityCode>JFK</originCityCode>
+      <destinationCityCode>WAW</destinationCityCode>
+      <departureDateTime>01/07/2012 10:55 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 1:45 PM</arrivalDateTime>
+      <equipmentCode>763</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>New York</originCity>
+      <originStateProvince>NY</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>Warsaw</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>PL</destinationCountry>
+    </Segment>
+    <Segment key="LH7624">
+      <airlineCode>LH</airlineCode>
+      <airline>LUFTHANSA</airline>
+      <flightNumber>7624</flightNumber>
+      <originCityCode>EWR</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 9:00 AM</departureDateTime>
+      <arrivalDateTime>01/07/2012 9:20 PM</arrivalDateTime>
+      <equipmentCode>752</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Newark</originCity>
+      <originStateProvince>NJ</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="UA3445">
+      <airlineCode>UA</airlineCode>
+      <airline>UNITED AIRLINES</airline>
+      <flightNumber>3445</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>IAD</destinationCityCode>
+      <departureDateTime>01/07/2012 7:22 PM</departureDateTime>
+      <arrivalDateTime>01/07/2012 9:07 PM</arrivalDateTime>
+      <equipmentCode>E70</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>Washington</destinationCity>
+      <desintationStateProvince>DC</desintationStateProvince>
+      <destinationCountry>US</destinationCountry>
+    </Segment>
+    <Segment key="BA1511">
+      <airlineCode>BA</airlineCode>
+      <airline>BRITISH AIRWAYS</airline>
+      <flightNumber>1511</flightNumber>
+      <originCityCode>JFK</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 6:10 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 6:20 AM</arrivalDateTime>
+      <equipmentCode>777</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>New York</originCity>
+      <originStateProvince>NY</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="LX53">
+      <airlineCode>LX</airlineCode>
+      <airline>CROSSAIR A.G</airline>
+      <flightNumber>53</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>ZRH</destinationCityCode>
+      <departureDateTime>01/07/2012 9:35 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 10:50 AM</arrivalDateTime>
+      <equipmentCode>343</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>Zurich</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>CH</destinationCountry>
+    </Segment>
+    <Segment key="AC7687">
+      <airlineCode>AC</airlineCode>
+      <airline>AIR CANADA</airline>
+      <flightNumber>7687</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>YUL</destinationCityCode>
+      <departureDateTime>01/07/2012 4:40 PM</departureDateTime>
+      <arrivalDateTime>01/07/2012 6:04 PM</arrivalDateTime>
+      <equipmentCode>DH1</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>Montreal</destinationCity>
+      <desintationStateProvince>PQ</desintationStateProvince>
+      <destinationCountry>CA</destinationCountry>
+    </Segment>
+    <Segment key="BA214">
+      <airlineCode>BA</airlineCode>
+      <airline>BRITISH AIRWAYS</airline>
+      <flightNumber>214</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 9:00 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 8:25 AM</arrivalDateTime>
+      <equipmentCode>744</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="BA212">
+      <airlineCode>BA</airlineCode>
+      <airline>BRITISH AIRWAYS</airline>
+      <flightNumber>212</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 5:50 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 5:15 AM</arrivalDateTime>
+      <equipmentCode>777</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="CO4951">
+      <airlineCode>CO</airlineCode>
+      <airline>CONTINENTAL</airline>
+      <flightNumber>4951</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>EWR</destinationCityCode>
+      <departureDateTime>01/07/2012 3:32 PM</departureDateTime>
+      <arrivalDateTime>01/07/2012 5:06 PM</arrivalDateTime>
+      <equipmentCode>DH4</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>Newark</destinationCity>
+      <desintationStateProvince>NJ</desintationStateProvince>
+      <destinationCountry>US</destinationCountry>
+    </Segment>
+    <Segment key="KL6090">
+      <airlineCode>KL</airlineCode>
+      <airline>KLM</airline>
+      <flightNumber>6090</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 6:40 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 6:35 AM</arrivalDateTime>
+      <equipmentCode>767</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="DL8399">
+      <airlineCode>DL</airlineCode>
+      <airline>DELTA AIRLINES</airline>
+      <flightNumber>8399</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>CDG</destinationCityCode>
+      <departureDateTime>01/07/2012 5:20 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 6:10 AM</arrivalDateTime>
+      <equipmentCode>343</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>Paris</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>FR</destinationCountry>
+    </Segment>
+    <Segment key="FI454">
+      <airlineCode>FI</airlineCode>
+      <airline>ICELANDAIR</airline>
+      <flightNumber>454</flightNumber>
+      <originCityCode>KEF</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/08/2012 4:30 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 7:30 PM</arrivalDateTime>
+      <equipmentCode>75W</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Reykjavik</originCity>
+      <originStateProvince/>
+      <originCountry>IS</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="AA6165">
+      <airlineCode>AA</airlineCode>
+      <airline>AMERICAN AIRLINES</airline>
+      <flightNumber>6165</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 9:00 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 8:25 AM</arrivalDateTime>
+      <equipmentCode>744</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="DL9642">
+      <airlineCode>DL</airlineCode>
+      <airline>DELTA AIRLINES</airline>
+      <flightNumber>9642</flightNumber>
+      <originCityCode>AMS</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/08/2012 10:20 AM</departureDateTime>
+      <arrivalDateTime>01/08/2012 10:50 AM</arrivalDateTime>
+      <equipmentCode>737</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Amsterdam</originCity>
+      <originStateProvince/>
+      <originCountry>NL</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="UA110">
+      <airlineCode>UA</airlineCode>
+      <airline>UNITED AIRLINES</airline>
+      <flightNumber>110</flightNumber>
+      <originCityCode>EWR</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 6:05 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 6:20 AM</arrivalDateTime>
+      <equipmentCode>752</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Newark</originCity>
+      <originStateProvince>NJ</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="CO9748">
+      <airlineCode>CO</airlineCode>
+      <airline>CONTINENTAL</airline>
+      <flightNumber>9748</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 7:40 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 7:20 AM</arrivalDateTime>
+      <equipmentCode>343</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="AA6163">
+      <airlineCode>AA</airlineCode>
+      <airline>AMERICAN AIRLINES</airline>
+      <flightNumber>6163</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 5:50 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 5:15 AM</arrivalDateTime>
+      <equipmentCode>777</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="BD4464">
+      <airlineCode>BD</airlineCode>
+      <airline>BRITISH MIDLAND</airline>
+      <flightNumber>4464</flightNumber>
+      <originCityCode>IAD</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 10:02 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 10:15 AM</arrivalDateTime>
+      <equipmentCode>777</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Washington</originCity>
+      <originStateProvince>DC</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="DL230">
+      <airlineCode>DL</airlineCode>
+      <airline>DELTA AIRLINES</airline>
+      <flightNumber>230</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>AMS</destinationCityCode>
+      <departureDateTime>01/07/2012 6:25 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 7:40 AM</arrivalDateTime>
+      <equipmentCode>333</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>Amsterdam</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>NL</destinationCountry>
+    </Segment>
+    <Segment key="US1845">
+      <airlineCode>US</airlineCode>
+      <airline>US AIRWAYS</airline>
+      <flightNumber>1845</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>PHL</destinationCityCode>
+      <departureDateTime>01/07/2012 5:30 PM</departureDateTime>
+      <arrivalDateTime>01/07/2012 7:10 PM</arrivalDateTime>
+      <equipmentCode>E90</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>Philadelphia</destinationCity>
+      <desintationStateProvince>PA</desintationStateProvince>
+      <destinationCountry>US</destinationCountry>
+    </Segment>
+    <Segment key="CO8296">
+      <airlineCode>CO</airlineCode>
+      <airline>CONTINENTAL</airline>
+      <flightNumber>8296</flightNumber>
+      <originCityCode>YUL</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 7:40 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 7:30 AM</arrivalDateTime>
+      <equipmentCode>333</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Montreal</originCity>
+      <originStateProvince>PQ</originStateProvince>
+      <originCountry>CA</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="DL270">
+      <airlineCode>DL</airlineCode>
+      <airline>DELTA AIRLINES</airline>
+      <flightNumber>270</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 6:40 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 6:35 AM</arrivalDateTime>
+      <equipmentCode>764</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="US728">
+      <airlineCode>US</airlineCode>
+      <airline>US AIRWAYS</airline>
+      <flightNumber>728</flightNumber>
+      <originCityCode>PHL</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 9:10 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 9:25 AM</arrivalDateTime>
+      <equipmentCode>332</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Philadelphia</originCity>
+      <originStateProvince>PA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="CO1194">
+      <airlineCode>CO</airlineCode>
+      <airline>CONTINENTAL</airline>
+      <flightNumber>1194</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>EWR</destinationCityCode>
+      <departureDateTime>01/07/2012 6:30 AM</departureDateTime>
+      <arrivalDateTime>01/07/2012 8:00 AM</arrivalDateTime>
+      <equipmentCode>735</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>Newark</destinationCity>
+      <desintationStateProvince>NJ</desintationStateProvince>
+      <destinationCountry>US</destinationCountry>
+    </Segment>
+    <Segment key="KL6643">
+      <airlineCode>KL</airlineCode>
+      <airline>KLM</airline>
+      <flightNumber>6643</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>JFK</destinationCityCode>
+      <departureDateTime>01/07/2012 3:00 PM</departureDateTime>
+      <arrivalDateTime>01/07/2012 4:33 PM</arrivalDateTime>
+      <equipmentCode>CRJ</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>New York</destinationCity>
+      <desintationStateProvince>NY</desintationStateProvince>
+      <destinationCountry>US</destinationCountry>
+    </Segment>
+    <Segment key="FI450">
+      <airlineCode>FI</airlineCode>
+      <airline>ICELANDAIR</airline>
+      <flightNumber>450</flightNumber>
+      <originCityCode>KEF</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/08/2012 8:30 AM</departureDateTime>
+      <arrivalDateTime>01/08/2012 11:30 AM</arrivalDateTime>
+      <equipmentCode>75W</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Reykjavik</originCity>
+      <originStateProvince/>
+      <originCountry>IS</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="BA1523">
+      <airlineCode>BA</airlineCode>
+      <airline>BRITISH AIRWAYS</airline>
+      <flightNumber>1523</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 7:10 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 7:05 AM</arrivalDateTime>
+      <equipmentCode>757</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+    <Segment key="LH423">
+      <airlineCode>LH</airlineCode>
+      <airline>LUFTHANSA</airline>
+      <flightNumber>423</flightNumber>
+      <originCityCode>BOS</originCityCode>
+      <destinationCityCode>FRA</destinationCityCode>
+      <departureDateTime>01/07/2012 4:30 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 5:35 AM</arrivalDateTime>
+      <equipmentCode>744</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Boston</originCity>
+      <originStateProvince>MA</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>Frankfurt</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>DE</destinationCountry>
+    </Segment>
+    <Segment key="UA924">
+      <airlineCode>UA</airlineCode>
+      <airline>UNITED AIRLINES</airline>
+      <flightNumber>924</flightNumber>
+      <originCityCode>IAD</originCityCode>
+      <destinationCityCode>LHR</destinationCityCode>
+      <departureDateTime>01/07/2012 10:02 PM</departureDateTime>
+      <arrivalDateTime>01/08/2012 10:15 AM</arrivalDateTime>
+      <equipmentCode>777</equipmentCode>
+      <numberOfStops>0</numberOfStops>
+      <originCity>Washington</originCity>
+      <originStateProvince>DC</originStateProvince>
+      <originCountry>US</originCountry>
+      <destinationCity>London</destinationCity>
+      <desintationStateProvince/>
+      <destinationCountry>GB</destinationCountry>
+    </Segment>
+  </SegmentList>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>457.0</nativeBaseFare>
+      <nativeTotalPrice>480.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>457.0</displayBaseFare>
+      <displayTotalPrice>480.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>FI630</segmentKey>
+      <fareClass> H</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>FI450</segmentKey>
+      <fareClass> H</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>457.0</nativeBaseFare>
+      <nativeTotalPrice>480.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>457.0</displayBaseFare>
+      <displayTotalPrice>480.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>FI630</segmentKey>
+      <fareClass> H</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>FI454</segmentKey>
+      <fareClass> H</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>573.0</nativeBaseFare>
+      <nativeTotalPrice>659.57</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>573.0</displayBaseFare>
+      <displayTotalPrice>659.57</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>EI136</segmentKey>
+      <fareClass> V</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>EI152</segmentKey>
+      <fareClass> V</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>573.0</nativeBaseFare>
+      <nativeTotalPrice>659.57</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>573.0</displayBaseFare>
+      <displayTotalPrice>659.57</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>EI136</segmentKey>
+      <fareClass> V</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>EI154</segmentKey>
+      <fareClass> V</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>467.00003</nativeBaseFare>
+      <nativeTotalPrice>665.4</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>467.0</displayBaseFare>
+      <displayTotalPrice>665.4</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>AA1807</segmentKey>
+      <fareClass> Q</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>LO27</segmentKey>
+      <fareClass> T</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>LO279</segmentKey>
+      <fareClass> K</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>817.00006</nativeBaseFare>
+      <nativeTotalPrice>1028.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>817.0</displayBaseFare>
+      <displayTotalPrice>1028.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>AA1851</segmentKey>
+      <fareClass> Q</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>AA100</segmentKey>
+      <fareClass> H</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>817.00006</nativeBaseFare>
+      <nativeTotalPrice>1028.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>817.0</displayBaseFare>
+      <displayTotalPrice>1028.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>AA1807</segmentKey>
+      <fareClass> Q</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>AA106</segmentKey>
+      <fareClass> H</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1072.0</nativeBaseFare>
+      <nativeTotalPrice>1276.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1072.0</displayBaseFare>
+      <displayTotalPrice>1276.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>KL6090</segmentKey>
+      <fareClass> K</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1072.0</nativeBaseFare>
+      <nativeTotalPrice>1276.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1072.0</displayBaseFare>
+      <displayTotalPrice>1276.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>DL270</segmentKey>
+      <fareClass> H</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1072.0</nativeBaseFare>
+      <nativeTotalPrice>1283.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1072.0</displayBaseFare>
+      <displayTotalPrice>1283.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>DL2859</segmentKey>
+      <fareClass> H</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>DL1</segmentKey>
+      <fareClass> H</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1072.0</nativeBaseFare>
+      <nativeTotalPrice>1283.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1072.0</displayBaseFare>
+      <displayTotalPrice>1283.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>KL5707</segmentKey>
+      <fareClass> K</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>KL9082</segmentKey>
+      <fareClass> K</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1072.0</nativeBaseFare>
+      <nativeTotalPrice>1283.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1072.0</displayBaseFare>
+      <displayTotalPrice>1283.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>KL6643</segmentKey>
+      <fareClass> K</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>KL9084</segmentKey>
+      <fareClass> K</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1072.0</nativeBaseFare>
+      <nativeTotalPrice>1283.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1072.0</displayBaseFare>
+      <displayTotalPrice>1283.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>DL2857</segmentKey>
+      <fareClass> H</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>DL3</segmentKey>
+      <fareClass> H</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1072.0</nativeBaseFare>
+      <nativeTotalPrice>1297.9</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1072.0</displayBaseFare>
+      <displayTotalPrice>1297.9</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>DL230</segmentKey>
+      <fareClass> H</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>DL9642</segmentKey>
+      <fareClass> H</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1072.0</nativeBaseFare>
+      <nativeTotalPrice>1297.9</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1072.0</displayBaseFare>
+      <displayTotalPrice>1297.9</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>DL230</segmentKey>
+      <fareClass> H</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>KL1009</segmentKey>
+      <fareClass> K</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1072.0</nativeBaseFare>
+      <nativeTotalPrice>1297.9</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1072.0</displayBaseFare>
+      <displayTotalPrice>1297.9</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>DL230</segmentKey>
+      <fareClass> H</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>KL1015</segmentKey>
+      <fareClass> K</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1095.0</nativeBaseFare>
+      <nativeTotalPrice>1306.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1095.0</displayBaseFare>
+      <displayTotalPrice>1306.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>CO4951</segmentKey>
+      <fareClass> W</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>CO110</segmentKey>
+      <fareClass> M</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1095.0</nativeBaseFare>
+      <nativeTotalPrice>1306.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1095.0</displayBaseFare>
+      <displayTotalPrice>1306.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>CO4951</segmentKey>
+      <fareClass> W</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>UA110</segmentKey>
+      <fareClass> M</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1095.0</nativeBaseFare>
+      <nativeTotalPrice>1306.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1095.0</displayBaseFare>
+      <displayTotalPrice>1306.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>UA4951</segmentKey>
+      <fareClass> W</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>UA110</segmentKey>
+      <fareClass> M</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1095.0</nativeBaseFare>
+      <nativeTotalPrice>1306.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1095.0</displayBaseFare>
+      <displayTotalPrice>1306.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>CO1194</segmentKey>
+      <fareClass> W</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>CO18</segmentKey>
+      <fareClass> M</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1095.0</nativeBaseFare>
+      <nativeTotalPrice>1306.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1095.0</displayBaseFare>
+      <displayTotalPrice>1306.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>CO1194</segmentKey>
+      <fareClass> W</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>LH7624</segmentKey>
+      <fareClass> M</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1095.0</nativeBaseFare>
+      <nativeTotalPrice>1306.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1095.0</displayBaseFare>
+      <displayTotalPrice>1306.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>CO1194</segmentKey>
+      <fareClass> W</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>UA18</segmentKey>
+      <fareClass> M</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1095.0</nativeBaseFare>
+      <nativeTotalPrice>1306.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1095.0</displayBaseFare>
+      <displayTotalPrice>1306.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>UA1194</segmentKey>
+      <fareClass> W</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>UA18</segmentKey>
+      <fareClass> M</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1104.0</nativeBaseFare>
+      <nativeTotalPrice>1308.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1104.0</displayBaseFare>
+      <displayTotalPrice>1308.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>CO9748</segmentKey>
+      <fareClass> M</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1104.0</nativeBaseFare>
+      <nativeTotalPrice>1308.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1104.0</displayBaseFare>
+      <displayTotalPrice>1308.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>AA108</segmentKey>
+      <fareClass> H</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1104.0</nativeBaseFare>
+      <nativeTotalPrice>1308.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1104.0</displayBaseFare>
+      <displayTotalPrice>1308.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>CO8483</segmentKey>
+      <fareClass> M</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>CO8296</segmentKey>
+      <fareClass> M</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1104.0</nativeBaseFare>
+      <nativeTotalPrice>1308.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1104.0</displayBaseFare>
+      <displayTotalPrice>1308.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>UA8483</segmentKey>
+      <fareClass> M</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>UA8296</segmentKey>
+      <fareClass> M</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1104.0</nativeBaseFare>
+      <nativeTotalPrice>1312.8</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1104.0</displayBaseFare>
+      <displayTotalPrice>1312.8</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>AC8647</segmentKey>
+      <fareClass> M</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>AC848</segmentKey>
+      <fareClass> M</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1104.0</nativeBaseFare>
+      <nativeTotalPrice>1315.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1104.0</displayBaseFare>
+      <displayTotalPrice>1315.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>UA3445</segmentKey>
+      <fareClass> M</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>BD4464</segmentKey>
+      <fareClass> M</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1104.0</nativeBaseFare>
+      <nativeTotalPrice>1315.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1104.0</displayBaseFare>
+      <displayTotalPrice>1315.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>BD4639</segmentKey>
+      <fareClass> M</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>BD4464</segmentKey>
+      <fareClass> M</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1104.0</nativeBaseFare>
+      <nativeTotalPrice>1315.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1104.0</displayBaseFare>
+      <displayTotalPrice>1315.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>UA3445</segmentKey>
+      <fareClass> M</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>CO924</segmentKey>
+      <fareClass> M</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1104.0</nativeBaseFare>
+      <nativeTotalPrice>1315.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1104.0</displayBaseFare>
+      <displayTotalPrice>1315.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>CO3445</segmentKey>
+      <fareClass> M</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>CO924</segmentKey>
+      <fareClass> M</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1104.0</nativeBaseFare>
+      <nativeTotalPrice>1315.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1104.0</displayBaseFare>
+      <displayTotalPrice>1315.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>UA3445</segmentKey>
+      <fareClass> M</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>UA924</segmentKey>
+      <fareClass> M</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1104.0</nativeBaseFare>
+      <nativeTotalPrice>1335.6</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1104.0</displayBaseFare>
+      <displayTotalPrice>1335.6</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>LX53</segmentKey>
+      <fareClass> M</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>LX332</segmentKey>
+      <fareClass> M</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1104.0</nativeBaseFare>
+      <nativeTotalPrice>1335.6</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1104.0</displayBaseFare>
+      <displayTotalPrice>1335.6</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>UA9767</segmentKey>
+      <fareClass> M</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>LX332</segmentKey>
+      <fareClass> M</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1132.0</nativeBaseFare>
+      <nativeTotalPrice>1336.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1132.0</displayBaseFare>
+      <displayTotalPrice>1336.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>BA238</segmentKey>
+      <fareClass> B</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1132.0</nativeBaseFare>
+      <nativeTotalPrice>1336.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1132.0</displayBaseFare>
+      <displayTotalPrice>1336.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>AA6175</segmentKey>
+      <fareClass> B</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1132.0</nativeBaseFare>
+      <nativeTotalPrice>1336.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1132.0</displayBaseFare>
+      <displayTotalPrice>1336.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>IB4643</segmentKey>
+      <fareClass> B</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1132.0</nativeBaseFare>
+      <nativeTotalPrice>1336.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1132.0</displayBaseFare>
+      <displayTotalPrice>1336.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>VS12</segmentKey>
+      <fareClass> B</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1132.0</nativeBaseFare>
+      <nativeTotalPrice>1336.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1132.0</displayBaseFare>
+      <displayTotalPrice>1336.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>BA214</segmentKey>
+      <fareClass> B</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1132.0</nativeBaseFare>
+      <nativeTotalPrice>1336.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1132.0</displayBaseFare>
+      <displayTotalPrice>1336.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>AA6165</segmentKey>
+      <fareClass> B</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1132.0</nativeBaseFare>
+      <nativeTotalPrice>1336.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1132.0</displayBaseFare>
+      <displayTotalPrice>1336.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>IB4641</segmentKey>
+      <fareClass> B</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1132.0</nativeBaseFare>
+      <nativeTotalPrice>1336.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1132.0</displayBaseFare>
+      <displayTotalPrice>1336.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>IB4639</segmentKey>
+      <fareClass> B</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1132.0</nativeBaseFare>
+      <nativeTotalPrice>1336.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1132.0</displayBaseFare>
+      <displayTotalPrice>1336.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>BA212</segmentKey>
+      <fareClass> B</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1132.0</nativeBaseFare>
+      <nativeTotalPrice>1336.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1132.0</displayBaseFare>
+      <displayTotalPrice>1336.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>AA6163</segmentKey>
+      <fareClass> B</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1132.0</nativeBaseFare>
+      <nativeTotalPrice>1336.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1132.0</displayBaseFare>
+      <displayTotalPrice>1336.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>IB4224</segmentKey>
+      <fareClass> B</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1104.0</nativeBaseFare>
+      <nativeTotalPrice>1337.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1104.0</displayBaseFare>
+      <displayTotalPrice>1337.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>AC7687</segmentKey>
+      <fareClass> M</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>LH5525</segmentKey>
+      <fareClass> M</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1132.0</nativeBaseFare>
+      <nativeTotalPrice>1343.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1132.0</displayBaseFare>
+      <displayTotalPrice>1343.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>AA1851</segmentKey>
+      <fareClass> B</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>AA6141</segmentKey>
+      <fareClass> B</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1132.0</nativeBaseFare>
+      <nativeTotalPrice>1343.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1132.0</displayBaseFare>
+      <displayTotalPrice>1343.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>IB4323</segmentKey>
+      <fareClass> B</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>IB4218</segmentKey>
+      <fareClass> B</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1104.0</nativeBaseFare>
+      <nativeTotalPrice>1343.5</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1104.0</displayBaseFare>
+      <displayTotalPrice>1343.5</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>LH423</segmentKey>
+      <fareClass> M</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>LH900</segmentKey>
+      <fareClass> M</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1317.0</nativeBaseFare>
+      <nativeTotalPrice>1347.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1317.0</displayBaseFare>
+      <displayTotalPrice>1347.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>US1845</segmentKey>
+      <fareClass> B</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>US728</segmentKey>
+      <fareClass> B</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1309.0</nativeBaseFare>
+      <nativeTotalPrice>1534.9</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1309.0</displayBaseFare>
+      <displayTotalPrice>1534.9</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>KL6030</segmentKey>
+      <fareClass> B</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>KL1009</segmentKey>
+      <fareClass> Y</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1309.0</nativeBaseFare>
+      <nativeTotalPrice>1534.9</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1309.0</displayBaseFare>
+      <displayTotalPrice>1534.9</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>KL6030</segmentKey>
+      <fareClass> B</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>KL1015</segmentKey>
+      <fareClass> Y</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1309.0</nativeBaseFare>
+      <nativeTotalPrice>1546.5</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1309.0</displayBaseFare>
+      <displayTotalPrice>1546.5</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>DL8399</segmentKey>
+      <fareClass> B</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>DL8718</segmentKey>
+      <fareClass> B</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1983.0</nativeBaseFare>
+      <nativeTotalPrice>2187.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1983.0</displayBaseFare>
+      <displayTotalPrice>2187.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>BA1523</segmentKey>
+      <fareClass> Y</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>1983.0</nativeBaseFare>
+      <nativeTotalPrice>2194.3</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>1983.0</displayBaseFare>
+      <displayTotalPrice>2194.3</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>AA1851</segmentKey>
+      <fareClass> Y</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>BA1511</segmentKey>
+      <fareClass> Y</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>2082.0</nativeBaseFare>
+      <nativeTotalPrice>2321.5</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>2082.0</displayBaseFare>
+      <displayTotalPrice>2321.5</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>CO8852</segmentKey>
+      <fareClass> Y</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>LH900</segmentKey>
+      <fareClass> Y</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>2082.0</nativeBaseFare>
+      <nativeTotalPrice>2321.5</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>2082.0</displayBaseFare>
+      <displayTotalPrice>2321.5</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>UA8852</segmentKey>
+      <fareClass> Y</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>UA8809</segmentKey>
+      <fareClass> Y</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <AirAvailabilityReply>
+    <supplierType>S</supplierType>
+    <RateInfo>
+      <nativeBaseFare>2082.0</nativeBaseFare>
+      <nativeTotalPrice>2321.5</nativeTotalPrice>
+      <nativeCurrencyCode>USD</nativeCurrencyCode>
+      <displayBaseFare>2082.0</displayBaseFare>
+      <displayTotalPrice>2321.5</displayTotalPrice>
+      <displayCurrencyCode>USD</displayCurrencyCode>
+    </RateInfo>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>UA8852</segmentKey>
+      <fareClass> Y</fareClass>
+    </FlightSegment>
+    <FlightSegment>
+      <segmentOutgoing>true</segmentOutgoing>
+      <segmentKey>LH900</segmentKey>
+      <fareClass> Y</fareClass>
+    </FlightSegment>
+    <tripType>O</tripType>
+    <ticketType>E</ticketType>
+  </AirAvailabilityReply>
+  <cacheKey>25ee50b2:13368a01fca:6e60</cacheKey>
+  <cacheLocation>10.186.168.63:7303</cacheLocation>
+</AirAvailabilityResults>
