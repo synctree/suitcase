@@ -22,7 +22,7 @@ Find nearby hotels:
 
       Hotel::API_KEY = "your_api_key_here"
       Hotel.near('Boston, MA', 10) # Returns 10 closest hotels to Boston, MA
-      Hotel.near('Metropoliton Museum of Art') # Returns 50 closest hotels to the MFA
+      Hotel.near('Metropoliton Museum of Art') # Returns 50 closest hotels to the Met Museum in New York
 
 Find available airline flights:
 
