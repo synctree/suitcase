@@ -5,9 +5,22 @@ require File.dirname(__FILE__) + '/../airport_codes'
 
 module Suitcase
   class Flight
-    attr_accessor :flights, :key, :origin, :destrination, :departure, :arrival, :adults, :children, :seniors, :fare, :direct, :round_trip, :currency, :search_window, :results, :airline, :airline_code
+    attr_accessor :flights, :key, :origin, :destination, :departure, :arrival, :adults, :children, :seniors, :fare, :direct, :round_trip, :currency, :search_window, :results, :airline, :airline_code, :price, :segments, :outgoing
 
-    CID = "55505"
+    def to_s
+      puts <<EOS
+----------
+FLIGHT:
+airline: #{airline} (#{airline_code})
+origin: #{origin}
+destination: #{destination}
+departure: #{departure}
+arrival: #{arrival}
+price: #{price} (#{currency})
+key: #{key}
+----------
+EOS
+    end
 
     def self.available(data)
       origin_city = data[:from]
@@ -42,14 +55,32 @@ module Suitcase
 EOS
       uri = URI.escape("http://api.ean.com/ean-services/rs/air/200919/xmlinterface.jsp?cid=#{CID}&resType=air&intfc=ws&apiKey=#{API_KEY}&xml=#{xml_format}")
       xml = Nokogiri::XML(open(uri))
+      segments = []
       xml.xpath('//Segment').each do |segment|
-        puts segment
         f = Flight.new
         f.key = segment.xpath("@key")
         f.origin = segment.xpath("//originCity") + segment.xpath("//originStateProvince") + segment.xpath("//originCountry")
-        f.destination = segment.xpath("//destinationCity") + segment.xpath("//destinationStateProvince") + segment.xpath("//destinationCountry")
-#       f.airline = segment.xpath("
+        f.destination = segment.xpath("//destinationCity")
+        f.airline = segment.xpath("//airline")
+        f.airline_code = segment.xpath("//airlineCode")
+        f.departure = segment.xpath("//departureDateTime")
+        f.arrival = segment.xpath("//arrivalDateTime")
+        segments.push(f)
       end
+      flights = []
+      xml.xpath("//AirAvailabilityReply").each do |aar|
+        f = Flight.new
+        f.segments = []
+        f.price = aar.xpath("//nativeTotalPrice")
+        f.currency = aar.xpath("//displayCurrencyCode")
+        aar.xpath("//FlightSegment").each do |subseg|
+          fn = segments.find { |x| x.key == subseg.xpath("//segmentKey") }
+          f.segments.push(fn)
+          f.segments.compact!
+        end
+        flights.push(f)
+      end
+      flights
     end
   end
 end
