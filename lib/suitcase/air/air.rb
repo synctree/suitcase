@@ -7,6 +7,21 @@ module Suitcase
   class Flight
     attr_accessor :flights, :key, :origin, :destination, :departure, :arrival, :adults, :children, :seniors, :fare, :direct, :round_trip, :currency, :search_window, :results, :airline, :airline_code, :price, :segments, :outgoing
 
+    # Public: Convert the flight to a string representation.
+    #
+    # Examples:
+    #
+    # puts @flight
+    # ----------
+    # FLIGHT:
+    # airline: USA (313)
+    # origin: Boston
+    # destination: New York
+    # departure: 2:00
+    # arrival: 4:00
+    # price: 300 ($)
+    # key: 57a034
+    # ----------
     def to_s
       puts <<EOS
 ----------
