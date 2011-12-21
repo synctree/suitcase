@@ -49,6 +49,7 @@ module Suitcase
       params[:amenities] = amenities
       hotels = []
       split(hit(url(:list, true, true, params))).each do |hotel_data|
+        p hotel_data.to_json
         hotels.push Hotel.new(parse_hotel_information(hotel_data.to_json))
       end
       hotels
@@ -60,7 +61,7 @@ module Suitcase
 
     def self.parse_hotel_information(json)
       parsed = JSON.parse json
-      summary = parsed["HotelInformationResponse"]["HotelSummary"]
+      summary = parsed["hotelId"] ? parsed : parsed["HotelInformationResponse"]["HotelSummary"]
       { id: summary["HotelId"], name: summary["name"], address: summary["address1"], city: summary["city"], postal_code: summary["postalCode"], country_code: summary["countryCode"], rating: summary["hotelRating"], high_rate: summary["highRate"], low_rate: summary["lowRate"], latitude: summary["latitude"].to_f, longitude: summary["longitude"].to_f }
     end
 
