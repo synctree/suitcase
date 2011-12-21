@@ -1,6 +1,4 @@
 require 'json'
 require 'net/http'
 require 'suitcase/version'
-require 'suitcase/helpers/data_helpers'
-require 'suitcase/helpers/hotel_helpers'
 require 'suitcase/hotel/hotel'
