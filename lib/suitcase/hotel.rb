@@ -9,11 +9,12 @@ module Suitcase
   end
 
   class Room
-    attr_accessor :rate_key, :hotel_id
+    attr_accessor :rate_key, :hotel_id, :supplier_type
 
-    def initialize(rate_key, hotel_id)
+    def initialize(rate_key, hotel_id, supplier_type)
       @rate_key = rate_key
       @hotel_id = hotel_id
+      @supplier_type = supplier_type
     end
 
     def reserve!(info)
@@ -28,7 +29,7 @@ module Suitcase
       params["rateTypeCode"] = info[:room_type_code]
       params["rateCode"] = info[:rate_code]
       params.delete(:rate_code)
-      parsed = JSON.parse hit(url(:res, true, true, params))
+      p Hotel.hit(Hotel.url(:res, true, true, params))
     end
   end
 
@@ -130,7 +131,8 @@ module Suitcase
       parsed = JSON.parse(Hotel.hit(Hotel.url(:avail, true, true, params)))
       hotel_id = parsed["HotelRoomAvailabilityResponse"]["hotelId"]
       rate_key = parsed["HotelRoomAvailabilityResponse"]["rateKey"]
-      Room.new(rate_key, hotel_id)
+      supplier_type = parsed["HotelRoomAvailabilityResponse"]["supplierType"]
+      Room.new(rate_key, hotel_id, supplier_type)
     end
 
     def payment_options
