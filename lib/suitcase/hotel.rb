@@ -1,8 +1,53 @@
 module Suitcase
+  class PaymentOption
+    attr_accessor :code, :name
+
+    def initialize(code, name)
+      @code = code
+      @name = name
+    end
+  end
+
+  class Room
+    attr_accessor :rate_key, :hotel_id
+
+    def initialize(rate_key, hotel_id)
+      @rate_key = rate_key
+      @hotel_id = hotel_id
+    end
+
+    def reserve!(info)
+      params = info
+      params["hotelId"] = @id
+      params["arrivalDate"] = info[:arrival]
+      params["departureDate"] = info[:departure]
+      params.delete(:arrival)
+      params.delete(:departure)
+      params["supplierType"] = supplier_type
+      params["rateKey"] = @rate_key
+      params["rateTypeCode"] = info[:room_type_code]
+      params["rateCode"] = info[:rate_code]
+      params.delete(:rate_code)
+      parsed = JSON.parse hit(url(:res, true, true, params))
+    end
+  end
+
   class Hotel
+    AMENITIES = { pool: 1,
+                  fitness_center: 2,
+                  restaurant: 3,
+                  children_activities: 4,
+                  breakfast: 5,
+                  meeting_facilities: 6,
+                  pets: 7,
+                  wheelchair_accessible: 8,
+                  kitchen: 9 }
+
+    attr_accessor :id, :name, :address, :city, :min_rate, :max_rate, :amenities, :country_code, :high_rate, :low_rate, :longitude, :latitude, :rating, :postal_code, :supplier_type
+
     def initialize(info)
       info.each do |k, v|
-        instance_variable_set("@#{k}", v)
+        send (k.to_s + "=").to_sym, v
       end
     end
 
@@ -40,16 +85,17 @@ module Suitcase
       if params[:amenities]
         amenities = ""
         params[:amenities].each do |amenity|
-          amenities += amenities + ","
+          amenities += AMENITIES[amenity].to_s + ","
         end
         if amenities =~ /^(.+),$/
           amenities = $1
         end
       end
+      params["minRate"] = params[:min_rate] if params[:min_rate]
+      params["maxRate"] = params[:max_rate] if params[:max_rate]
       params[:amenities] = amenities
       hotels = []
       split(hit(url(:list, true, true, params))).each do |hotel_data|
-        p hotel_data.to_json
         hotels.push Hotel.new(parse_hotel_information(hotel_data.to_json))
       end
       hotels
@@ -62,13 +108,42 @@ module Suitcase
     def self.parse_hotel_information(json)
       parsed = JSON.parse json
       summary = parsed["hotelId"] ? parsed : parsed["HotelInformationResponse"]["HotelSummary"]
-      { id: summary["HotelId"], name: summary["name"], address: summary["address1"], city: summary["city"], postal_code: summary["postalCode"], country_code: summary["countryCode"], rating: summary["hotelRating"], high_rate: summary["highRate"], low_rate: summary["lowRate"], latitude: summary["latitude"].to_f, longitude: summary["longitude"].to_f }
+      { id: summary["hotelId"], name: summary["name"], address: summary["address1"], city: summary["city"], postal_code: summary["postalCode"], country_code: summary["countryCode"], rating: summary["hotelRating"], high_rate: summary["highRate"], low_rate: summary["lowRate"], latitude: summary["latitude"].to_f, longitude: summary["longitude"].to_f }
     end
 
     def self.split(data)
       parsed = JSON.parse(data)
       hotels = parsed["HotelListResponse"]["HotelList"]
       hotels["HotelSummary"]
+    end
+
+    def rooms(info)
+      params = info
+      params[:rooms].each_with_index do |room, n|
+        params["room#{n+1}"] = (room[:children] == 0 ? "" : room[:children].to_s + ",").to_s + room[:ages].join(",").to_s
+      end
+      params["arrivalDate"] = info[:arrival]
+      params["departureDate"] = info[:departure]
+      params.delete(:arrival)
+      params.delete(:departure)
+      params["hotelId"] = @id
+      parsed = JSON.parse(Hotel.hit(Hotel.url(:avail, true, true, params)))
+      hotel_id = parsed["HotelRoomAvailabilityResponse"]["hotelId"]
+      rate_key = parsed["HotelRoomAvailabilityResponse"]["rateKey"]
+      Room.new(rate_key, hotel_id)
+    end
+
+    def payment_options
+      options = []
+      types_raw = JSON.parse Hotel.hit(Hotel.url(:paymentInfo, true, true, {}))
+      types_raw["HotelPaymentResponse"].each do |raw|
+        p raw
+        types = raw[0] != "PaymentType" ? [] : raw[1]
+        types.each do |type|
+          options.push PaymentOption.new(type["code"], type["name"])
+        end
+      end
+      options
     end
   end
 end
