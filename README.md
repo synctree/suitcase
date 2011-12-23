@@ -21,14 +21,9 @@ First, include the module in your code:
 Find nearby hotels:
 
       Hotel::API_KEY = "your_api_key_here"
-      Hotel.near(:location => 'Boston, MA', :results => 10) # Returns 10 closest hotels to Boston, MA
-      Hotel.near(:location => 'Metropoliton Museum of Art') # Returns 50 closest hotels to the Met Museum in New York
-
-Find available airline flights (not yet implemented):
-
-      Flight:API_KEY = "your_api_key_here"
-      Flight.available(:date => 'June 23 2012', :departs => "BOS", :arrives => "LHR") # Return all flights flying from Boston to London (Heathrow) on June 23, 2012
-
+      hotel = Hotel.find(:location => 'Boston, MA', :results => 10) # Returns 10 closest hotels to Boston, MA
+      room = hotel.rooms(arrival: "2/19/2012", departure: "2/26/2012", rooms: [{ children: 1, ages: [8] }, { children: 1, ages: [12] }] # Check the availability of two rooms at that hotel with 1 child in each room of ages 8 and 9
+      room.reserve!(info) # Not yet implemented
 Contributing
 ------------
 Please submit any useful pull requests through GitHub. If you find any bugs, please report them with the issue tracker! Thanks.
