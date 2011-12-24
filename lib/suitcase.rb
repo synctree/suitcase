@@ -1,4 +1,4 @@
 require 'json'
 require 'net/http'
 require 'suitcase/version'
-require 'suitcase/hotel'
+require 'suitcase/hotel/hotel'

@@ -1,38 +1,7 @@
+require 'room'
+require 'payment_option'
+
 module Suitcase
-  class PaymentOption
-   attr_accessor :code, :name
-
-    def initialize(code, name)
-      @code = code
-      @name = name
-    end
-  end
-
-  class Room
-    attr_accessor :rate_key, :hotel_id, :supplier_type
-
-    def initialize(rate_key, hotel_id, supplier_type)
-      @rate_key = rate_key
-      @hotel_id = hotel_id
-      @supplier_type = supplier_type
-    end
-
-    def reserve!(info)
-      params = info
-      params["hotelId"] = @id
-      params["arrivalDate"] = info[:arrival]
-      params["departureDate"] = info[:departure]
-      params.delete(:arrival)
-      params.delete(:departure)
-      params["supplierType"] = supplier_type
-      params["rateKey"] = @rate_key
-      params["rateTypeCode"] = info[:room_type_code]
-      params["rateCode"] = info[:rate_code]
-      params.delete(:rate_code)
-      p Hotel.hit(Hotel.url(:res, true, true, params))
-    end
-  end
-
   class Hotel
     AMENITIES = { pool: 1,
                   fitness_center: 2,
@@ -108,8 +77,16 @@ module Suitcase
 
     def self.parse_hotel_information(json)
       parsed = JSON.parse json
-      summary = parsed["hotelId"] ? parsed : parsed["HotelInformationResponse"]["HotelSummary"]
+      if !handle_errors(parsed)
+        return handle_errors(parsed)
+      else
+        summary = parsed["hotelId"] ? parsed : parsed["HotelInformationResponse"]["HotelSummary"]
       { id: summary["hotelId"], name: summary["name"], address: summary["address1"], city: summary["city"], postal_code: summary["postalCode"], country_code: summary["countryCode"], rating: summary["hotelRating"], high_rate: summary["highRate"], low_rate: summary["lowRate"], latitude: summary["latitude"].to_f, longitude: summary["longitude"].to_f, image_urls: (parsed["HotelInformationResponse"]["HotelImages"]["HotelImage"].map { |x| x["url"] } unless !parsed["HotelInformationResponse"]["HotelImages"]["HotelImage"]) }
+      end
+    end
+
+    def self.handle_errors(info)
+      info["HotelInformationResponse"]["EanWsErrors"]
     end
 
     def self.split(data)
