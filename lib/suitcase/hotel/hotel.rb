@@ -1,7 +1,10 @@
-require 'room'
-require 'payment_option'
-
 module Suitcase
+  class EANException < Exception
+    def initialize
+      super("TravelNow.com cannot service this request")
+    end
+  end
+
   class Hotel
     AMENITIES = { pool: 1,
                   fitness_center: 2,
@@ -12,6 +15,8 @@ module Suitcase
                   pets: 7,
                   wheelchair_accessible: 8,
                   kitchen: 9 }
+    EXCEPTIONS = { -1 => EANException
+                  }
 
     attr_accessor :id, :name, :address, :city, :min_rate, :max_rate, :amenities, :country_code, :high_rate, :low_rate, :longitude, :latitude, :rating, :postal_code, :supplier_type, :image_urls
 
@@ -53,19 +58,17 @@ module Suitcase
       params["destinationString"] = params[:location]
       params.delete(:location)
       if params[:amenities]
-        amenities = ""
-        params[:amenities].each do |amenity|
-          amenities += AMENITIES[amenity].to_s + ","
-        end
-        if amenities =~ /^(.+),$/
-          amenities = $1
-        end
+        params[:amenities].inject("") { |old, new| old + AMENITIES[new].to_s + "," }
+        amenities =~ /^(.+),$/
+        amenities = $1
       end
       params["minRate"] = params[:min_rate] if params[:min_rate]
       params["maxRate"] = params[:max_rate] if params[:max_rate]
       params[:amenities] = amenities
       hotels = []
-      split(hit(url(:list, true, true, params))).each do |hotel_data|
+      raw = hit(url(:list, true, true, params))
+      handle_errors(JSON.parse raw)
+      split(raw).each do |hotel_data|
         hotels.push Hotel.new(parse_hotel_information(hotel_data.to_json))
       end
       hotels
@@ -77,16 +80,23 @@ module Suitcase
 
     def self.parse_hotel_information(json)
       parsed = JSON.parse json
-      if !handle_errors(parsed)
-        return handle_errors(parsed)
-      else
-        summary = parsed["hotelId"] ? parsed : parsed["HotelInformationResponse"]["HotelSummary"]
-      { id: summary["hotelId"], name: summary["name"], address: summary["address1"], city: summary["city"], postal_code: summary["postalCode"], country_code: summary["countryCode"], rating: summary["hotelRating"], high_rate: summary["highRate"], low_rate: summary["lowRate"], latitude: summary["latitude"].to_f, longitude: summary["longitude"].to_f, image_urls: (parsed["HotelInformationResponse"]["HotelImages"]["HotelImage"].map { |x| x["url"] } unless !parsed["HotelInformationResponse"]["HotelImages"]["HotelImage"]) }
+      handle_errors(parsed)
+      summary = parsed["hotelId"] ? parsed : parsed["HotelInformationResponse"]["HotelSummary"]
+      parsed_info = { id: summary["hotelId"], name: summary["name"], address: summary["address1"], city: summary["city"], postal_code: summary["postalCode"], country_code: summary["countryCode"], rating: summary["hotelRating"], high_rate: summary["highRate"], low_rate: summary["lowRate"], latitude: summary["latitude"].to_f, longitude: summary["longitude"].to_f }
+      if images(parsed)
+        parsed_info[:image_urls] = images(parsed)
       end
+      parsed_info
+    end
+
+    def self.images(parsed)
+      p parsed
+      return nil
     end
 
     def self.handle_errors(info)
-      info["HotelInformationResponse"]["EanWsErrors"]
+      raise EXCEPTIONS[info["HotelListResponse"]["EanWsError"]["exceptionConditionId"]] if info["HotelListResponse"] && info["HotelListResponse"]["EanWsError"]
+      raise EXCEPTIONS[info["HotelInformationResponse"]["EanWsError"]["exceptionConditionId"]] if info["HotelInformationResponse"] && info["HotelInformationResponse"]["EanWsError"]
     end
 
     def self.split(data)
