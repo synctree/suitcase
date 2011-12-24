@@ -109,7 +109,7 @@ module Suitcase
     def self.parse_hotel_information(json)
       parsed = JSON.parse json
       summary = parsed["hotelId"] ? parsed : parsed["HotelInformationResponse"]["HotelSummary"]
-      { id: summary["hotelId"], name: summary["name"], address: summary["address1"], city: summary["city"], postal_code: summary["postalCode"], country_code: summary["countryCode"], rating: summary["hotelRating"], high_rate: summary["highRate"], low_rate: summary["lowRate"], latitude: summary["latitude"].to_f, longitude: summary["longitude"].to_f, image_urls: parsed["HotelInformationResponse"]["HotelImages"]["HotelImage"].map { |x| x["url"] } }
+      { id: summary["hotelId"], name: summary["name"], address: summary["address1"], city: summary["city"], postal_code: summary["postalCode"], country_code: summary["countryCode"], rating: summary["hotelRating"], high_rate: summary["highRate"], low_rate: summary["lowRate"], latitude: summary["latitude"].to_f, longitude: summary["longitude"].to_f, image_urls: (parsed["HotelInformationResponse"]["HotelImages"]["HotelImage"].map { |x| x["url"] } unless !parsed["HotelInformationResponse"]["HotelImages"]["HotelImage"]) }
     end
 
     def self.split(data)
