@@ -1,6 +1,6 @@
 module Suitcase
   class PaymentOption
-    attr_accessor :code, :name
+   attr_accessor :code, :name
 
     def initialize(code, name)
       @code = code
@@ -44,7 +44,7 @@ module Suitcase
                   wheelchair_accessible: 8,
                   kitchen: 9 }
 
-    attr_accessor :id, :name, :address, :city, :min_rate, :max_rate, :amenities, :country_code, :high_rate, :low_rate, :longitude, :latitude, :rating, :postal_code, :supplier_type
+    attr_accessor :id, :name, :address, :city, :min_rate, :max_rate, :amenities, :country_code, :high_rate, :low_rate, :longitude, :latitude, :rating, :postal_code, :supplier_type, :image_urls
 
     def initialize(info)
       info.each do |k, v|
@@ -109,7 +109,7 @@ module Suitcase
     def self.parse_hotel_information(json)
       parsed = JSON.parse json
       summary = parsed["hotelId"] ? parsed : parsed["HotelInformationResponse"]["HotelSummary"]
-      { id: summary["hotelId"], name: summary["name"], address: summary["address1"], city: summary["city"], postal_code: summary["postalCode"], country_code: summary["countryCode"], rating: summary["hotelRating"], high_rate: summary["highRate"], low_rate: summary["lowRate"], latitude: summary["latitude"].to_f, longitude: summary["longitude"].to_f }
+      { id: summary["hotelId"], name: summary["name"], address: summary["address1"], city: summary["city"], postal_code: summary["postalCode"], country_code: summary["countryCode"], rating: summary["hotelRating"], high_rate: summary["highRate"], low_rate: summary["lowRate"], latitude: summary["latitude"].to_f, longitude: summary["longitude"].to_f, image_urls: parsed["HotelInformationResponse"]["HotelImages"]["HotelImage"].map { |x| x["url"] } }
     end
 
     def self.split(data)
@@ -131,7 +131,7 @@ module Suitcase
       parsed = JSON.parse(Hotel.hit(Hotel.url(:avail, true, true, params)))
       hotel_id = parsed["HotelRoomAvailabilityResponse"]["hotelId"]
       rate_key = parsed["HotelRoomAvailabilityResponse"]["rateKey"]
-      supplier_type = parsed["HotelRoomAvailabilityResponse"]["supplierType"]
+      supplier_type = parsed["HotelRoomAvailabilityResponse"]["HotelRoomResponse"][0]["supplierType"]
       Room.new(rate_key, hotel_id, supplier_type)
     end
 
