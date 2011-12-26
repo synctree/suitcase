@@ -20,7 +20,7 @@ module Suitcase
       params["rateTypeCode"] = info[:room_type_code]
       params["rateCode"] = info[:rate_code]
       params.delete(:rate_code)
-      p Hotel.hit(Hotel.url(:res, true, true, params))
+      p Hotel.shove(Hotel.url(:res, true, true, {}, :post, true), params)
     end
   end
 end

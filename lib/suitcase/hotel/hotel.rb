@@ -1,7 +1,7 @@
 module Suitcase
   class EANException < Exception
-    def initialize
-      super("TravelNow.com cannot service this request")
+    def initialize(message)
+      super(message)
     end
   end
 
@@ -15,8 +15,6 @@ module Suitcase
                   pets: 7,
                   wheelchair_accessible: 8,
                   kitchen: 9 }
-    EXCEPTIONS = { -1 => EANException
-                  }
 
     attr_accessor :id, :name, :address, :city, :min_rate, :max_rate, :amenities, :country_code, :high_rate, :low_rate, :longitude, :latitude, :rating, :postal_code, :supplier_type, :image_urls
 
@@ -26,8 +24,8 @@ module Suitcase
       end
     end
 
-    def self.url(action, include_key, include_cid, params)
-      url = "http://api.ean.com/ean-services/rs/hotel/v3/" + action.to_s + "?"
+    def self.url(action, include_key, include_cid, params, method=:get, secure=false)
+      url = "http#{secure ? "s" : "" }://api.ean.com/ean-services/rs/hotel/v3/" + action.to_s + "?"
       include_key ? params["apiKey"] = Suitcase::Hotel::API_KEY : nil
       include_cid ? params["cid"] = "55505" : nil
       params.each do |k, v|
@@ -78,6 +76,10 @@ module Suitcase
       Net::HTTP.get_response(url).body
     end
 
+    def self.shove(url, params)
+      Net::HTTP.post_form(url, params).body
+    end
+
     def self.parse_hotel_information(json)
       parsed = JSON.parse json
       handle_errors(parsed)
@@ -90,14 +92,20 @@ module Suitcase
     end
 
     def self.images(parsed)
-      p parsed
       return nil
     end
 
+    # Bleghh. so ugly. #needsfixing
     def self.handle_errors(info)
-      raise EXCEPTIONS[info["HotelListResponse"]["EanWsError"]["exceptionConditionId"]] if info["HotelListResponse"] && info["HotelListResponse"]["EanWsError"]
-      raise EXCEPTIONS[info["HotelInformationResponse"]["EanWsError"]["exceptionConditionId"]] if info["HotelInformationResponse"] && info["HotelInformationResponse"]["EanWsError"]
-    end
+      if info["HotelRoomAvailabilityResponse"] && info["HotelRoomAvailabilityResponse"]["EanWsError"]
+        message = info["HotelRoomAvailabilityResponse"]["EanWsError"]["presentationMessage"]
+      elsif info["HotelListResponse"] && info["HotelListResponse"]["EanWsError"]
+        message = info["HotelListResponse"]["EanWsError"]["presentationMessage"]
+      elsif info["HotelInformationResponse"] && info["HotelInformationResponse"]["EanWsError"]
+        message = info["HotelInformationResponse"]["EanWsError"]["presentationMessage"]
+      end
+      raise EANException.new(message) if message
+   end
 
     def self.split(data)
       parsed = JSON.parse(data)
@@ -106,7 +114,7 @@ module Suitcase
     end
 
     def rooms(info)
-      params = info
+      params = { rooms: [{children: 0, ages: []}] }.merge(info)
       params[:rooms].each_with_index do |room, n|
         params["room#{n+1}"] = (room[:children] == 0 ? "" : room[:children].to_s + ",").to_s + room[:ages].join(",").to_s
       end
@@ -116,6 +124,7 @@ module Suitcase
       params.delete(:departure)
       params["hotelId"] = @id
       parsed = JSON.parse(Hotel.hit(Hotel.url(:avail, true, true, params)))
+      Hotel.handle_errors(parsed)
       hotel_id = parsed["HotelRoomAvailabilityResponse"]["hotelId"]
       rate_key = parsed["HotelRoomAvailabilityResponse"]["rateKey"]
       supplier_type = parsed["HotelRoomAvailabilityResponse"]["HotelRoomResponse"][0]["supplierType"]
@@ -126,7 +135,6 @@ module Suitcase
       options = []
       types_raw = JSON.parse Hotel.hit(Hotel.url(:paymentInfo, true, true, {}))
       types_raw["HotelPaymentResponse"].each do |raw|
-        p raw
         types = raw[0] != "PaymentType" ? [] : raw[1]
         types.each do |type|
           options.push PaymentOption.new(type["code"], type["name"])
