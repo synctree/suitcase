@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.email       = ["walter.john.nelson@gmail.com"]
   s.homepage    = "http://github.com/thoughtfusion/suitcase"
   s.summary     = %q{Locates available hotels, rental cars, and flights}
-  s.description = %q{Suitcase utilizes the EAN API for locating available hotels, rental cars, and flights.}
+  s.description = %q{Suitcase utilizes the EAN (Expedia.com) API for locating info about hotels, rental cars, and flights.}
 
   s.rubyforge_project = "suitcase"
 
