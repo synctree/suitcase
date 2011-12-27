@@ -6,6 +6,8 @@ module Suitcase
   end
 
   class Hotel
+    extend Suitcase::Helpers
+
     AMENITIES = { pool: 1,
                   fitness_center: 2,
                   restaurant: 3,
@@ -24,19 +26,6 @@ module Suitcase
       end
     end
 
-    def self.url(action, include_key, include_cid, params, method=:get, secure=false)
-      url = "http#{secure ? "s" : "" }://api.ean.com/ean-services/rs/hotel/v3/" + action.to_s + "?"
-      include_key ? params["apiKey"] = Suitcase::Hotel::API_KEY : nil
-      include_cid ? params["cid"] = "55505" : nil
-      params.each do |k, v|
-        url += k.to_s + "=" + v.to_s + "&"
-      end
-      if url =~ /^(.+)&$/
-        url = $1
-      end
-      URI.parse URI.escape(url)
-    end
-
     def self.find(info)
       if info[:id]
         find_by_id(info[:id])
@@ -46,7 +35,10 @@ module Suitcase
     end
 
     def self.find_by_id(id)
-      Hotel.new(parse_hotel_information(hit(url(:info, true, true, { hotelId: id }))))
+      url = url(:info, { hotelId: id })
+      raw = parse_response(url)
+      hotel_data = parse_information(raw)
+      Hotel.new(hotel_data)
     end
 
     def self.find_by_info(info)
@@ -64,24 +56,15 @@ module Suitcase
       params["maxRate"] = params[:max_rate] if params[:max_rate]
       params[:amenities] = amenities
       hotels = []
-      raw = hit(url(:list, true, true, params))
-      handle_errors(JSON.parse raw)
-      split(raw).each do |hotel_data|
-        hotels.push Hotel.new(parse_hotel_information(hotel_data.to_json))
+      parsed = parse_response(url(:list, params))
+      handle_errors(parsed)
+      split(parsed).each do |hotel_data|
+        hotels.push Hotel.new(parse_information(hotel_data))
       end
       hotels
     end
 
-    def self.hit(url)
-      Net::HTTP.get_response(url).body
-    end
-
-    def self.shove(url, params)
-      Net::HTTP.post_form(url, params).body
-    end
-
-    def self.parse_hotel_information(json)
-      parsed = JSON.parse json
+    def self.parse_information(parsed)
       handle_errors(parsed)
       summary = parsed["hotelId"] ? parsed : parsed["HotelInformationResponse"]["HotelSummary"]
       parsed_info = { id: summary["hotelId"], name: summary["name"], address: summary["address1"], city: summary["city"], postal_code: summary["postalCode"], country_code: summary["countryCode"], rating: summary["hotelRating"], high_rate: summary["highRate"], low_rate: summary["lowRate"], latitude: summary["latitude"].to_f, longitude: summary["longitude"].to_f }
@@ -107,8 +90,7 @@ module Suitcase
       raise EANException.new(message) if message
    end
 
-    def self.split(data)
-      parsed = JSON.parse(data)
+    def self.split(parsed)
       hotels = parsed["HotelListResponse"]["HotelList"]
       hotels["HotelSummary"]
     end
@@ -123,7 +105,7 @@ module Suitcase
       params.delete(:arrival)
       params.delete(:departure)
       params["hotelId"] = @id
-      parsed = JSON.parse(Hotel.hit(Hotel.url(:avail, true, true, params)))
+      parsed = Hotel.parse_response(Hotel.url(:avail, params))
       Hotel.handle_errors(parsed)
       hotel_id = parsed["HotelRoomAvailabilityResponse"]["hotelId"]
       rate_key = parsed["HotelRoomAvailabilityResponse"]["rateKey"]
@@ -133,7 +115,7 @@ module Suitcase
 
     def payment_options
       options = []
-      types_raw = JSON.parse Hotel.hit(Hotel.url(:paymentInfo, true, true, {}))
+      types_raw = JSON.parse Hotel.hit(url(:paymentInfo, true, true, {}))
       types_raw["HotelPaymentResponse"].each do |raw|
         types = raw[0] != "PaymentType" ? [] : raw[1]
         types.each do |type|
