@@ -123,17 +123,5 @@ module Suitcase
       end
       RoomGroup.new(rate_key, hotel_id, supplier_type, rooms)
     end
-
-    def payment_options
-      options = []
-      types_raw = JSON.parse Hotel.hit(url(:paymentInfo, true, true, {}))
-      types_raw["HotelPaymentResponse"].each do |raw|
-        types = raw[0] != "PaymentType" ? [] : raw[1]
-        types.each do |type|
-          options.push PaymentOption.new(type["code"], type["name"])
-        end
-      end
-      options
-    end
   end
 end

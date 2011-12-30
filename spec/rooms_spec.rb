@@ -7,8 +7,15 @@ describe Suitcase::Room do
 
   subject { @room }
   it { should respond_to :reserve! }
-  it "#reserve! should take a Hash of options" do
-    
+  
+  describe "#reserve!" do
+    before :all do
+      
+    end
+
+    it "should respond to a Hash of arguments" do
+      
+    end
   end
 end
 
