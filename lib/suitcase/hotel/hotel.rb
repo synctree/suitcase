@@ -18,7 +18,7 @@ module Suitcase
                   wheelchair_accessible: 8,
                   kitchen: 9 }
 
-    attr_accessor :id, :name, :address, :city, :min_rate, :max_rate, :amenities, :country_code, :high_rate, :low_rate, :longitude, :latitude, :rating, :postal_code, :supplier_type, :image_urls
+    attr_accessor :id, :name, :address, :city, :min_rate, :max_rate, :amenities, :country_code, :high_rate, :low_rate, :longitude, :latitude, :rating, :postal_code, :supplier_type, :images
 
     def initialize(info)
       info.each do |k, v|
@@ -68,14 +68,13 @@ module Suitcase
       handle_errors(parsed)
       summary = parsed["hotelId"] ? parsed : parsed["HotelInformationResponse"]["HotelSummary"]
       parsed_info = { id: summary["hotelId"], name: summary["name"], address: summary["address1"], city: summary["city"], postal_code: summary["postalCode"], country_code: summary["countryCode"], rating: summary["hotelRating"], high_rate: summary["highRate"], low_rate: summary["lowRate"], latitude: summary["latitude"].to_f, longitude: summary["longitude"].to_f }
-      if images(parsed)
-        parsed_info[:image_urls] = images(parsed)
-      end
+      parsed_info[:images] = images(parsed) if images(parsed)
       parsed_info
     end
 
     def self.images(parsed)
-      return nil
+      return parsed["HotelInformationResponse"]["HotelImages"]["HotelImage"].map { |image_data| Suitcase::Image.new(image_data) } if parsed["HotelInformationResponse"]
+      return Suitcase::Image.new(url: parsed["thumbNailUrl"]) if parsed["thumbNailUrl"]
     end
 
     # Bleghh. so ugly. #needsfixing
@@ -110,7 +109,19 @@ module Suitcase
       hotel_id = parsed["HotelRoomAvailabilityResponse"]["hotelId"]
       rate_key = parsed["HotelRoomAvailabilityResponse"]["rateKey"]
       supplier_type = parsed["HotelRoomAvailabilityResponse"]["HotelRoomResponse"][0]["supplierType"]
-      Room.new(rate_key, hotel_id, supplier_type)
+      rooms = parsed["HotelRoomAvailabilityResponse"]["HotelRoomResponse"].map do |raw_data|
+        room_data = {}
+        room_data[:rate_code] = raw_data["rateCode"]
+        room_data[:room_type_code] = raw_data["roomTypeCode"]
+        room_data[:room_type_description] = raw_data["roomTypeDescription"]
+        room_data[:promo] = raw_data["RateInfo"]["@promo"].to_b
+        room_data[:price_breakdown] = raw_data["RateInfo"]["ChargeableRateInfo"]["NightlyRatesPerRoom"]["NightlyRate"].map { |raw| NightlyRate.new(raw) }
+        room_data[:total_price] = raw_data["RateInfo"]["ChargeableRateInfo"]["@total"]
+        room_data[:nightly_rate_total] = raw_data["RateInfo"]["ChargeableRateInfo"]["@nightlyRateTotal"]
+        room_data[:average_nightly_rate] = raw_data["RateInfo"]["ChargeableRateInfo"]["@averageRate"]
+        Room.new(room_data)
+      end
+      RoomGroup.new(rate_key, hotel_id, supplier_type, rooms)
     end
 
     def payment_options
