@@ -35,8 +35,14 @@ module Suitcase
     end
 
     def self.find_by_id(id)
-      url = url(:info, { hotelId: id })
-      raw = parse_response(url)
+      params = { hotelId: id }
+      if Configuration.cache? and Configuration.cache.cached?(:info, params)
+        raw = Configuration.cache.get_query(:info, params)
+      else
+        url = url(:info, params)
+        raw = parse_response(url)
+        Configuration.cache.save_query(:info, params, raw) if Configuration.cache?
+      end
       hotel_data = parse_information(raw)
       Hotel.new(hotel_data)
     end
