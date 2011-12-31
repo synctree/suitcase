@@ -22,5 +22,9 @@ module Suitcase
     def cached?(action, params)
       @store[action] && @store[action][params]
     end
+
+    def undefine_query(action, params)
+      @store[action].delete(params) if @store[action]
+    end
   end
 end
