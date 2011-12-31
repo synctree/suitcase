@@ -10,17 +10,23 @@ module Suitcase
 
     def reserve!(info)
       params = info
-      params["hotelId"] = @id
-      params["arrivalDate"] = info[:arrival]
-      params["departureDate"] = info[:departure]
-      params.delete(:arrival)
-      params.delete(:departure)
-      params["supplierType"] = supplier_type
+      params["hotelId"] = @hotel_id
+      params["arrivalDate"] = @arrival
+      params["departureDate"] = @departure
+      params["supplierType"] = @supplier_type
       params["rateKey"] = @rate_key
-      params["rateTypeCode"] = info[:room_type_code]
-      params["rateCode"] = info[:rate_code]
-      params.delete(:rate_code)
-      params
+      params["rateTypeCode"] = @room_type_code
+      params["rateCode"] = @rate_code
+      params["chargeableRate"] = chargeable_rate      
+    end
+
+    def chargeable_rate
+      case @supplier_type == "E"
+      when true
+        @total
+      when false
+        @max_nightly_rate
+      end
     end
   end
 end
