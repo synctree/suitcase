@@ -50,6 +50,6 @@ describe Suitcase::Hotel do
       @hotel.rooms(@info)
     end
 
-    it { should be_an(Suitcase::RoomGroup) }
+    it { should be_an(Array) }
   end
 end

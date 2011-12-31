@@ -125,9 +125,13 @@ module Suitcase
         room_data[:total_price] = raw_data["RateInfo"]["ChargeableRateInfo"]["@total"]
         room_data[:nightly_rate_total] = raw_data["RateInfo"]["ChargeableRateInfo"]["@nightlyRateTotal"]
         room_data[:average_nightly_rate] = raw_data["RateInfo"]["ChargeableRateInfo"]["@averageRate"]
+        room_data[:arrival] = info[:arrival]
+        room_data[:departure] = info[:departure]
+        room_data[:rate_key] = rate_key
+        room_data[:hotel_id] = hotel_id
+        room_data[:supplier_type] = supplier_type
         Room.new(room_data)
       end
-      RoomGroup.new(rate_key, hotel_id, supplier_type, rooms)
     end
   end
 end
