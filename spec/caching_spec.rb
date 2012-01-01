@@ -12,7 +12,7 @@ describe Suitcase do
 
   it "should retrieve from the cache if it's there" do
     lambda do
-      Object.send :remove_const, :Net # disable access to the API
+      Net::HTTP.stub!(:get_response).and_return nil # disable access to the API
       Suitcase::Hotel.find(id: 123904)
     end.should_not raise_error
   end

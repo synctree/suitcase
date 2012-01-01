@@ -1,18 +1,20 @@
 require 'spec_helper'
 
 describe Suitcase::Hotel do
-  it "::find should locate a single Hotel if an id argument is passed" do
-    @hotel.should be_a(Suitcase::Hotel)
-  end
-
-  it "::find should locate an Array of Hotels if an id argument is not passed" do
-    hotels = Suitcase::Hotel.find(location: "London, UK")
-    hotels.should be_an(Array)
-    hotels.first.should be_a(Suitcase::Hotel)
-  end
-
   before :all do
     @hotel = Suitcase::Hotel.find(id: 123904)
+  end
+
+  describe "::find" do
+    it "should locate a single Hotel if an id argument is passed" do
+      @hotel.should be_a(Suitcase::Hotel)
+    end
+
+    it "should locate an Array of Hotels if an id argument is not passed" do
+      hotels = Suitcase::Hotel.find(location: "London, UK")
+      hotels.should be_an(Array)
+      hotels.first.should be_a(Suitcase::Hotel)
+    end
   end
 
   subject { @hotel }
