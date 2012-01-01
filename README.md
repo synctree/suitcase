@@ -1,4 +1,4 @@
-Suitcase
+Suitcase ![build status](https://secure.travis-ci.org/thoughtfusion/suitcase.png)
 ========
 
 Suitcase is a Ruby library that utilizes the EAN (Expedia.com) API for locating available hotels, rental cars, and flights.
@@ -6,7 +6,7 @@ Suitcase is a Ruby library that utilizes the EAN (Expedia.com) API for locating 
 Installation
 ------------
 
-Install the gem: `gem install suitcase`. Or, to get the latest bleeding edge things add this to your project's Gemfile: `gem 'suitcase', :git => "http://github.com/thoughtfusion/suitcase.git"`.
+Install the gem: `gem install suitcase`. Or, to get the latest bleeding edge add this to your project's Gemfile: `gem 'suitcase', :git => "http://github.com/thoughtfusion/suitcase.git"`.
 
 Usage
 -----
