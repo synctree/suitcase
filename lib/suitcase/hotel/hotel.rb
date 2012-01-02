@@ -18,7 +18,7 @@ module Suitcase
                   wheelchair_accessible: 8,
                   kitchen: 9 }
 
-    attr_accessor :id, :name, :address, :city, :min_rate, :max_rate, :amenities, :country_code, :high_rate, :low_rate, :longitude, :latitude, :rating, :postal_code, :supplier_type, :images
+    attr_accessor :id, :name, :address, :city, :min_rate, :max_rate, :amenities, :country_code, :high_rate, :low_rate, :longitude, :latitude, :rating, :postal_code, :supplier_type, :images, :nightly_rate_total
 
     def initialize(info)
       info.each do |k, v|
@@ -80,7 +80,7 @@ module Suitcase
 
     def self.images(parsed)
       return parsed["HotelInformationResponse"]["HotelImages"]["HotelImage"].map { |image_data| Suitcase::Image.new(image_data) } if parsed["HotelInformationResponse"]
-      return Suitcase::Image.new(url: parsed["thumbNailUrl"]) if parsed["thumbNailUrl"]
+      return [Suitcase::Image.new("thumbnailURL" => "http://images.travelnow.com" + parsed["thumbNailUrl"])] if parsed["thumbNailUrl"]
     end
 
     # Bleghh. so ugly. #needsfixing
@@ -98,6 +98,11 @@ module Suitcase
     def self.split(parsed)
       hotels = parsed["HotelListResponse"]["HotelList"]
       hotels["HotelSummary"]
+    end
+
+    def thumbnail_url
+      first_image = images.find { |img| img.thumbnail_url != nil }
+      first_image.thumbnail_url if first_image
     end
 
     def rooms(info)
