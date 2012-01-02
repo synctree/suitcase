@@ -80,7 +80,8 @@ module Suitcase
 
     def self.images(parsed)
       return parsed["HotelInformationResponse"]["HotelImages"]["HotelImage"].map { |image_data| Suitcase::Image.new(image_data) } if parsed["HotelInformationResponse"] && parsed["HotelInformationResponse"]["HotelImages"] && parsed["HotelInformationResponse"]["HotelImages"]["HotelImage"]
-      return [Suitcase::Image.new("thumbnailURL" => "http://images.travelnow.com" + parsed["thumbNailUrl"])] if parsed["thumbNailUrl"]
+      return [Suitcase::Image.new("thumbnailURL" => "http://images.travelnow.com" + parsed["thumbNailUrl"])] unless parsed["thumbnailUrl"].nil? or parsed["thumbNailUrl"].empty?
+      return []
     end
 
     # Bleghh. so ugly. #needsfixing
@@ -126,7 +127,7 @@ module Suitcase
         room_data[:room_type_code] = raw_data["roomTypeCode"]
         room_data[:room_type_description] = raw_data["roomTypeDescription"]
         room_data[:promo] = raw_data["RateInfo"]["@promo"].to_b
-        room_data[:price_breakdown] = raw_data["RateInfo"]["ChargeableRateInfo"]["NightlyRatesPerRoom"]["NightlyRate"].map { |raw| NightlyRate.new(raw) }
+        room_data[:price_breakdown] = raw_data["RateInfo"]["ChargeableRateInfo"]["NightlyRatesPerRoom"]["NightlyRate"].map { |raw| NightlyRate.new(raw) } if raw_data["RateInfo"]["ChargeableRateInfo"] && raw_data["RateInfo"]["ChargeableRateInfo"]["NightlyRatesPerRoom"] && raw_data["RateInfo"]["ChargeableRateInfo"]["NightlyRatesPerRoom"]["NightlyRate"].is_a?(Array)
         room_data[:total_price] = raw_data["RateInfo"]["ChargeableRateInfo"]["@total"]
         room_data[:nightly_rate_total] = raw_data["RateInfo"]["ChargeableRateInfo"]["@nightlyRateTotal"]
         room_data[:average_nightly_rate] = raw_data["RateInfo"]["ChargeableRateInfo"]["@averageRate"]
