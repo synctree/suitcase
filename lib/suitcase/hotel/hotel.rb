@@ -5,6 +5,14 @@ module Suitcase
     end
   end
 
+  class BedType
+    attr_accessor :id, :description
+
+    def initialize(info)
+      @id, @description = info[:id], info[:description]
+    end
+  end
+
   class Hotel
     extend Suitcase::Helpers
 
@@ -113,6 +121,7 @@ module Suitcase
       end
       params["arrivalDate"] = info[:arrival]
       params["departureDate"] = info[:departure]
+      params["includeDetails"] = true
       params.delete(:arrival)
       params.delete(:departure)
       params["hotelId"] = @id
@@ -136,6 +145,8 @@ module Suitcase
         room_data[:rate_key] = rate_key
         room_data[:hotel_id] = hotel_id
         room_data[:supplier_type] = supplier_type
+        room_data[:rooms] = params[:rooms]
+        room_data[:bedroom_types] = [raw_data["BedTypes"]["BedType"]].flatten.map { |x| BedType.new(id: x["@id"], description: x["description"]) }
         Room.new(room_data)
       end
     end

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Suitcase::Room do
   before :all do
-    @room = Suitcase::Hotel.find(id: 123904).rooms(arrival: "6/23/2012", departure: "6/30/2012", rooms: [{ adults: 1, children: 0, children_ages: []}, { adults: 1, children: 0, children_ages: []}]).first
+    @room = Suitcase::Hotel.find(id: 123904).rooms(arrival: "6/23/2012", departure: "6/30/2012").first
   end
 
   subject { @room }
@@ -36,14 +36,23 @@ describe Suitcase::Room do
 
   describe "#reserve!" do
     before :all do
-      @info = { email: "walter.john.nelson@gmail.com",
+      payment_option = Suitcase::PaymentOption.find(currency_code: "USD").find { |x| x.code == "AX" }
+      @info = { email: "some_email@gmail.com",
                 first_name: "Walter",
                 last_name: "Nelson",
                 home_phone: "3831039402",
-                credit_card_type: "AX", # American Express
+                payment_option: payment_option,
                 credit_card_number: "2384975019283750293874", # not even sure if the length is right
-                credit_card_identifier: "341", # CVV
-                credit_card_expiration_date: "11/2012" }
+                credit_card_verification_code: "341", # CVV
+                credit_card_expiration_date: "11/2012",
+                address1: "1 Some Place",
+                address2: "Apt. 4A",
+                city: "Boston",
+                province: "MA",
+                country: "US",
+                postal_code: "02111" }
+      @room.rooms[0][:bed_type] = @room.bedroom_types[0]
+      @room.rooms[0][:smoking_preference] = "NS"
     end
 
     it "should respond to a Hash of arguments" do
