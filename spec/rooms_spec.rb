@@ -37,15 +37,15 @@ describe Suitcase::Room do
 
   describe "#reserve!" do
     before :all do
-      @info = { email: "some_email@gmail.com",
+      @info = { email: "walter.john.nelson@gmail.com",
                 first_name: "Walter",
                 last_name: "Nelson",
                 home_phone: "3831039402",
-                payment_option: Keys::SUITCASE_PAYMENT_OPTION,
+                payment_option: Keys::SUITCASE_PAYMENT_OPTION, # Visa
                 credit_card_number: Keys::CREDIT_CARD_NUMBER_TESTING,
                 credit_card_verification_code: Keys::CREDIT_CARD_CVV_TESTING, # CVV
                 credit_card_expiration_date: Keys::CREDIT_CARD_EXPIRATION_DATE_TESTING,
-                address1: "1 Some Place",
+                address1: "travelnow", # for testing
                 address2: "Apt. 4A",
                 city: "Boston",
                 province: "MA",
