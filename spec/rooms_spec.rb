@@ -33,25 +33,25 @@ describe Suitcase::Room do
   it { should respond_to :rate_key }
   it { should respond_to :hotel_id }
   it { should respond_to :supplier_type }
+  it { should respond_to :bed_types }
 
   describe "#reserve!" do
     before :all do
-      payment_option = Suitcase::PaymentOption.find(currency_code: "USD").find { |x| x.code == "AX" }
       @info = { email: "some_email@gmail.com",
                 first_name: "Walter",
                 last_name: "Nelson",
                 home_phone: "3831039402",
-                payment_option: payment_option,
-                credit_card_number: "2384975019283750293874", # not even sure if the length is right
-                credit_card_verification_code: "341", # CVV
-                credit_card_expiration_date: "11/2012",
+                payment_option: Keys::SUITCASE_PAYMENT_OPTION,
+                credit_card_number: Keys::CREDIT_CARD_NUMBER_TESTING,
+                credit_card_verification_code: Keys::CREDIT_CARD_CVV_TESTING, # CVV
+                credit_card_expiration_date: Keys::CREDIT_CARD_EXPIRATION_DATE_TESTING,
                 address1: "1 Some Place",
                 address2: "Apt. 4A",
                 city: "Boston",
                 province: "MA",
                 country: "US",
                 postal_code: "02111" }
-      @room.rooms[0][:bed_type] = @room.bedroom_types[0]
+      @room.rooms[0][:bed_type] = @room.bed_types[0]
       @room.rooms[0][:smoking_preference] = "NS"
     end
 

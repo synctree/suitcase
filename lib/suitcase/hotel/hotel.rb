@@ -146,7 +146,7 @@ module Suitcase
         room_data[:hotel_id] = hotel_id
         room_data[:supplier_type] = supplier_type
         room_data[:rooms] = params[:rooms]
-        room_data[:bedroom_types] = [raw_data["BedTypes"]["BedType"]].flatten.map { |x| BedType.new(id: x["@id"], description: x["description"]) }
+        room_data[:bed_types] = [raw_data["BedTypes"]["BedType"]].flatten.map { |x| BedType.new(id: x["@id"], description: x["description"]) }
         Room.new(room_data)
       end
     end

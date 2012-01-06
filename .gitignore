@@ -2,4 +2,4 @@
 .bundle
 Gemfile.lock
 pkg/*
-spec/api_key.rb
+spec/keys.rb

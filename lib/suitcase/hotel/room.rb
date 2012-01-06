@@ -1,6 +1,6 @@
 module Suitcase
   class Room
-    attr_accessor :rate_key, :hotel_id, :supplier_type, :rate_code, :room_type_code, :supplier_type, :tax_rate, :non_refundable, :occupancy, :quoted_occupancy, :min_guest_age, :total, :surcharge_total, :nightly_rate_total, :average_base_rate, :average_rate, :max_nightly_rate, :currency_code, :value_adds, :room_type_description, :price_breakdown, :total_price, :average_nightly_rate, :promo, :arrival, :departure, :rooms, :bedroom_types
+    attr_accessor :rate_key, :hotel_id, :supplier_type, :rate_code, :room_type_code, :supplier_type, :tax_rate, :non_refundable, :occupancy, :quoted_occupancy, :min_guest_age, :total, :surcharge_total, :nightly_rate_total, :average_base_rate, :average_rate, :max_nightly_rate, :currency_code, :value_adds, :room_type_description, :price_breakdown, :total_price, :average_nightly_rate, :promo, :arrival, :departure, :rooms, :bed_types
     extend Suitcase::Helpers
 
     def initialize(info)
@@ -48,7 +48,7 @@ module Suitcase
         params["room#{index}SmokingPreference"] = room[:smoking_preference] or "E"
       end
       params["stateProvinceCode"] = info[:province]
-     params["countryCode"] = info[:country]
+      params["countryCode"] = info[:country]
       params["postalCode"] = info[:postal_code]
       uri = Room.url :res, params, true, true, true
       session = Patron::Session.new
