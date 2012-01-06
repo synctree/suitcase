@@ -26,7 +26,7 @@ module Suitcase
                   wheelchair_accessible: 8,
                   kitchen: 9 }
 
-    attr_accessor :id, :name, :address, :city, :min_rate, :max_rate, :amenities, :country_code, :high_rate, :low_rate, :longitude, :latitude, :rating, :postal_code, :supplier_type, :images, :nightly_rate_total
+    attr_accessor :id, :name, :address, :city, :province, :min_rate, :max_rate, :amenities, :country_code, :high_rate, :low_rate, :longitude, :latitude, :rating, :postal_code, :supplier_type, :images, :nightly_rate_total, :airport_code, :property_category, :confidence_rating, :amenity_mask, :location_description, :short_description, :hotel_in_destination, :proximity_distance
 
     def initialize(info)
       info.each do |k, v|
@@ -75,13 +75,13 @@ module Suitcase
       split(parsed).each do |hotel_data|
         hotels.push Hotel.new(parse_information(hotel_data))
       end
-      hotels[0..params[:results]-1]
+      params[:results] ? hotels[0..params[:results]-1] : hotels
     end
 
     def self.parse_information(parsed)
       handle_errors(parsed)
       summary = parsed["hotelId"] ? parsed : parsed["HotelInformationResponse"]["HotelSummary"]
-      parsed_info = { id: summary["hotelId"], name: summary["name"], address: summary["address1"], city: summary["city"], postal_code: summary["postalCode"], country_code: summary["countryCode"], rating: summary["hotelRating"], high_rate: summary["highRate"], low_rate: summary["lowRate"], latitude: summary["latitude"].to_f, longitude: summary["longitude"].to_f }
+      parsed_info = { id: summary["hotelId"], name: summary["name"], address: summary["address1"], city: summary["city"], postal_code: summary["postalCode"], country_code: summary["countryCode"], rating: summary["hotelRating"], high_rate: summary["highRate"], low_rate: summary["lowRate"], latitude: summary["latitude"].to_f, longitude: summary["longitude"].to_f, province: summary["stateProvinceCode"], airport_code: summary["airportCode"], property_category: summary["propertyCategory"].to_i, proximity_distance: summary["proximityDistance"].to_s + summary["proximityUnit"].to_s }
       parsed_info[:images] = images(parsed) if images(parsed)
       parsed_info
     end
