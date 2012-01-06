@@ -5,6 +5,7 @@ module Suitcase
     end
   end
 
+  # Used for organizing Bed options
   class BedType
     attr_accessor :id, :description
 
@@ -13,6 +14,10 @@ module Suitcase
     end
   end
 
+  # A Class representing a Hotel that stores information
+  # about the hotel. It provides methods for checking
+  # room availability, fetching images and just general
+  # information providing.
   class Hotel
     extend Suitcase::Helpers
 
@@ -28,12 +33,23 @@ module Suitcase
 
     attr_accessor :id, :name, :address, :city, :province, :min_rate, :max_rate, :amenities, :country_code, :high_rate, :low_rate, :longitude, :latitude, :rating, :postal_code, :supplier_type, :images, :nightly_rate_total, :airport_code, :property_category, :confidence_rating, :amenity_mask, :location_description, :short_description, :hotel_in_destination, :proximity_distance
 
+    # Public: Initialize a new hotel
+    #
+    # info - a Hash of the options listed in attr_accesor.
+    #
+    # Returns a new Hotel object with the passed-in attributes.
     def initialize(info)
       info.each do |k, v|
         send (k.to_s + "=").to_sym, v
       end
     end
 
+    # Public: Find a Hotel based on known information
+    #
+    # info - a Hash of known information
+    #
+    # Returns a single Hotel if an id is passed in, otherwise
+    # an Array of Hotels.
     def self.find(info)
       if info[:id]
         find_by_id(info[:id])
@@ -42,6 +58,12 @@ module Suitcase
       end
     end
 
+    # Public: Find a Hotel by it's id.
+    #
+    # id - an Integer or String representation of the Hotel's
+    #      id.
+    #
+    # Returns a single Hotel object.
     def self.find_by_id(id)
       params = { hotelId: id }
       if Configuration.cache? and Configuration.cache.cached?(:info, params)
@@ -55,6 +77,12 @@ module Suitcase
       Hotel.new(hotel_data)
     end
 
+    # Public: Find a hotel by info other than it's id.
+    #
+    # info - a Hash of options described in the Hotel
+    #        accessors, excluding the id.
+    #
+    # Returns an Array of Hotels.
     def self.find_by_info(info)
       params = info
       params["numberOfResults"] = params[:results] ? params[:results] : 10
@@ -78,6 +106,11 @@ module Suitcase
       params[:results] ? hotels[0..params[:results]-1] : hotels
     end
 
+    # Public: Parse the information returned by a search request
+    #
+    # parsed - a Hash representing the parsed JSON
+    #
+    # Returns a reformatted Hash with the specified accessors.
     def self.parse_information(parsed)
       handle_errors(parsed)
       summary = parsed["hotelId"] ? parsed : parsed["HotelInformationResponse"]["HotelSummary"]
@@ -86,13 +119,18 @@ module Suitcase
       parsed_info
     end
 
+    # Public: Get images from a parsed object
+    #
+    # parsed - a Hash representing the parsed JSON
+    #
+    # Returns an Array of Suitcase::Images.
     def self.images(parsed)
       return parsed["HotelInformationResponse"]["HotelImages"]["HotelImage"].map { |image_data| Suitcase::Image.new(image_data) } if parsed["HotelInformationResponse"] && parsed["HotelInformationResponse"]["HotelImages"] && parsed["HotelInformationResponse"]["HotelImages"]["HotelImage"]
       return [Suitcase::Image.new("thumbnailURL" => "http://images.travelnow.com" + parsed["thumbNailUrl"])] unless parsed["thumbnailUrl"].nil? or parsed["thumbNailUrl"].empty?
       return []
     end
 
-    # Bleghh. so ugly. #needsfixing
+    # Handle the errors from the response.
     def self.handle_errors(info)
       if info["HotelRoomAvailabilityResponse"] && info["HotelRoomAvailabilityResponse"]["EanWsError"]
         message = info["HotelRoomAvailabilityResponse"]["EanWsError"]["presentationMessage"]
@@ -114,6 +152,12 @@ module Suitcase
       first_image.thumbnail_url if first_image
     end
 
+    # Public: Fetch possible rooms from a Hotel.
+    #
+    # info - a Hash of options described as the accessors in
+    #        the Suitcase::Room class
+    #
+    # Returns an Array of Suitcase::Rooms.
     def rooms(info)
       params = { rooms: [{adults: 1, children_ages: []}] }.merge(info)
       params[:rooms].each_with_index do |room, n|
