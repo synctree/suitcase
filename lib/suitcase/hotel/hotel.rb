@@ -75,7 +75,7 @@ module Suitcase
       split(parsed).each do |hotel_data|
         hotels.push Hotel.new(parse_information(hotel_data))
       end
-      hotels
+      hotels[0..params[:results]-1]
     end
 
     def self.parse_information(parsed)
