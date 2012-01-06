@@ -89,14 +89,10 @@ module Suitcase
       params.delete(:results)
       params["destinationString"] = params[:location]
       params.delete(:location)
-      if params[:amenities]
-        params[:amenities].inject("") { |old, new| old + AMENITIES[new].to_s + "," }
-        amenities =~ /^(.+),$/
-        amenities = $1
-      end
+      amenities = params[:amenities] ? params[:amenities].map { |amenity| old + AMENITIES[amenity] }.join(",") : nil
       params["minRate"] = params[:min_rate] if params[:min_rate]
       params["maxRate"] = params[:max_rate] if params[:max_rate]
-      params[:amenities] = amenities
+      params[:amenities] = amenities if amenities
       hotels = []
       parsed = parse_response(url(:list, params))
       handle_errors(parsed)
@@ -115,6 +111,7 @@ module Suitcase
       handle_errors(parsed)
       summary = parsed["hotelId"] ? parsed : parsed["HotelInformationResponse"]["HotelSummary"]
       parsed_info = { id: summary["hotelId"], name: summary["name"], address: summary["address1"], city: summary["city"], postal_code: summary["postalCode"], country_code: summary["countryCode"], rating: summary["hotelRating"], high_rate: summary["highRate"], low_rate: summary["lowRate"], latitude: summary["latitude"].to_f, longitude: summary["longitude"].to_f, province: summary["stateProvinceCode"], airport_code: summary["airportCode"], property_category: summary["propertyCategory"].to_i, proximity_distance: summary["proximityDistance"].to_s + summary["proximityUnit"].to_s }
+      parsed_info[:amenities] = parsed["HotelInformationResponse"]["PropertyAmenities"]["PropertyAmenity"].map { |x| Amenity.new(id: x["amenityId"], description: x["amenity"]) } if parsed["HotelInformationResponse"]
       parsed_info[:images] = images(parsed) if images(parsed)
       parsed_info
     end
@@ -125,9 +122,9 @@ module Suitcase
     #
     # Returns an Array of Suitcase::Images.
     def self.images(parsed)
-      return parsed["HotelInformationResponse"]["HotelImages"]["HotelImage"].map { |image_data| Suitcase::Image.new(image_data) } if parsed["HotelInformationResponse"] && parsed["HotelInformationResponse"]["HotelImages"] && parsed["HotelInformationResponse"]["HotelImages"]["HotelImage"]
-      return [Suitcase::Image.new("thumbnailURL" => "http://images.travelnow.com" + parsed["thumbNailUrl"])] unless parsed["thumbnailUrl"].nil? or parsed["thumbNailUrl"].empty?
-      return []
+      images = parsed["HotelInformationResponse"]["HotelImages"]["HotelImage"].map { |image_data| Suitcase::Image.new(image_data) } if parsed["HotelInformationResponse"] && parsed["HotelInformationResponse"]["HotelImages"] && parsed["HotelInformationResponse"]["HotelImages"]["HotelImage"]
+      images = [Suitcase::Image.new("thumbnailURL" => "http://images.travelnow.com" + parsed["thumbNailUrl"])] unless parsed["thumbNailUrl"].nil? or parsed["thumbNailUrl"].empty?
+      return images ? images : []
     end
 
     # Handle the errors from the response.
