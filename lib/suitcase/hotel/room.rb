@@ -45,12 +45,17 @@ module Suitcase
         params["room#{index}FirstName"] = room[:first_name] || params["firstName"] # defaults to the billing
         params["room#{index}LastName"] = room[:last_name] || params["lastName"] # person's name
         params["room#{index}BedTypeId"] = room[:bed_type].id
-        params["room#{index}SmokingPreference"] = room[:smoking_preference]
+        params["room#{index}SmokingPreference"] = room[:smoking_preference] or "E"
       end
       params["stateProvinceCode"] = info[:province]
-      params["countryCode"] = info[:country]
+     params["countryCode"] = info[:country]
       params["postalCode"] = info[:postal_code]
-      p Room.url(:res, params, true, true, true, true)
+      uri = Room.url :res, params, true, true, true
+      session = Patron::Session.new
+      session.base_url = "https://" + uri.host
+      res = session.post uri.request_uri, {}
+      parsed = JSON.parse res.body
+      Reservation.new(itinerary_id: parsed["HotelRoomReservationResponse"]["itineraryId"], confirmation_numbers: parsed["HotelRoomReservationResponse"]["confirmationNumbers"])
     end
 
     def chargeable_rate

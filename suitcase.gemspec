@@ -22,4 +22,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rake"
   s.add_development_dependency "factory_girl"
   s.add_runtime_dependency "json"
+  s.add_runtime_dependency "patron"
 end

@@ -1,3 +1,4 @@
+require 'patron'
 require 'json'
 require 'net/http'
 require 'date/format'
