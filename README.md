@@ -16,6 +16,7 @@ First, configure the library:
       Suitcase::Configuration.hotel_api_key = "..." # set the Hotel API key from developer.ean.com
       Suitcase::Configuration.cid = "..." # set the CID from developer.ean.com
       Suitcase::Configuration.cache = Hash.new # set the caching mechanism (see below)
+      Suitcase::Configuration.session_cache = Hash.new # set the session caching store (see below)
 
 Find nearby hotels:
 
@@ -25,7 +26,13 @@ Find nearby hotels:
 
 ### Caching
 
+#### Requests
+
 You can setup a cache to store all API requests that do not contain secure information (i.e. anything but booking requests). A cache needs to be able store deeply nested Hashes and have a method called [] to access them. An example of setting the cache is given above.
+
+#### Sessions
+
+You **must** also set up a cache to store user sessions. A session object simply stores the internal ID used by Expedia, the user agent, the IP address of the user, the user's locale, and the user's currency code. The store is configured similarly to the query store, and have the same requirements.
 
 Contributing
 ------------
