@@ -99,7 +99,7 @@ module Suitcase
       split(parsed).each do |hotel_data|
         hotels.push Hotel.new(parse_information(hotel_data))
       end
-      params[:results] ? hotels[0..params[:results]-1] : hotels
+      info[:results] ? hotels[0..params[:results]-1] : hotels
     end
 
     # Public: Parse the information returned by a search request
