@@ -84,7 +84,7 @@ module Suitcase
     #
     # Returns an Array of Hotels.
     def self.find_by_info(info)
-      params = info
+      params = info.dup
       params["numberOfResults"] = params[:results] ? params[:results] : 10
       params.delete(:results)
       params["destinationString"] = params[:location]
@@ -99,7 +99,7 @@ module Suitcase
       split(parsed).each do |hotel_data|
         hotels.push Hotel.new(parse_information(hotel_data))
       end
-      info[:results] ? hotels[0..params[:results]-1] : hotels
+      info[:results] ? hotels[0..(info[:results]-1)] : hotels
     end
 
     # Public: Parse the information returned by a search request
@@ -191,7 +191,7 @@ module Suitcase
         room_data[:hotel_id] = hotel_id
         room_data[:supplier_type] = supplier_type
         room_data[:rooms] = params[:rooms]
-        room_data[:bed_types] = [raw_data["BedTypes"]["BedType"]].flatten.map { |x| BedType.new(id: x["@id"], description: x["description"]) }
+        room_data[:bed_types] = [raw_data["BedTypes"]["BedType"]].flatten.map { |x| BedType.new(id: x["@id"], description: x["description"]) } if raw_data["BedTypes"] && raw_data["BedTypes"]["BedType"]
         Room.new(room_data)
       end
     end
