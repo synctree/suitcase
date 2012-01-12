@@ -23,8 +23,6 @@ describe Suitcase::Hotel do
   it { should respond_to :name }
   it { should respond_to :address }
   it { should respond_to :city }
-  it { should respond_to :min_rate }
-  it { should respond_to :max_rate }
   it { should respond_to :amenities }
   it { should respond_to :country_code }
   it { should respond_to :high_rate }
@@ -36,6 +34,10 @@ describe Suitcase::Hotel do
   it { should respond_to :images }
   it { should respond_to :thumbnail_url }
   it { should respond_to :nightly_rate_total }
+  it { should respond_to :property_description }
+  it { should respond_to :number_of_floors }
+  it { should respond_to :number_of_rooms }
+  it { should respond_to :tripadvisor_rating }
 
   it "#images should return an Array of Suitcase::Image's" do
     images = @hotel.images
