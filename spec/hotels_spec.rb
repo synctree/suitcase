@@ -37,6 +37,7 @@ describe Suitcase::Hotel do
   it { should respond_to :property_description }
   it { should respond_to :number_of_floors }
   it { should respond_to :number_of_rooms }
+  it { should respond_to :deep_link }
   it { should respond_to :tripadvisor_rating }
 
   it "#images should return an Array of Suitcase::Image's" do
