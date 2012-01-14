@@ -51,7 +51,9 @@ module Suitcase
     # Returns a single Hotel if an id is passed in, otherwise
     # an Array of Hotels.
     def self.find(info)
-      if info[:id]
+      if info[:ids]
+        info[:ids].map { |id| find_by_id(id) }
+      elsif info[:id]
         find_by_id(info[:id])
       else
         find_by_info(info)
