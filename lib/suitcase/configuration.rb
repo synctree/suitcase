@@ -27,17 +27,5 @@ module Suitcase
     def self.hotel_cid
       @@hotel_cid if defined? @@hotel_cid
     end
-
-    def self.session_cache=(store)
-      @@session_cache = Suitcase::SessionCache.new(store)
-    end
-    
-    def self.session_cache
-      return @@session_cache if session_cache?
-    end
-
-    def self.session_cache?
-      defined? @@session_cache
-    end
   end
 end
