@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Walter Nelson"]
   s.email       = ["walter.john.nelson@gmail.com"]
   s.homepage    = "http://github.com/thoughtfusion/suitcase"
-  s.summary     = %q{Locates available hotels, rental cars, and flights}
-  s.description = %q{Suitcase utilizes the EAN (Expedia.com) API for locating info about hotels, rental cars, and flights.}
+  s.summary     = %q{Locates available hotels with the Expedia API}
+  s.description = %q{Ruby library that utilizes the EAN (Expedia.com) API for locating available hotels (and maybe rental cars and flights someday, too).}
 
   s.rubyforge_project = "suitcase"
 
