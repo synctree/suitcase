@@ -27,7 +27,7 @@ Find nearby hotels:
 
 #### Requests
 
-You can setup a cache to store all API requests that do not contain secure information (i.e. anything but booking requests). A cache needs to be able store deeply nested Hashes and have a method called [] to access them. An example of setting the cache is given above.
+You can setup a cache to store all API requests that do not contain secure information (i.e. anything but booking requests). A cache needs to be able store deeply nested Hashes and have a method called [] to access them. An example of setting the cache is given above. Check the `examples/hash_adapter.rb` for a trivial example of the required methods. A Redis adapter should be coming soon.
 
 
 Contributing
