@@ -50,7 +50,7 @@ module Suitcase
       params["stateProvinceCode"] = info[:province]
       params["countryCode"] = info[:country]
       params["postalCode"] = info[:postal_code]
-      uri = Room.url :res, params, true, true, true
+      uri = Room.url :method => "res", :params => params, :include_key => true, :include_cid => true, :secure => true
       session = Patron::Session.new
       session.base_url = "https://" + uri.host
       res = session.post uri.request_uri, {}

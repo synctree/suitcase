@@ -1,10 +1,22 @@
 module Suitcase
   module Helpers
-    def url(method, params, include_key=true, include_cid=true, secure=false, as_form=false)
+    def url(builder)
+      builder[:include_key] ||= true
+      builder[:include_cid] ||= true
+      builder[:secure] ||= false
+      builder[:as_form] ||= false
+      builder[:session] ||= Suitcase::Session.new
+      method, params, include_key, include_cid = builder[:method], builder[:params], builder[:include_key], builder[:include_cid]
       params["apiKey"] = Configuration.hotel_api_key if include_key
       params["cid"] = (Configuration.hotel_cid ||= 55505) if include_cid
-      url = main_url(secure) + method.to_s + (as_form ? "" : "?")
-      url += params.map { |key, value| "#{key}=#{value}"}.join("&")
+      url = main_url(builder[:secure]) + method.to_s + (builder[:as_form] ? "" : "?")
+      session_info = {}
+      session_info["customerSessionId"] = builder[:session].id if builder[:session].id
+      session_info["customerIpAddress"] = builder[:session].ip_address if builder[:session].ip_address
+      session_info["locale"] = builder[:session].locale if builder[:session].locale
+      session_info["currencyCode"] = builder[:session].currency_code if builder[:session].currency_code
+      session_info["customerUserAgent"] = builder[:session].user_agent if builder[:session].user_agent
+      url += params.merge(session_info).map { |key, value| "#{key}=#{value}"}.join("&") unless builder[:as_form]
       URI.parse(URI.escape(url))
     end
 
@@ -22,6 +34,11 @@ module Suitcase
       else
         URI.parse main_url(false)
       end
+    end
+
+    def update_session(parsed, session)
+      session ||= Suitcase::Session.new
+      session.id = parsed[parsed.keys.first]["customerSessionId"] if parsed[parsed.keys.first]
     end
   end
 end
