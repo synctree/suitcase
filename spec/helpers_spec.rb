@@ -6,7 +6,7 @@ describe Suitcase::Helpers do
   end
 
   it "#url should return a URI with the correct base URL" do
-    returned = Dummy.url(:action, {})
+    returned = Dummy.url(:method => "action", :params => {})
     returned.should be_a(URI)
     returned.host.should match(/api.ean.com/)
   end

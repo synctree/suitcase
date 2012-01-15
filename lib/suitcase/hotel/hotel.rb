@@ -52,9 +52,9 @@ module Suitcase
     # an Array of Hotels.
     def self.find(info)
       if info[:ids]
-        info[:ids].map { |id| find_by_id(id) }
+        info[:ids].map { |id| find_by_id(id, info[:session]) }
       elsif info[:id]
-        find_by_id(info[:id])
+        find_by_id(info[:id], info[:session])
       else
         find_by_info(info)
       end
@@ -66,16 +66,17 @@ module Suitcase
     #      id.
     #
     # Returns a single Hotel object.
-    def self.find_by_id(id)
+    def self.find_by_id(id, session)
       params = { hotelId: id }
       if Configuration.cache? and Configuration.cache.cached?(:info, params)
         raw = Configuration.cache.get_query(:info, params)
       else
-        url = url(:info, params)
+        url = url(:method => "info", :params => params, :session => session)
         raw = parse_response(url)
         Configuration.cache.save_query(:info, params, raw) if Configuration.cache?
       end
       hotel_data = parse_information(raw)
+      update_session(raw, session)
       Hotel.new(hotel_data)
     end
 
@@ -96,8 +97,9 @@ module Suitcase
       params["maxRate"] = params[:max_rate] if params[:max_rate]
       params[:amenities] = amenities if amenities
       hotels = []
-      parsed = parse_response(url(:list, params))
+      parsed = parse_response(url(:method => "list", :params => params, :session => info[:session]))
       handle_errors(parsed)
+      update_session(parsed, info[:session])
       split(parsed).each do |hotel_data|
         hotels.push Hotel.new(parse_information(hotel_data))
       end
@@ -172,11 +174,12 @@ module Suitcase
       params.delete(:arrival)
       params.delete(:departure)
       params["hotelId"] = @id
-      parsed = Hotel.parse_response(Hotel.url(:avail, params))
+      parsed = Hotel.parse_response(Hotel.url(:method => "avail", :params => params, :session => info[:session]))
       Hotel.handle_errors(parsed)
       hotel_id = parsed["HotelRoomAvailabilityResponse"]["hotelId"]
       rate_key = parsed["HotelRoomAvailabilityResponse"]["rateKey"]
       supplier_type = parsed["HotelRoomAvailabilityResponse"]["HotelRoomResponse"][0]["supplierType"]
+      Hotel.update_session(parsed, info[:session])
       rooms = parsed["HotelRoomAvailabilityResponse"]["HotelRoomResponse"].map do |raw_data|
         room_data = {}
         room_data[:rate_code] = raw_data["rateCode"]
