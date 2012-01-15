@@ -22,14 +22,14 @@ module Suitcase
     extend Suitcase::Helpers
 
     AMENITIES = { pool: 1,
-                  fitness_center: 2,
-                  restaurant: 3,
-                  children_activities: 4,
-                  breakfast: 5,
-                  meeting_facilities: 6,
-                  pets: 7,
-                  wheelchair_accessible: 8,
-                  kitchen: 9 }
+      fitness_center: 2,
+      restaurant: 3,
+      children_activities: 4,
+      breakfast: 5,
+      meeting_facilities: 6,
+      pets: 7,
+      wheelchair_accessible: 8,
+      kitchen: 9 }
 
     attr_accessor :id, :name, :address, :city, :province, :amenities, :country_code, :high_rate, :low_rate, :longitude, :latitude, :rating, :postal_code, :supplier_type, :images, :nightly_rate_total, :airport_code, :property_category, :confidence_rating, :amenity_mask, :location_description, :short_description, :hotel_in_destination, :proximity_distance, :property_description, :number_of_floors, :number_of_rooms, :deep_link, :tripadvisor_rating
 
@@ -52,7 +52,7 @@ module Suitcase
     # an Array of Hotels.
     def self.find(info)
       if info[:ids]
-        info[:ids].map { |id| find_by_id(id, info[:session]) }
+        find_by_ids(info[:ids], info[:session])
       elsif info[:id]
         find_by_id(info[:id], info[:session])
       else
@@ -73,11 +73,30 @@ module Suitcase
       else
         url = url(:method => "info", :params => params, :session => session)
         raw = parse_response(url)
+        handle_errors(raw)
         Configuration.cache.save_query(:info, params, raw) if Configuration.cache?
       end
       hotel_data = parse_information(raw)
       update_session(raw, session)
       Hotel.new(hotel_data)
+    end
+
+    def self.find_by_ids(ids, session)
+      params = { hotelIdList: ids.join(",") }
+      if Configuration.cache? and Configuration.cache.cached?(:list, params)
+        raw = Configuration.cache.get_query(:list, params)
+      else
+        url = url(:method => "list", :params => params, :session => session)
+        raw = parse_response(url)
+        handle_errors(raw)
+        Configuration.cache.save_query(:list, params, raw) if Configuration.cache?
+      end
+      hotels = []
+      split(raw).each do |hotel_data|
+        hotels.push Hotel.new(parse_information(hotel_data))
+      end
+      update_session(raw, session)
+      hotels
     end
 
     # Public: Find a hotel by info other than it's id.
@@ -92,7 +111,7 @@ module Suitcase
       params.delete(:results)
       params["destinationString"] = params[:location]
       params.delete(:location)
-      amenities = params[:amenities] ? params[:amenities].map { |amenity| old + AMENITIES[amenity] }.join(",") : nil
+      amenities = params[:amenities] ? params[:amenities].map { |amenity| AMENITIES[amenity] }.join(",") : nil
       params["minRate"] = params[:min_rate] if params[:min_rate]
       params["maxRate"] = params[:max_rate] if params[:max_rate]
       params[:amenities] = amenities if amenities
@@ -150,7 +169,7 @@ module Suitcase
         message = info["HotelInformationResponse"]["EanWsError"]["presentationMessage"]
       end
       raise EANException.new(message) if message
-   end
+    end
 
     def self.split(parsed)
       hotels = parsed["HotelListResponse"]["HotelList"]
