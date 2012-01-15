@@ -1,7 +1,7 @@
 Suitcase
 ========
 
-Suitcase is a Ruby library that utilizes the EAN (Expedia.com) API for locating available hotels, rental cars, and flights.
+Ruby library that utilizes the EAN (Expedia.com) API for locating available hotels (and maybe rental cars and flights someday, too).
 
 Installation
 ------------
