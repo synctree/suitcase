@@ -1,12 +1,16 @@
 module Suitcase
   class Cache
+    attr_accessor :store
+
     def initialize(store)
       @store = store
     end
 
     def save_query(action, params, response)
-      params.delete("apiKey")
-      params.delete("cid")
+      %w(apiKey cid customerSessionId customerIpAddress locale customerUserAgent).each do |param|
+        params.delete(param)
+      end
+      params.delete("currencyCode") unless action == :paymentInfo
       @store[action] ||= {}
       @store[action][params] = response
     end

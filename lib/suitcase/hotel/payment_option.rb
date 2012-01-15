@@ -9,8 +9,13 @@ module Suitcase
     end
 
     def self.find(info)
-      currency_code = info[:currency_code]
-      types_raw = parse_response(url(:method => "paymentInfo", :params => { "currencyCode" => currency_code }, :session => info[:session]))
+      params = { "currencyCode" => info[:currency_code] }
+      if Configuration.cache? and Configuration.cache.cached?(:paymentInfo, params)
+        types_raw = Configuration.cache.get_query(:paymentInfo, params)
+      else
+        types_raw = parse_response(url(:method => "paymentInfo", :params => params, :session => info[:session]))
+        Configuration.cache.save_query(:paymentInfo, params, types_raw) if Configuration.cache?      
+      end
       options = []
       types_raw["HotelPaymentResponse"].each do |raw|
         types = raw[0] != "PaymentType" ? [] : raw[1]

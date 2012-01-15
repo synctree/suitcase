@@ -97,12 +97,17 @@ module Suitcase
       params["maxRate"] = params[:max_rate] if params[:max_rate]
       params[:amenities] = amenities if amenities
       hotels = []
-      parsed = parse_response(url(:method => "list", :params => params, :session => info[:session]))
-      handle_errors(parsed)
-      update_session(parsed, info[:session])
+      if Configuration.cache? and Configuration.cache.cached?(:list, params)
+        parsed = Configuration.cache.get_query(:list, params)
+      else
+        parsed = parse_response(url(:method => "list", :params => params, :session => info[:session]))
+        handle_errors(parsed)
+        Configuration.cache.save_query(:list, params, parsed) if Configuration.cache?
+      end
       split(parsed).each do |hotel_data|
         hotels.push Hotel.new(parse_information(hotel_data))
       end
+      update_session(parsed, info[:session])
       info[:results] ? hotels[0..(info[:results]-1)] : hotels
     end
 
@@ -174,8 +179,13 @@ module Suitcase
       params.delete(:arrival)
       params.delete(:departure)
       params["hotelId"] = @id
-      parsed = Hotel.parse_response(Hotel.url(:method => "avail", :params => params, :session => info[:session]))
-      Hotel.handle_errors(parsed)
+      if Configuration.cache? and Configuration.cache.cached?(:avail, params)
+        parsed = Configuration.cache.get_query(:avail, params)
+      else
+        parsed = Hotel.parse_response(Hotel.url(:method => "avail", :params => params, :session => info[:session]))
+        Hotel.handle_errors(parsed)
+        Configuration.cache.save_query(:avail, params, parsed) if Configuration.cache?
+      end
       hotel_id = parsed["HotelRoomAvailabilityResponse"]["hotelId"]
       rate_key = parsed["HotelRoomAvailabilityResponse"]["rateKey"]
       supplier_type = parsed["HotelRoomAvailabilityResponse"]["HotelRoomResponse"][0]["supplierType"]
