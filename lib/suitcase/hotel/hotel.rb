@@ -161,12 +161,9 @@ module Suitcase
 
     # Handle the errors from the response.
     def self.handle_errors(info)
-      if info["HotelRoomAvailabilityResponse"] && info["HotelRoomAvailabilityResponse"]["EanWsError"]
-        message = info["HotelRoomAvailabilityResponse"]["EanWsError"]["presentationMessage"]
-      elsif info["HotelListResponse"] && info["HotelListResponse"]["EanWsError"]
-        message = info["HotelListResponse"]["EanWsError"]["presentationMessage"]
-      elsif info["HotelInformationResponse"] && info["HotelInformationResponse"]["EanWsError"]
-        message = info["HotelInformationResponse"]["EanWsError"]["presentationMessage"]
+      key = info.keys.first
+      if info[key] && info[key]["EanWsError"]
+        message = info[key]["EanWsError"]["presentationMessage"]
       end
       raise EANException.new(message) if message
     end
