@@ -92,7 +92,7 @@ module Suitcase
         Configuration.cache.save_query(:list, params, raw) if Configuration.cache?
       end
       hotels = []
-      split(raw).each do |hotel_data|
+      [split(raw)].flatten.each do |hotel_data|
         hotels.push Hotel.new(parse_information(hotel_data))
       end
       update_session(raw, session)
@@ -123,7 +123,7 @@ module Suitcase
         handle_errors(parsed)
         Configuration.cache.save_query(:list, params, parsed) if Configuration.cache?
       end
-      split(parsed).each do |hotel_data|
+      [split(parsed)].flatten.each do |hotel_data|
         hotels.push Hotel.new(parse_information(hotel_data))
       end
       update_session(parsed, info[:session])

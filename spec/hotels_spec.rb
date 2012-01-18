@@ -22,6 +22,13 @@ describe Suitcase::Hotel do
       hotels.first.should be_a(Suitcase::Hotel)
       hotels.count.should eq(3)
     end
+
+    it "should locate an Array of Hotels if an ids argument is passed with a single id" do
+      hotels = Suitcase::Hotel.find(:ids => [123904])
+      hotels.should be_an(Array)
+      hotels.first.should be_a(Suitcase::Hotel)
+      hotels.count.should eq(1)
+    end
   end
 
   subject { @hotel }
