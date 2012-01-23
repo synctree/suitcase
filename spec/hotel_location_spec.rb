@@ -15,7 +15,7 @@ describe Suitcase::Hotel::Location do
 
   subject { @location }
 
-  [:destination_id, :country, :country_code, :city, :type, :active].each do |attribute|
+  [:destination_id, :province, :country, :country_code, :city, :type, :active].each do |attribute|
     it { should respond_to attribute }
   end
 end

@@ -3,7 +3,7 @@ module Suitcase
     class Location
       extend Suitcase::Helpers
 
-      attr_accessor :destination_id, :type, :active, :city, :country, :country_code
+      attr_accessor :destination_id, :type, :active, :city, :province, :country, :country_code
 
       def initialize(info)
         info.each do |k, v|
@@ -30,7 +30,7 @@ module Suitcase
 
         def parse(raw)
           [raw["LocationInfoResponse"]["LocationInfos"]["LocationInfo"]].flatten.map do |raw|
-            Location.new(:destination_id => raw["destinationId"], :type => raw["type"], :city => raw["city"], :active => raw["active"], :code => raw["code"], :country => raw["country"], :country_code => raw["countryCode"]) 
+            Location.new(:province => raw["stateProvinceCode"], :destination_id => raw["destinationId"], :type => raw["type"], :city => raw["city"], :active => raw["active"], :code => raw["code"], :country => raw["country"], :country_code => raw["countryCode"]) 
           end
         end
 
