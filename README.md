@@ -14,7 +14,7 @@ Usage
 First, configure the library:
 
       Suitcase::Configuration.hotel_api_key = "..." # set the Hotel API key from developer.ean.com
-      Suitcase::Configuration.cid = "..." # set the CID from developer.ean.com
+      Suitcase::Configuration.hotel_cid = "..." # set the CID from developer.ean.com
       Suitcase::Configuration.cache = Hash.new # set the caching mechanism (see below)
 
 Find nearby hotels:
