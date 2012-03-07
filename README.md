@@ -37,4 +37,6 @@ Contributing
 
 To set up for the specs, you need to edit the file `spec/keys.rb` with the proper information. Currently, testing reservations is unsupported. You can run the specs with the default rake task by running `rake` from the command line.
 
+### Pull requests/issues
+
 Please submit any useful pull requests through GitHub. If you find any bugs, please report them with the issue tracker! Thanks.
