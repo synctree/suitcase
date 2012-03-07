@@ -6,7 +6,7 @@ Ruby library that utilizes the EAN (Expedia.com) API for locating available hote
 Installation
 ------------
 
-Install the gem: `gem install suitcase`. Or, to get the latest bleeding edge add this to your project's Gemfile: `gem 'suitcase', :git => "http://github.com/thoughtfusion/suitcase.git"`.
+Suitcase is a Ruby gem, meaning it can be installed via a simple `gem install suitcase`. It can also be added to a project's `Gemfile` with the following line: `gem 'suitcase'` (or `gem 'suitcase', git: "git://github.com/thoughtfusion/suitcase.git", branch: "development"` for the latest updates).
 
 Usage
 -----
