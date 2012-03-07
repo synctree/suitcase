@@ -1,4 +1,8 @@
 module Suitcase
+  def self.configure(&block)
+    block.call(Configuration)
+  end
+
   class Configuration
     def self.cache=(store)
       @@cache = Suitcase::Cache.new(store)
