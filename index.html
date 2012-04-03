@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Suitcase by thoughtfusion</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Suitcase</h1>
+<p>Ruby gem for accessing the Expedia.com Hotels API</p>
+        <p class="view"><a href="https://github.com/thoughtfusion/suitcase">View the Project on GitHub <small>thoughtfusion/suitcase</small></a></p>
+        <ul>
+          <li><a href="https://github.com/thoughtfusion/suitcase/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/thoughtfusion/suitcase/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/thoughtfusion/suitcase">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h2>Getting started</h2>
+
+<p>Please note, suitcase only runs on ruby &gt;= 1.9.</p>
+
+<pre lang="shell"><code>$ gem install suitcase
+</code></pre>
+
+<p>In your Gemfile:</p>
+
+<div class="highlight">
+<pre><span class="n">gem</span> <span class="s1">'suitcase'</span>
+</pre>
+</div>
+
+
+<h2>Basics</h2>
+
+<h3>Configuration</h3>
+
+<div class="highlight">
+<pre><span class="no">Suitcase</span><span class="o">.</span><span class="n">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+  <span class="n">config</span><span class="o">.</span><span class="n">hotel_api_key</span> <span class="o">=</span> <span class="s2">"your_api_key_here"</span>
+  <span class="n">config</span><span class="o">.</span><span class="n">hotel_cid</span> <span class="o">=</span> <span class="s2">"55505"</span>
+<span class="k">end</span>
+</pre>
+</div>
+
+
+<h3>Usage</h3>
+
+<div class="highlight">
+<pre><span class="n">hotel</span> <span class="o">=</span> <span class="no">Suitcase</span><span class="o">::</span><span class="no">Hotel</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="nb">id</span><span class="p">:</span> <span class="mi">123904</span><span class="p">)</span>
+</pre>
+</div>
+
+
+<p>Here, <code>hotel</code> is a <code>Suitcase::Hotel</code> object the has the schema defined <a href="https://github.com/thoughtfusion/suitcase/wiki/User-flow">here</a>.</p>
+
+<p>Also, consider checking out the <a href="https://github.com/thoughtfusion/suitcase/wiki/User-flow">User flow</a> page on the wiki for information on using the gem in a real-world setting.</p>
+
+<h1>Contributing</h1>
+
+<p>If you make any changes to suitcase, please consider creating a pull request to the main repository if the request meets the following requirements:</p>
+
+<ol>
+<li>Well-tested (I use RSpec, may be moving over to minitest soon)</li>
+<li>Well-styled as much as possible (<a href="https://github.com/styleguide/ruby">GitHub's Ruby Styleguide</a>)</li>
+<li>Compliant (it should feel like the already existing code).</li>
+</ol>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/thoughtfusion">thoughtfusion</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+  </body>
+</html>
