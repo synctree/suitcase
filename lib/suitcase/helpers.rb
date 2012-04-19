@@ -9,6 +9,9 @@ module Suitcase
       method, params, include_key, include_cid = builder[:method], builder[:params], builder[:include_key], builder[:include_cid]
       params["apiKey"] = Configuration.hotel_api_key if include_key
       params["cid"] = (Configuration.hotel_cid ||= 55505) if include_cid
+      if Configuration.use_signature_auth?
+        params["sig"] = generate_signature
+      end
       url = main_url(builder[:secure]) + method.to_s + (builder[:as_form] ? "" : "?")
       session_info = {}
       session_info["customerSessionId"] = builder[:session].id if builder[:session].id
@@ -39,6 +42,12 @@ module Suitcase
     def update_session(parsed, session)
       session ||= Suitcase::Session.new
       session.id = parsed[parsed.keys.first]["customerSessionId"] if parsed[parsed.keys.first]
+    end
+
+    def generate_signature
+      Digest::MD5.hexdigest(Configuration.hotel_api_key + 
+                            Configuration.hotel_shared_secret + 
+                            Time.now.to_i.to_s)
     end
   end
 end
