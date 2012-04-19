@@ -31,5 +31,21 @@ module Suitcase
     def self.hotel_cid
       @@hotel_cid if defined? @@hotel_cid
     end
+
+    def self.hotel_shared_secret=(secret)
+      @@hotel_shared_secret = secret
+    end
+
+    def self.hotel_shared_secret
+      @@hotel_shared_secret if defined? @@hotel_shared_secret
+    end
+
+    def self.use_signature_auth=(choice)
+      @@use_signature_authentication = choice
+    end
+
+    def self.use_signature_auth?
+      defined? @@use_signature_auth
+    end
   end
 end
