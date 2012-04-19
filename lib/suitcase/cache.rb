@@ -12,7 +12,7 @@ module Suitcase
       end
       params.delete("currencyCode") unless action == :paymentInfo
       @store[action] ||= {}
-      @store[action][params] = response
+      @store[action] = @store[action].merge(params => response)
     end
 
     def get_query(action, params)
