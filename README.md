@@ -17,11 +17,23 @@ First, configure the library:
     Suitcase::Configuration.hotel_cid = "..." # set the CID from developer.ean.com
     Suitcase::Configuration.cache = Hash.new # set the caching mechanism (see below)
 
-Find nearby hotels:
-
-    hotels = Suitcase::Hotel.find(:location => 'Boston, MA', :results => 10) # Returns 10 closest hotels to Boston, MA
-    room = hotels.first.rooms(arrival: "2/19/2012", departure: "2/26/2012", rooms: [{ children: 1, ages: [8] }, { children: 1, ages: [12] }] # Check the availability of two rooms at that hotel with 1 child in each room of ages 8 and 9
-    room.reserve!(info) # See wiki page "User flow" for options
+Full example:
+```ruby
+# Find Hotels in Boston
+hotels = Suitcase::Hotel.find(location: "Boston, MA")
+# Pick a specific hotel
+hotel = hotels[1]
+# Get the rooms for a specific date
+rooms = hotel.rooms(arrival: "7/1/2013", departure: "7/8/2013", [{ adults: 1, children_ages: [2, 3] }, { adults: 1, children_ages: [4] }])
+# Find a payment option that is compatible with USD
+payment_option = Suitcase::PaymentOption.find(currency_code: "USD")
+# Pick a specific room
+room = rooms.first
+# Set the bed type on each of the rooms to be ordered
+room.rooms.each { |r| r[:bed_type] = room.bed_types.first }
+# Reserve the room, with the reservation_hash described on 'User flow'
+room.reserve!(reservation_hash)
+```
 
 ### Caching
 
