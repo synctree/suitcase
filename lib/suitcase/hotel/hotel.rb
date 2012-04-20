@@ -145,6 +145,7 @@ module Suitcase
       parsed_info[:location_description] = summary["locationDescription"]
       parsed_info[:number_of_rooms] = parsed["HotelInformationResponse"]["HotelDetails"]["numberOfRooms"] if parsed["HotelInformationResponse"]
       parsed_info[:number_of_floors] = parsed["HotelInformationResponse"]["HotelDetails"]["numberOfFloors"] if parsed["HotelInformationResponse"]
+      parsed_info[:short_description] = summary["shortDescription"]
       parsed_info
     end
 
