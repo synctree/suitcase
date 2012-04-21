@@ -4,6 +4,7 @@ require 'net/http'
 require 'digest/md5'
 require 'date/format'
 require 'time'
+
 require 'suitcase/session'
 require 'suitcase/core_ext/string'
 require 'suitcase/version'

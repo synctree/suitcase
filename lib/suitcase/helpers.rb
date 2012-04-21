@@ -1,25 +1,29 @@
 module Suitcase
   module Helpers
+    URL_DEFAULTS = {
+      include_key: true,
+      include_cid: true,
+      secure: false,
+      as_form: false,
+      session: Session.new
+    }
+
+    def parameterize(hash)
+      hash.map { |key, value| "#{key}=#{value}" }.join "&"
+    end
+
     def url(builder)
-      builder[:include_key] ||= true
-      builder[:include_cid] ||= true
-      builder[:secure] ||= false
-      builder[:as_form] ||= false
-      builder[:session] ||= Suitcase::Session.new
-      method, params, include_key, include_cid = builder[:method], builder[:params], builder[:include_key], builder[:include_cid]
-      params["apiKey"] = Configuration.hotel_api_key if include_key
-      params["cid"] = (Configuration.hotel_cid ||= 55505) if include_cid
-      if Configuration.use_signature_auth?
-        params["sig"] = generate_signature
-      end
+      builder = URL_DEFAULTS.merge(builder)
+      builder[:session] ||= URL_DEFAULTS[:session]
+      method, params = builder[:method], builder[:params]
+      params["apiKey"] = Configuration.hotel_api_key if builder[:include_key]
+      params["cid"] = (Configuration.hotel_cid ||= 55505) if builder[:include_cid]
+      params["sig"] = generate_signature if Configuration.use_signature_auth?
+      
       url = main_url(builder[:secure]) + method.to_s + (builder[:as_form] ? "" : "?")
-      session_info = {}
-      session_info["customerSessionId"] = builder[:session].id if builder[:session].id
-      session_info["customerIpAddress"] = builder[:session].ip_address if builder[:session].ip_address
-      session_info["locale"] = builder[:session].locale if builder[:session].locale
-      session_info["currencyCode"] = builder[:session].currency_code if builder[:session].currency_code
-      session_info["customerUserAgent"] = builder[:session].user_agent if builder[:session].user_agent
-      url += params.merge(session_info).map { |key, value| "#{key}=#{value}"}.join("&") unless builder[:as_form]
+
+      params.merge!(build_original_session(builder[:session]))
+      url += parameterize(params) unless builder[:as_form]
       URI.parse(URI.escape(url))
     end
 
@@ -32,11 +36,17 @@ module Suitcase
     end
 
     def base_url(info)
-      if info[:booking]
-        URI.parse main_url(true)
-      else
-        URI.parse main_url(false)
-      end
+      main_url(info[:booking])
+    end
+
+    def build_original_session(session)
+      session_info = {}
+      session_info["customerSessionId"] = session.id if session.id
+      session_info["customerIpAddress"] = session.ip_address if session.ip_address
+      session_info["locale"] = session.locale if session.locale
+      session_info["currencyCode"] = session.currency_code if session.currency_code
+      session_info["customerUserAgent"] = session.user_agent if session.user_agent
+      session_info
     end
 
     def update_session(parsed, session)
