@@ -47,5 +47,25 @@ module Suitcase
     def self.use_signature_auth?
       defined? @@use_signature_auth
     end
+
+    def self.hotwire_api_key=(api_key)
+      @@hotwire_api_key = api_key
+    end
+
+    def self.hotwire_api_key
+      @@hotwire_api_key if defined? @@hotwire_api_key
+    end
+
+    def self.hotwire_linkshare_id=(id)
+      @@hotwire_linkshare_id = id
+    end
+
+    def self.hotwire_linkshare_id
+      @@hotwire_linkshare_id if use_hotwire_lnikshare_id?
+    end
+
+    def self.use_hotwire_linkshare_id?
+      defined? @@hotwire_linkshare_id
+    end
   end
 end
