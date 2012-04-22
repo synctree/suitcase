@@ -24,7 +24,7 @@ hotels = Suitcase::Hotel.find(location: "Boston, MA")
 # Pick a specific hotel
 hotel = hotels[1]
 # Get the rooms for a specific date
-rooms = hotel.rooms(arrival: "7/1/2013", departure: "7/8/2013", [{ adults: 1, children_ages: [2, 3] }, { adults: 1, children_ages: [4] }])
+rooms = hotel.rooms(arrival: "7/1/2013", departure: "7/8/2013", rooms: [{ adults: 1, children_ages: [2, 3] }, { adults: 1, children_ages: [4] }])
 # Find a payment option that is compatible with USD
 payment_option = Suitcase::PaymentOption.find(currency_code: "USD")
 # Pick a specific room
