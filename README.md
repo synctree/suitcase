@@ -15,9 +15,13 @@ Usage
 
 First, configure the library:
 
-    Suitcase::Configuration.hotel_api_key = "..." # set the Hotel API key from developer.ean.com
-    Suitcase::Configuration.hotel_cid = "..." # set the CID from developer.ean.com
-    Suitcase::Configuration.cache = Hash.new # set the caching mechanism (see below)
+```ruby
+Suitcase.configure do |config|
+  config.hotel_api_key = "..." # set the Hotel API key from developer.ean.com
+  config.hotel_cid = "..." # set the CID from developer.ean.com
+  config.cache = Hash.new # set the caching mechanism (see below)
+end
+```
 
 Full example:
 ```ruby
@@ -47,8 +51,11 @@ You can setup a cache to store all API requests that do not contain secure infor
 Add the required configuration options:
 
 ```ruby
-Suitcase::Configuration.hotwire_api_key = "..." # set the Hotwire API key
-Suitcase::Configuration.hotwire_linkshare_id = "..." # optionally set the Hotwire linkshare ID
+# Or add to your existing configure block
+Suitcase.configure do |config|
+  config.hotwire_api_key = "..." # set the Hotwire API key
+  config.hotwire_linkshare_id = "..." # optionally set the Hotwire linkshare ID
+end
 ```
 
 Example usage:
