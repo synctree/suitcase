@@ -11,6 +11,8 @@ Suitcase is a Ruby gem, meaning it can be installed via a simple `gem install su
 Usage
 -----
 
+### Hotels
+
 First, configure the library:
 
     Suitcase::Configuration.hotel_api_key = "..." # set the Hotel API key from developer.ean.com
@@ -35,12 +37,27 @@ room.rooms.each { |r| r[:bed_type] = room.bed_types.first }
 room.reserve!(reservation_hash)
 ```
 
-### Caching
-
-#### Requests
+#### Caching requests
 
 You can setup a cache to store all API requests that do not contain secure information (i.e. anything but booking requests). A cache needs to be able store deeply nested Hashes and have a method called [] to access them. An example of setting the cache is given above. Check the `examples/hash_adapter.rb` for a trivial example of the required methods. A Redis adapter should be coming soon.
 
+
+### Car rentals
+
+Add the required configuration options:
+
+```ruby
+Suitcase::Configuration.hotwire_api_key = "..." # set the Hotwire API key
+Suitcase::Configuration.hotwire_linkshare_id = "..." # optionally set the Hotwire linkshare ID
+```
+
+Example usage:
+
+```ruby
+# Find all rental cars from the specified dates/times at LAX
+rentals = Suitcase::CarRental.find(destination: "LAX", start_date: "7/14/2012", end_date: "7/21/2012", pickup_time: "6:30", dropoff_time: "11:30")
+# => [#<Suitcase::CarRental ...>, ...]
+```
 
 Contributing
 ------------
