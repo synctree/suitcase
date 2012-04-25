@@ -43,7 +43,7 @@ room.reserve!(reservation_hash)
 
 #### Caching requests
 
-You can setup a cache to store all API requests that do not contain secure information (i.e. anything but booking requests). A cache needs to be able store deeply nested Hashes and have a method called [] to access them. An example of setting the cache is given above. Check the `examples/hash_adapter.rb` for a trivial example of the required methods. A Redis adapter should be coming soon.
+You can setup a cache to store all API requests that do not contain secure information (i.e. anything but booking requests). A cache needs to be able store deeply nested Hashes and have a method called #[] to access them. An example of setting the cache is given above. Check the `examples/hash_adapter.rb` for a trivial example of the required methods. A Redis adapter is also in the examples directory.
 
 
 ### Car rentals
@@ -65,6 +65,8 @@ Example usage:
 rentals = Suitcase::CarRental.find(destination: "LAX", start_date: "7/14/2012", end_date: "7/21/2012", pickup_time: "6:30", dropoff_time: "11:30")
 # => [#<Suitcase::CarRental ...>, ...]
 ```
+
+Caching is not recommended for car rentals, because they all change so quickly.
 
 Contributing
 ------------
