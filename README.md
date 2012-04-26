@@ -77,4 +77,4 @@ To set up for the specs, you need to edit the file `spec/keys.rb` with the prope
 
 ### Pull requests/issues
 
-Please submit any useful pull requests through GitHub. If you find any bugs, please report them with the issue tracker! Thanks.
+Please submit any useful pull requests through GitHub, preferably to the `develop` branch in the repo. If you find any bugs, please report them with the issue tracker! Thanks.
