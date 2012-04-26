@@ -30,8 +30,8 @@ module Suitcase
       pets: 7,
       wheelchair_accessible: 8,
       kitchen: 9 }
-
-    attr_accessor :id, :name, :address, :city, :province, :amenities, :country_code, :high_rate, :low_rate, :longitude, :latitude, :rating, :postal_code, :supplier_type, :images, :nightly_rate_total, :airport_code, :property_category, :confidence_rating, :amenity_mask, :location_description, :short_description, :hotel_in_destination, :proximity_distance, :property_description, :number_of_floors, :number_of_rooms, :deep_link, :tripadvisor_rating
+    
+    attr_accessor :id, :name, :address, :city, :province, :amenities, :masked_amenities, :country_code, :high_rate, :low_rate, :longitude, :latitude, :rating, :postal_code, :supplier_type, :images, :nightly_rate_total, :airport_code, :property_category, :confidence_rating, :amenity_mask, :location_description, :short_description, :hotel_in_destination, :proximity_distance, :property_description, :number_of_floors, :number_of_rooms, :deep_link, :tripadvisor_rating
 
     # Public: Initialize a new hotel
     #
@@ -111,10 +111,14 @@ module Suitcase
       params.delete(:results)
       params["destinationString"] = params[:location]
       params.delete(:location)
-      amenities = params[:amenities] ? params[:amenities].map { |amenity| AMENITIES[amenity] }.join(",") : nil
+
+      amenities = params[:amenities] ? params[:amenities].map {|amenity| 
+        AMENITIES[amenity] 
+      }.join(",") : nil
+      params[:amenities] = amenities if amenities
+
       params["minRate"] = params[:min_rate] if params[:min_rate]
       params["maxRate"] = params[:max_rate] if params[:max_rate]
-      params[:amenities] = amenities if amenities
       hotels = []
       if Configuration.cache? and Configuration.cache.cached?(:list, params)
         parsed = Configuration.cache.get_query(:list, params)
@@ -146,6 +150,8 @@ module Suitcase
       parsed_info[:number_of_rooms] = parsed["HotelInformationResponse"]["HotelDetails"]["numberOfRooms"] if parsed["HotelInformationResponse"]
       parsed_info[:number_of_floors] = parsed["HotelInformationResponse"]["HotelDetails"]["numberOfFloors"] if parsed["HotelInformationResponse"]
       parsed_info[:short_description] = summary["shortDescription"]
+      parsed_info[:amenity_mask] = summary["amenityMask"]
+      parsed_info[:masked_amenities] = Amenity.parse_mask(parsed_info[:amenity_mask])
       parsed_info
     end
 
