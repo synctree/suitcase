@@ -38,6 +38,7 @@ describe Suitcase::Hotel do
   it { should respond_to :address }
   it { should respond_to :city }
   it { should respond_to :amenities }
+  it { should respond_to :masked_amenities }
   it { should respond_to :country_code }
   it { should respond_to :high_rate }
   it { should respond_to :low_rate }
