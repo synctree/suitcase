@@ -52,6 +52,7 @@ module Suitcase
       params["postalCode"] = info[:postal_code]
       uri = Room.url :method => "res", :params => params, :include_key => true, :include_cid => true, :secure => true
       session = Patron::Session.new
+      session.timeout = 30000
       session.base_url = "https://" + uri.host
       res = session.post uri.request_uri, {}
       parsed = JSON.parse res.body
