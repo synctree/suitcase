@@ -1,7 +1,7 @@
 Suitcase
 ========
 
-Ruby library that utilizes the EAN (Expedia.com) API for locating available hotels (and maybe rental cars and flights someday, too).
+Ruby library that utilizes the EAN (Expedia.com) API for locating available hotels through there version 3 API. It also uses the Hotwire API to search for rental cars.
 
 Installation
 ------------
