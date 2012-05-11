@@ -34,7 +34,7 @@ describe Suitcase::Hotel do
 
     it "returns an Array with a single Hotel if an Array with a single ID is passed in" do
       hotels = Suitcase::Hotel.find(ids: [123904])
-      hotels.count.must_equal 1
+      hotels.count.must_equal(1)
       hotels.first.must_be_kind_of(Suitcase::Hotel)
     end
   end
@@ -43,7 +43,7 @@ describe Suitcase::Hotel do
     it "correctly gets the URLs of the images" do
       images = @hotel.images
       images.must_be_kind_of(Array)
-      lambda { images.map { |image| URI.parse(image.url) } }
+      images.map { |image| URI.parse(image.url) }
     end
   end
 
