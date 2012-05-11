@@ -31,7 +31,15 @@ module Suitcase
       wheelchair_accessible: 8,
       kitchen: 9 }
     
-    attr_accessor :id, :name, :address, :city, :province, :amenities, :masked_amenities, :country_code, :high_rate, :low_rate, :longitude, :latitude, :rating, :postal_code, :supplier_type, :images, :nightly_rate_total, :airport_code, :property_category, :confidence_rating, :amenity_mask, :location_description, :short_description, :hotel_in_destination, :proximity_distance, :property_description, :number_of_floors, :number_of_rooms, :deep_link, :tripadvisor_rating
+    attr_accessor :id, :name, :address, :city, :province, :amenities,
+                  :masked_amenities, :country_code, :high_rate, :low_rate,
+                  :longitude, :latitude, :rating, :postal_code, :supplier_type,
+                  :images, :nightly_rate_total, :airport_code,
+                  :property_category, :confidence_rating, :amenity_mask,
+                  :location_description, :short_description,
+                  :hotel_in_destination, :proximity_distance,
+                  :property_description, :number_of_floors, :number_of_rooms,
+                  :deep_link, :tripadvisor_rating
 
     # Public: Initialize a new hotel
     #
