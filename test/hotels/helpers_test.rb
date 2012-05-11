@@ -1,0 +1,44 @@
+require "minitest_helper"
+
+describe Suitcase::Helpers do
+  before :each do
+    class Dummy; extend Suitcase::Helpers; end
+  end
+
+  describe "#url" do
+    it "returns a URI with the proper base URL" do
+      url = Dummy.url(method: "action", params: {})
+      url.must_be_kind_of(URI)
+      url.host.must_match(/api.ean.com/)
+    end
+
+    describe "when using digital signature authorization" do
+      it "adds a 'sig' parameter" do
+        Suitcase::Configuration.expects(:use_signature_auth?).returns(true)
+        Dummy.expects(:generate_signature).returns("test")
+
+        url = Dummy.url(method: "action", params: {})
+        url.query.must_match(/sig=test/)
+      end
+    end
+  end
+
+  describe "#parse_response" do
+    it "raises an exception when passed an invalid URI" do
+      proc do
+        Dummy.parse_response(URI.parse("http://google.com"))
+      end.must_raise JSON::ParserError
+    end
+  end
+
+  describe "#generate_signature" do
+    it "returns the encrypted API key, shared secret, and timestamp" do
+      Suitcase::Configuration.expects(:hotel_api_key).returns("abc")
+      Suitcase::Configuration.expects(:hotel_shared_secret).returns("123")
+      Time.expects(:now).returns("10")
+
+      signature = Dummy.generate_signature
+      signature.must_equal(Digest::MD5.hexdigest("abc12310"))
+    end
+  end
+end
