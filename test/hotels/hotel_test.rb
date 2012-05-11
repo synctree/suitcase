@@ -1,4 +1,3 @@
-$: << File.dirname(__FILE__)
 require "minitest_helper"
 
 describe Suitcase::Hotel do
