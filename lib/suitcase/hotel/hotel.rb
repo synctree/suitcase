@@ -166,7 +166,7 @@
           Configuration.cache.save_query(:list, params, parsed)
         end
       end
-      [split(parsed)].flatten.map do |hotel_data|
+      hotels = [split(parsed)].flatten.map do |hotel_data|
         Hotel.new(parse_information(hotel_data))
       end
       update_session(parsed, info[:session])
