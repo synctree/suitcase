@@ -1,8 +1,22 @@
  module Suitcase
   # Public: An Exception to be raised from all EAN API-related errors.
   class EANException < Exception
+    # Internal: Setter for the recovery information.
+    attr_writer :recovery
+
+    # Public: Getter for the recovery information.
+    attr_reader :recovery
+
     def initialize(message)
       super(message)
+    end
+
+    # Public: Check if the error is recoverable. If it is, recovery information
+    #         is in the attribute recovery.
+    #
+    # Returns a Boolean based on whether the error is recoverable.
+    def recoverable?
+      @recovery.is_a?(Hash)
     end
   end
 
@@ -252,9 +266,15 @@
       key = info.keys.first
       if info[key] && info[key]["EanWsError"]
         message = info[key]["EanWsError"]["presentationMessage"]
-      end
+        exception = EANException.new(message)
+        if message =~ /Multiple locations/ && (info = info[key]["LocationInfos"])
+          exception.recovery = {
+            alternate_locations: info["LocationInfo"].map { |h| h["code"] }
+          }
+        end
 
-      raise EANException.new(message) if message
+        raise exception
+      end
     end
 
     # Internal: Split an Array of multiple Hotels.
