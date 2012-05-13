@@ -45,6 +45,14 @@ describe Suitcase::Hotel do
         e.recoverable?.must_equal(true) if e.message =~ /Multiple locations/
       end
     end
+
+    it "sets the error type when the location is not specific enough" do
+      begin
+        Suitcase::Hotel.find(location: "Mexico")
+      rescue Suitcase::EANException => e
+        e.type.must_equal(:multiple_locations)
+      end
+    end
   end
 
   describe "#images" do

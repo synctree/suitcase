@@ -7,7 +7,18 @@
     # Public: Getter for the recovery information.
     attr_reader :recovery
 
-    def initialize(message)
+    # Internal: Setter for the error type.
+    attr_writer :type
+
+    # Public: Getter for the error type..
+    attr_reader :type
+
+    # Internal: Create a new EAN exception.
+    #
+    # message - The String error message returned by the API.
+    # type    - The Symbol type of the error.
+    def initialize(message, type = nil)
+      @type = type
       super(message)
     end
 
@@ -268,6 +279,7 @@
         message = info[key]["EanWsError"]["presentationMessage"]
         exception = EANException.new(message)
         if message =~ /Multiple locations/ && (info = info[key]["LocationInfos"])
+          exception.type = :multiple_locations
           exception.recovery = {
             alternate_locations: info["LocationInfo"].map { |h| h["code"] }
           }
