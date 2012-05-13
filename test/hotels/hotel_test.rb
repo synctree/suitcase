@@ -42,7 +42,7 @@ describe Suitcase::Hotel do
       begin
         Suitcase::Hotel.find(location: "Mexico")
       rescue Suitcase::EANException => e
-        e.recoverable?.must_equal(true) if e.message =~ /Multiple locations/
+        e.recoverable?.must_equal(true) if e.type == :multiple_locations
       end
     end
 
