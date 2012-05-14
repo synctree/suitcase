@@ -37,7 +37,7 @@ module Suitcase
     def self.parse_mask(bitmask)
       return nil unless bitmask
 
-      BITS.select {|amenity, bit| (bitmask & bit) > 0 }.keys
+      BITS.select { |amenity, bit| (bitmask & bit) > 0 }.keys
     end
   end
 end

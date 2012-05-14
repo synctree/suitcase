@@ -40,10 +40,10 @@ module Suitcase
     private
 
     def keys_to_strings(hash)
-      hash.inject({}) {|memo, (k, v)| 
+      hash.inject({}) do |memo, (k, v)| 
         memo[k.to_s] = v
         memo
-      }
+      end
     end
   end
 end
