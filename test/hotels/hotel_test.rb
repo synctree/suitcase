@@ -37,6 +37,22 @@ describe Suitcase::Hotel do
       hotels.count.must_equal(1)
       hotels.first.must_be_kind_of(Suitcase::Hotel)
     end
+
+    it "sets a recovery attribute on the raised error when the location is not specific enough" do
+      begin
+        Suitcase::Hotel.find(location: "Mexico")
+      rescue Suitcase::EANException => e
+        e.recoverable?.must_equal(true) if e.type == :multiple_locations
+      end
+    end
+
+    it "sets the error type when the location is not specific enough" do
+      begin
+        Suitcase::Hotel.find(location: "Mexico")
+      rescue Suitcase::EANException => e
+        e.type.must_equal(:multiple_locations)
+      end
+    end
   end
 
   describe "#images" do
