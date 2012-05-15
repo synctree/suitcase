@@ -3,9 +3,9 @@ module Suitcase
     attr_accessor :promo, :rate, :base_rate
 
     def initialize(info)
-      promo = info["@promo"]
-      promo = info["@rate"]
-      promo = info["@baseRate"]
+      @promo = info["@promo"]
+      @rate = info["@rate"]
+      @base_rate = info["@baseRate"]
     end
   end
 end

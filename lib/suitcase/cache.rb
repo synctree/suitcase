@@ -7,7 +7,8 @@ module Suitcase
     end
 
     def save_query(action, params, response)
-      %w(apiKey cid customerSessionId customerIpAddress locale customerUserAgent).each do |param|
+      %w(apiKey cid customerSessionId customerIpAddress locale
+      customerUserAgent).each do |param|
         params.delete(param)
       end
       params.delete("currencyCode") unless action == :paymentInfo

@@ -4,12 +4,12 @@ module Suitcase
    extend Suitcase::Helpers
 
     def initialize(code, name)
-      @code = code
-      @name = name
+      @code, @name = code, name
     end
 
     def self.find(info)
       params = { "currencyCode" => info[:currency_code] }
+
       if Configuration.cache? and Configuration.cache.cached?(:paymentInfo, params)
         types_raw = Configuration.cache.get_query(:paymentInfo, params)
       else
@@ -24,6 +24,7 @@ module Suitcase
         end
       end
       update_session(types_raw, info[:session])
+      
       options
     end
   end
