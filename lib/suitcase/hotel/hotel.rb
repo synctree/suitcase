@@ -170,10 +170,10 @@
       params = info.dup
       params["numberOfResults"] = params[:results] ? params[:results] : 10
       params.delete(:results)
-      if params[:destination_id].present?
+      if params[:destination_id]
         params["destinationId"] = params[:destination_id]
         params.delete(:destination_id)
-      elsif params[:location].present?
+      elsif params[:location]
         params["destinationString"] = params[:location]
         params.delete(:location)
       end
