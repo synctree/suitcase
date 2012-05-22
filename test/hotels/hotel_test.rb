@@ -20,8 +20,14 @@ describe Suitcase::Hotel do
       @hotel.must_be_kind_of(Suitcase::Hotel)
     end
 
-    it "returns multiple Hotels if an ID is not passed in" do
+    it "returns multiple Hotels if a location is passed in" do
       hotels = Suitcase::Hotel.find(location: "London, UK")
+      hotels.must_be_kind_of(Array)
+      hotels.first.must_be_kind_of(Suitcase::Hotel)
+    end
+    
+    it "returns multiple Hotels if a destination ID is passed in" do
+      hotels = Suitcase::Hotel.find(destination_id: "58870F43-9215-4662-BAA1-CC9A20FEC4F1")
       hotels.must_be_kind_of(Array)
       hotels.first.must_be_kind_of(Suitcase::Hotel)
     end
