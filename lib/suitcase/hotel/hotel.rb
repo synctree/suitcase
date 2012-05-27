@@ -170,8 +170,13 @@
       params = info.dup
       params["numberOfResults"] = params[:results] ? params[:results] : 10
       params.delete(:results)
-      params["destinationString"] = params[:location]
-      params.delete(:location)
+      if params[:destination_id]
+        params["destinationId"] = params[:destination_id]
+        params.delete(:destination_id)
+      elsif params[:location]
+        params["destinationString"] = params[:location]
+        params.delete(:location)
+      end
 
       amenities = params[:amenities] ? params[:amenities].map {|amenity| 
         AMENITIES[amenity] 
