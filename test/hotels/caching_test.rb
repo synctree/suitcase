@@ -16,7 +16,7 @@ describe Suitcase do
     room = hotel.rooms(arrival: "6/23/2012", departure: "6/30/2012").first
     
     # Query 4
-    Suitcase::PaymentOption.find currency_code: "USD"
+    Suitcase::Hotel::PaymentOption.find currency_code: "USD"
     
     # Query 5, don't cache though
     room.rooms[0][:bed_type] = room.bed_types[0]
@@ -30,13 +30,13 @@ describe Suitcase do
     hotel = Suitcase::Hotel.find(id: 123904)
     Suitcase::Hotel.find(location: "Boston, US")
     hotel.rooms(arrival: "6/23/2012", departure: "6/30/2012")
-    Suitcase::PaymentOption.find currency_code: "USD"
+    Suitcase::Hotel::PaymentOption.find currency_code: "USD"
     
     # Disable API access
     Net::HTTP.expects(:get_response).never
     hotel = Suitcase::Hotel.find(id: 123904)
     Suitcase::Hotel.find(location: "Boston, US")
     hotel.rooms(arrival: "6/23/2012", departure: "6/30/2012")
-    Suitcase::PaymentOption.find currency_code: "USD"
+    Suitcase::Hotel::PaymentOption.find currency_code: "USD"
   end
 end

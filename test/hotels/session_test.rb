@@ -1,8 +1,8 @@
 require "minitest_helper"
 
-describe Suitcase::Session do
+describe Suitcase::Hotel::Session do
   before :each do
-    @session = Suitcase::Session.new
+    @session = Suitcase::Hotel::Session.new
   end
   
   [:id, :ip_address, :user_agent, :locale, :currency_code].each do |accessor|

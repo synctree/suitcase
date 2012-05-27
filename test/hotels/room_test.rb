@@ -1,6 +1,6 @@
 require "minitest_helper"
 
-describe Suitcase::Room do
+describe Suitcase::Hotel::Room do
   before :each do
     @room = Suitcase::Hotel.find(id: 123904).rooms(arrival: "6/23/2012", departure: "6/30/2012").first
   end
@@ -39,7 +39,7 @@ describe Suitcase::Room do
 
     it "returns a Suitcase::Reservation" do
       reservation = @room.reserve!(@info)
-      reservation.must_be_kind_of(Suitcase::Reservation)
+      reservation.must_be_kind_of(Suitcase::Hotel::Reservation)
     end
   end
 end

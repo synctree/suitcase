@@ -9,11 +9,11 @@ require "suitcase/version"
 
 require "suitcase/core_ext/string"
 
-require "suitcase/session"
 require "suitcase/configuration"
-require "suitcase/cache"
 
+require "suitcase/hotel/session"
 require "suitcase/hotel/helpers"
+require "suitcase/hotel/cache"
 require "suitcase/hotel/location"
 require "suitcase/hotel/amenity"
 require "suitcase/hotel/reservation"

@@ -5,7 +5,7 @@ module Suitcase
 
   class Configuration
     def self.cache=(store)
-      @@cache = Suitcase::Cache.new(store)
+      @@cache = Suitcase::Hotel::Cache.new(store)
     end
 
     def self.cache
