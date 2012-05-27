@@ -1,8 +1,8 @@
 require "minitest_helper"
 
-describe Suitcase::Reservation do
+describe Suitcase::Hotel::Reservation do
   before :each do
-    @reservation = Suitcase::Reservation.new({})
+    @reservation = Suitcase::Hotel::Reservation.new({})
   end
   
   it "has a reader for itinerary_id" do

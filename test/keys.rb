@@ -6,16 +6,16 @@
 # Or configure with a block:
 
 Suitcase.configure do |config|
-  config.hotel_api_key = "..."
-  config.hotel_cid = "..."
+  config.hotel_api_key = ""
+  config.hotel_cid = ""
   
-  config.hotwire_api_key = "..."
+  config.hotwire_api_key = ""
   # config.hotel_shared_secret = "none"
   # config.use_signature_auth = false
 end
 
 module Keys
-  SUITCASE_PAYMENT_OPTION = Suitcase::PaymentOption.find(currency_code: "USD")[0]
+  SUITCASE_PAYMENT_OPTION = Suitcase::Hotel::PaymentOption.find(currency_code: "USD")[0]
   CREDIT_CARD_NUMBER_TESTING = "1234123412341234"
   CREDIT_CARD_CVV_TESTING = "123"
   CREDIT_CARD_EXPIRATION_DATE_TESTING = "3/14"

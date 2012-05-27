@@ -1,8 +1,8 @@
 require "minitest_helper"
 
-describe Suitcase::Helpers do
+describe Suitcase::Hotel::Helpers do
   before :each do
-    class Dummy; extend Suitcase::Helpers; end
+    class Dummy; extend Suitcase::Hotel::Helpers; end
   end
 
   describe "#url" do
