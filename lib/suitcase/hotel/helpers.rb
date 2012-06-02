@@ -77,12 +77,57 @@ module Suitcase
         url
       end
 
-      # Internal: Parse the JSON response at the given URL.
+      # Internal: Parse the JSON response at the given URL and handle errors.
       #
       # uri - The URI to parse the JSON from.
       #
       # Returns the parsed JSON.
       def parse_response(uri)
+        response = Net::HTTP.get_response(uri)
+
+        if response.code.to_i == 403
+          if response.body.include?("Forbidden")
+            e = EANException.new("You have not been granted permission to \
+                                  access the requested method or object.")
+            e.type = :forbidden
+          elsif response.body.include?("Not Authorized")
+            e = EANException.new("The API key associated with your request was
+                                  not recognized, or the digital signature was
+                                  incorrect.")
+            e.type = :not_authorized
+          elsif response.body.include?("Developer Inactive")
+            e = EANException.new("The API key you are using to access the API \
+                                  has not been approved, is not correct, or \
+                                  has been disabled. If using SIG \
+                                  Authentication, your digital signature is \
+                                  incorrect and does not match the one \
+                                  generated when receiving your request.")
+            e.type = :developer_inactive
+          elsif response.body.include?("Queries Per Second Limit")
+            e = EANException.new("The API key you are using has attempted to \
+                                  access the API too many times in one second.")
+            e.type = :query_limit
+          elsif response.body.include?("Account Over Rate Limit")
+            e = EANException.new("The API key you are using has attempted to \
+                                  access the API too many times in the rate \
+                                  limiting period.")
+            e.type = :rate_limit
+          elsif response.body.include?("Rate Limit Exceeded")
+            e = EANException.new("The service you have requested is over \
+                                  capacity.")
+            e.type = :over_capacity
+          elsif response.body.include?("Authentication Failure")
+            e = EANException.new("The combination of authentication checks \
+                                  failed.")
+            e.type = :authentication_failure
+          else
+            e = EANException.new("An unknown error occured: #{response.body}.")
+            e.type = :unknown
+          end
+        
+          raise e
+        end
+
         JSON.parse(Net::HTTP.get_response(uri).body)
       end
 
