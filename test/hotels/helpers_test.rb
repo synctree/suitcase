@@ -29,6 +29,14 @@ describe Suitcase::Hotel::Helpers do
         Dummy.parse_response(URI.parse("http://google.com"))
       end.must_raise JSON::ParserError
     end
+
+    it "raises an error if a 403 code is received" do
+      proc do
+        response = FakeResponse.new(code: 403, body: "<h1>An error occurred.</h1>")
+        Net::HTTP.stubs(:get_response).returns(response)
+        Dummy.parse_response(URI.parse("http://fake.response.will.be.used"))
+      end.must_raise Suitcase::EANException
+    end
   end
 
   describe "#generate_signature" do
