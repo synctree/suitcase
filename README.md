@@ -45,6 +45,9 @@ room.reserve!(reservation_hash)
 
 You can setup a cache to store all API requests that do not contain secure information (i.e. anything but booking requests). A cache needs to be able store deeply nested Hashes and have a method called #[] to access them. An example of setting the cache is given above. Check the `examples/hash_adapter.rb` for a trivial example of the required methods. A Redis adapter is also in the examples directory.
 
+#### Using the downloadable images
+
+EAN provides a [downloadable image "database"](http://developer.ean.com/database_catalogs/relational/Image_Data) that doesn't require using the image URLs fetched by the API.For example usage of this database, check out `examples/hotel_image_db.rb`.
 
 ### Car rentals
 
