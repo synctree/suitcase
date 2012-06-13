@@ -1,4 +1,4 @@
- module Suitcase
+module Suitcase
   # Public: An Exception to be raised from all EAN API-related errors.
   class EANException < Exception
     # Internal: Setter for the recovery information.
@@ -67,7 +67,7 @@
       wheelchair_accessible: 8,
       kitchen: 9
     }
-    
+
     attr_accessor :id, :name, :address, :city, :province, :amenities,
                   :masked_amenities, :country_code, :high_rate, :low_rate,
                   :longitude, :latitude, :rating, :postal_code, :supplier_type,
@@ -266,10 +266,11 @@
       images = parsed["HotelInformationResponse"]["HotelImages"]["HotelImage"].map do |image_data|
         Suitcase::Image.new(image_data)
       end if parsed["HotelInformationResponse"] && parsed["HotelInformationResponse"]["HotelImages"] && parsed["HotelInformationResponse"]["HotelImages"]["HotelImage"]
+      
       unless parsed["thumbNailUrl"].nil? or parsed["thumbNailUrl"].empty?
         images = [Suitcase::Image.new("thumbnailURL" => "http://images.travelnow.com" + parsed["thumbNailUrl"])]
       end
-      
+
       images || []
     end
 
@@ -286,7 +287,14 @@
         if message =~ /Multiple locations/ && (info = info[key]["LocationInfos"])
           exception.type = :multiple_locations
           exception.recovery = {
-            alternate_locations: info["LocationInfo"].map { |h| h["code"] }
+            alternate_locations: info["LocationInfo"].map do |info|
+              Location.new(
+                destination_id: info["destinationId"],
+                type: info["type"],
+                city: info["city"],
+                province: info["stateProvinceCode"]
+              )
+            end
           }
         end
 
@@ -328,7 +336,7 @@
       params.delete(:arrival)
       params.delete(:departure)
       params["hotelId"] = @id
-      
+
       if Configuration.cache? and Configuration.cache.cached?(:avail, params)
         parsed = Configuration.cache.get_query(:avail, params)
       else
@@ -342,7 +350,7 @@
       rate_key = parsed["HotelRoomAvailabilityResponse"]["rateKey"]
       supplier_type = parsed["HotelRoomAvailabilityResponse"]["HotelRoomResponse"][0]["supplierType"]
       Hotel.update_session(parsed, info[:session])
-      
+
       parsed["HotelRoomAvailabilityResponse"]["HotelRoomResponse"].map do |raw_data|
         room_data = {}
         room_data[:rate_code] = raw_data["rateCode"]
