@@ -57,6 +57,9 @@ describe Suitcase::Hotel do
         Suitcase::Hotel.find(location: "Mexico")
       rescue Suitcase::EANException => e
         e.type.must_equal(:multiple_locations)
+        e.recovery.must_be_kind_of(Hash)
+        e.recovery[:alternate_locations].must_be_kind_of(Array)
+        e.recovery[:alternate_locations].first.must_be_kind_of(Suitcase::Hotel::Location)
       end
     end
   end
