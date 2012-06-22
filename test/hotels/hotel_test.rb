@@ -90,5 +90,24 @@ describe Suitcase::Hotel do
     it "returns an Array of available Rooms" do
       @rooms.must_be_kind_of(Array)
     end
+
+    it "each room must contain a cancellation policy" do
+      @rooms.each do |r|
+        r.cancellation_policy.wont_be_nil
+      end
+    end
+
+    it "each room must contain the non_refundable option" do
+      @rooms.each do |r|
+        r.non_refundable.wont_be_nil
+      end
+    end
+
+    it "each room must contain the deposit_required" do
+      @rooms.each do |r|
+        r.deposit_required.wont_be_nil
+      end
+      binding.pry
+    end
   end
 end
