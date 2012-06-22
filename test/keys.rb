@@ -15,21 +15,21 @@ Suitcase.configure do |config|
 end
 
 module Keys
-  SUITCASE_PAYMENT_OPTION = Suitcase::Hotel::PaymentOption.find(currency_code: "USD")[0]
-  CREDIT_CARD_NUMBER_TESTING = "1234123412341234"
+  SUITCASE_PAYMENT_OPTION = Suitcase::Hotel::PaymentOption.find(currency_code: "USD").find { |po| po.name =~ /Master/ }
+  CREDIT_CARD_NUMBER_TESTING = "5401999999999999"
   CREDIT_CARD_CVV_TESTING = "123"
-  CREDIT_CARD_EXPIRATION_DATE_TESTING = "3/14"
+  CREDIT_CARD_EXPIRATION_DATE_TESTING = "2014/03/01"
 
   VALID_RESERVATION_INFO = {
     email: "testemail@gmail.com",
-    first_name: "Test",
-    last_name: "User",
+    first_name: "Test Booking",
+    last_name: "Test Booking",
     home_phone: "1231231234",
     payment_option: SUITCASE_PAYMENT_OPTION,
     credit_card_number: CREDIT_CARD_NUMBER_TESTING, 
-    credit_card_verification_code: "123",
+    credit_card_verification_code: CREDIT_CARD_CVV_TESTING,
     credit_card_expiration_date: CREDIT_CARD_EXPIRATION_DATE_TESTING,
-    address1: "1 Some Place",
+    address1: "travelnow",
     city: "Boston",
     province: "MA",
     country: "US",

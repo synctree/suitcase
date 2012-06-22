@@ -76,7 +76,8 @@ module Suitcase
                   :location_description, :short_description,
                   :hotel_in_destination, :proximity_distance,
                   :property_description, :number_of_floors, :number_of_rooms,
-                  :deep_link, :tripadvisor_rating
+                  :deep_link, :tripadvisor_rating, :general_policies,
+                  :checkin_instructions, :general_policies
 
     # Internal: Initialize a new Hotel.
     #
@@ -211,15 +212,23 @@ module Suitcase
     # Returns a reformatted Hash with the specified accessors.
     def self.parse_information(parsed)
       handle_errors(parsed)
+      
+      binding.pry
 
-      summary = if parsed["hotelId"]
-                  parsed
-                else
-                  parsed["HotelInformationResponse"]["HotelSummary"]
-                end
+      if parsed["hotelId"]
+        summary = parsed
+        parsed_info = {}
+      else
+        res = parsed["HotelInformationResponse"]
+        summary = res["HotelSummary"]
+        parsed_info = {
+          general_policies: res["HotelDetails"]["hotelPolicy"],
+          checkin_instructions: res["HotelDetails"]["checkInInstructions"]
+        }
+      end
       proximity_distance = summary["proximityDistance"].to_s
       proximity_distance << summary["proximityUnit"].to_s
-      parsed_info = {
+      parsed_info.merge!(
         id: summary["hotelId"],
         name: summary["name"],
         address: summary["address1"],
@@ -237,7 +246,7 @@ module Suitcase
         proximity_distance: proximity_distance,
         tripadvisor_rating: summary["tripAdvisorRating"],
         deep_link: summary["deepLink"]
-      }
+      )
       parsed_info[:amenities] = parsed["HotelInformationResponse"]["PropertyAmenities"]["PropertyAmenity"].map do |x|
         Amenity.new(id: x["amenityId"], description: x["amenity"])
       end if parsed["HotelInformationResponse"]
@@ -353,6 +362,9 @@ module Suitcase
 
       parsed["HotelRoomAvailabilityResponse"]["HotelRoomResponse"].map do |raw_data|
         room_data = {}
+        room_data[:non_refundable] = raw_data["nonRefundable"]
+        room_data[:deposit_required] = raw_data["depositRequired"]
+        room_data[:cancellation_policy] = raw_data["cancellationPolicy"]
         room_data[:rate_code] = raw_data["rateCode"]
         room_data[:room_type_code] = raw_data["roomTypeCode"]
         room_data[:room_type_description] = raw_data["roomTypeDescription"]
@@ -372,6 +384,7 @@ module Suitcase
         room_data[:bed_types] = [raw_data["BedTypes"]["BedType"]].flatten.map do |x|
           BedType.new(id: x["@id"], description: x["description"])
         end if raw_data["BedTypes"] && raw_data["BedTypes"]["BedType"]
+
         Room.new(room_data)
       end
     end
