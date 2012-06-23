@@ -213,8 +213,6 @@ module Suitcase
     def self.parse_information(parsed)
       handle_errors(parsed)
       
-      binding.pry
-
       if parsed["hotelId"]
         summary = parsed
         parsed_info = {}
