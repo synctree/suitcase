@@ -39,6 +39,7 @@ describe Suitcase::Hotel::Room do
 
     it "returns a Suitcase::Reservation" do
       reservation = @room.reserve!(@info)
+      binding.pry
       reservation.must_be_kind_of(Suitcase::Hotel::Reservation)
     end
   end
