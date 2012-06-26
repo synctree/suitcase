@@ -2,7 +2,7 @@ require "minitest_helper"
 
 describe Suitcase::Hotel::Room do
   before :each do
-    @room = Suitcase::Hotel.find(id: 123904).rooms(arrival: "6/23/2012", departure: "6/30/2012").first
+    @room = Suitcase::Hotel.find(id: 123904).rooms(arrival: Keys::RESERVATION_START_TIME, departure: Keys::RESERVATION_END_TIME).first
   end
 
   %w(arrival departure rate_code room_type_code supplier_type tax_rate
@@ -19,7 +19,7 @@ describe Suitcase::Hotel::Room do
 
   describe "#reserve!" do
     before :each do
-      @info = { email: "walter.john.nelson@gmail.com",
+      @info = { email: Keys::SENDING_EMAIL,
                 first_name: "Walter",
                 last_name: "Nelson",
                 home_phone: "3831039402",
