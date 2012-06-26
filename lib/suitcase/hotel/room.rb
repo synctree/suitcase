@@ -78,7 +78,13 @@ module Suitcase
         res = session.post uri.request_uri, {}
         parsed = JSON.parse res.body
 
-        Reservation.new(itinerary_id: parsed["HotelRoomReservationResponse"]["itineraryId"], confirmation_numbers: parsed["HotelRoomReservationResponse"]["confirmationNumbers"])
+
+        r = Reservation.new(itinerary_id: parsed["HotelRoomReservationResponse"]["itineraryId"],
+                            confirmation_numbers: parsed["HotelRoomReservationResponse"]["confirmationNumbers"],
+                            surcharges: [parsed["HotelRoomReservationResponse"]["RateInfo"]["ChargeableRateInfo"]["Surcharges"]["Surcharge"]].flatten.map { |s| Surcharge.parse(s) } 
+                           )
+        r.raw = parsed
+        r
       end
 
       # Public: The chargeable rate for the Hotel room.
