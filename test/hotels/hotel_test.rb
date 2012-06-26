@@ -47,7 +47,7 @@ describe Suitcase::Hotel do
     it "sets a recovery attribute on the raised error when the location is not specific enough" do
       begin
         Suitcase::Hotel.find(location: "Mexico")
-      rescue Suitcase::EANException => e
+      rescue Suitcase::Hotel::EANException => e
         e.recoverable?.must_equal(true) if e.type == :multiple_locations
       end
     end
@@ -55,7 +55,7 @@ describe Suitcase::Hotel do
     it "sets the error type when the location is not specific enough" do
       begin
         Suitcase::Hotel.find(location: "Mexico")
-      rescue Suitcase::EANException => e
+      rescue Suitcase::Hotel::EANException => e
         e.type.must_equal(:multiple_locations)
         e.recovery.must_be_kind_of(Hash)
         e.recovery[:alternate_locations].must_be_kind_of(Array)

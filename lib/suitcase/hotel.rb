@@ -1,73 +1,18 @@
+require "suitcase/hotel/amenity"
+require "suitcase/hotel/session"
+require "suitcase/hotel/bed_type"
+require "suitcase/hotel/cache"
+require "suitcase/hotel/ean_exception"
+require "suitcase/hotel/helpers"
+require "suitcase/hotel/image"
+require "suitcase/hotel/location"
+require "suitcase/hotel/nightly_rate"
+require "suitcase/hotel/payment_option"
+require "suitcase/hotel/reservation"
+require "suitcase/hotel/room"
+require "suitcase/hotel/surcharge"
+
 module Suitcase
-  # Public: An Exception to be raised from all EAN API-related errors.
-  class EANException < Exception
-    # Internal: Setter for the recovery information.
-    attr_writer :recovery
-
-    # Public: Getter for the recovery information.
-    attr_reader :recovery
-
-    # Internal: Setter for the error type.
-    attr_writer :type
-
-    # Public: Getter for the error type..
-    attr_reader :type
-
-    # Internal: Create a new EAN exception.
-    #
-    # message - The String error message returned by the API.
-    # type    - The Symbol type of the error.
-    def initialize(message, type = nil)
-      @type = type
-      super(message)
-    end
-
-    # Public: Check if the error is recoverable. If it is, recovery information
-    #         is in the attribute recovery.
-    #
-    # Returns a Boolean based on whether the error is recoverable.
-    def recoverable?
-      @recovery.is_a?(Hash)
-    end
-  end
-
-  # Public: A Surcharge represents a single surcharge on a Room.
-  class Surcharge
-    # Internal: Create a new Surcharge.
-    #
-    # info - A Hash of parsed info from Surcharge.parse.
-    def initialize(info)
-      @amount, @type = info[:amount], info[:type]
-    end
-
-    # Internal: Parse a Surcharge from the room response.
-    #
-    # info - A Hash of the parsed JSON relevant to the surhcarge.
-    #
-    # Returns a Surcharge representing the info.
-    def self.parse(info)
-      new(amount: info["@amount"], type: info["@type"])
-    end
-  end
-
-  # Public: A BedType represents a bed configuration for a Room.
-  class BedType
-    # Internal: The ID of the BedType.
-    attr_accessor :id
-
-    # Internal: The description of the BedType.
-    attr_accessor :description
-
-    # Internal: Create a new BedType.
-    #
-    # info  - A Hash from the parsed API response with the following keys:
-    #         :id           - The ID of the BedType.
-    #         :description  3- The description of the BedType.
-    def initialize(info)
-      @id, @description = info[:id], info[:description]
-    end
-  end
-
   # Public: A Class representing a single Hotel. It provides methods for
   #         all Hotel EAN-related queries in the gem.
   class Hotel

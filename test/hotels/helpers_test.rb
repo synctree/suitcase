@@ -35,7 +35,7 @@ describe Suitcase::Hotel::Helpers do
         response = FakeResponse.new(code: 403, body: "<h1>An error occurred.</h1>")
         Net::HTTP.stubs(:get_response).returns(response)
         Dummy.parse_response(URI.parse("http://fake.response.will.be.used"))
-      end.must_raise Suitcase::EANException
+      end.must_raise Suitcase::Hotel::EANException
     end
   end
 

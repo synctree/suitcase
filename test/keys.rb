@@ -23,6 +23,8 @@ module Keys
   CREDIT_CARD_CVV_TESTING = "123"
   CREDIT_CARD_EXPIRATION_DATE_TESTING = "2014/03/01"
 
+  SENDING_EMAIL = "testemail@gmail.com"
+
   VALID_RESERVATION_INFO = {
     email: "testemail@gmail.com",
     first_name: "Test Booking",

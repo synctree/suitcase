@@ -1,8 +1,8 @@
 require "minitest_helper"
 
-describe Suitcase::EANException do
+describe Suitcase::Hotel::EANException do
   before :each do
-    @exception = Suitcase::EANException.new(nil)
+    @exception = Suitcase::Hotel::EANException.new(nil)
   end
 
   it "has an accessor recovery" do
