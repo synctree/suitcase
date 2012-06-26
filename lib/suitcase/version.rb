@@ -1,3 +1,3 @@
 module Suitcase
-  VERSION = "1.6.44444"
+  VERSION = "1.6.5"
 end
