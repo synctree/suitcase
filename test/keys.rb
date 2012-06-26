@@ -15,6 +15,9 @@ Suitcase.configure do |config|
 end
 
 module Keys
+  RESERVATION_START_TIME = Chronic.parse("1 week from now").strftime("%m/%d/%Y")
+  RESERVATION_END_TIME = Chronic.parse("2 weeks from now").strftime("%m/%d/%Y")
+
   SUITCASE_PAYMENT_OPTION = Suitcase::Hotel::PaymentOption.find(currency_code: "USD").find { |po| po.name =~ /Master/ }
   CREDIT_CARD_NUMBER_TESTING = "5401999999999999"
   CREDIT_CARD_CVV_TESTING = "123"
