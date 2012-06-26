@@ -77,7 +77,7 @@ module Suitcase
                   :hotel_in_destination, :proximity_distance,
                   :property_description, :number_of_floors, :number_of_rooms,
                   :deep_link, :tripadvisor_rating, :general_policies,
-                  :checkin_instructions, :general_policies
+                  :checkin_instructions, :general_policies, :raw
 
     # Internal: Initialize a new Hotel.
     #
@@ -132,7 +132,9 @@ module Suitcase
       hotel_data = parse_information(raw)
       update_session(raw, session)
 
-      Hotel.new(hotel_data)
+      h = Hotel.new(hotel_data)
+      h.raw = raw
+      h
     end
 
     # Internal: Find multiple Hotels based on multiple IDs.
@@ -157,7 +159,9 @@ module Suitcase
       update_session(raw, session)
 
       [split(raw)].flatten.map do |hotel_data|
-        Hotel.new(parse_information(hotel_data))
+        h = Hotel.new(parse_information(hotel_data))
+        h.raw = raw
+        h
       end
     end
 
@@ -198,7 +202,9 @@ module Suitcase
         end
       end
       hotels = [split(parsed)].flatten.map do |hotel_data|
-        Hotel.new(parse_information(hotel_data))
+        h = Hotel.new(parse_information(hotel_data))
+        h.raw = parsed
+        h
       end
       update_session(parsed, info[:session])
 
@@ -379,11 +385,14 @@ module Suitcase
         room_data[:hotel_id] = hotel_id
         room_data[:supplier_type] = supplier_type
         room_data[:rooms] = params[:rooms]
+        binding.pry
         room_data[:bed_types] = [raw_data["BedTypes"]["BedType"]].flatten.map do |x|
           BedType.new(id: x["@id"], description: x["description"])
         end if raw_data["BedTypes"] && raw_data["BedTypes"]["BedType"]
 
-        Room.new(room_data)
+        r = Room.new(room_data)
+        r.raw = parsed
+        r
       end
     end
   end
