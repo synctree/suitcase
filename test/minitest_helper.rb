@@ -4,6 +4,9 @@ require "minitest/spec"
 require "minitest/autorun"
 require "mocha"
 
+# For making sure the dates will be valid
+require "chronic"
+
 # Debugger
 require "pry"
 

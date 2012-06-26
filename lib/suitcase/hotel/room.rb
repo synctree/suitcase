@@ -9,7 +9,7 @@ module Suitcase
                     :room_type_description, :price_breakdown, :total_price,
                     :average_nightly_rate, :promo, :arrival, :departure, :rooms,
                     :bed_types, :cancellation_policy, :non_refundable,
-                    :deposit_required
+                    :deposit_required, :raw
 
       extend Helpers
 
