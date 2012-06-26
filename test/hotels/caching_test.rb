@@ -13,7 +13,7 @@ describe Suitcase do
     Suitcase::Hotel.find(location: "Boston, US")
     
     # Query 3
-    room = hotel.rooms(arrival: "6/23/2012", departure: "6/30/2012").first
+    room = hotel.rooms(arrival: Keys::RESERVATION_START_TIME, departure: Keys::RESERVATION_END_TIME).first
     
     # Query 4
     Suitcase::Hotel::PaymentOption.find currency_code: "USD"
@@ -29,14 +29,14 @@ describe Suitcase do
   it "retrieves from the cache if it's there" do
     hotel = Suitcase::Hotel.find(id: 123904)
     Suitcase::Hotel.find(location: "Boston, US")
-    hotel.rooms(arrival: "6/23/2012", departure: "6/30/2012")
+    hotel.rooms(arrival: Keys::RESERVATION_START_TIME, departure: Keys::RESERVATION_END_TIME)
     Suitcase::Hotel::PaymentOption.find currency_code: "USD"
     
     # Disable API access
     Net::HTTP.expects(:get_response).never
     hotel = Suitcase::Hotel.find(id: 123904)
     Suitcase::Hotel.find(location: "Boston, US")
-    hotel.rooms(arrival: "6/23/2012", departure: "6/30/2012")
+    hotel.rooms(arrival: Keys::RESERVATION_START_TIME, departure: Keys::RESERVATION_END_TIME)
     Suitcase::Hotel::PaymentOption.find currency_code: "USD"
   end
 end
