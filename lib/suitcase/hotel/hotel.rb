@@ -31,6 +31,25 @@ module Suitcase
     end
   end
 
+  # Public: A Surcharge represents a single surcharge on a Room.
+  class Surcharge
+    # Internal: Create a new Surcharge.
+    #
+    # info - A Hash of parsed info from Surcharge.parse.
+    def initialize(info)
+      @amount, @type = info[:amount], info[:type]
+    end
+
+    # Internal: Parse a Surcharge from the room response.
+    #
+    # info - A Hash of the parsed JSON relevant to the surhcarge.
+    #
+    # Returns a Surcharge representing the info.
+    def self.parse(info)
+      new(amount: info["@amount"], type: info["@type"])
+    end
+  end
+
   # Public: A BedType represents a bed configuration for a Room.
   class BedType
     # Internal: The ID of the BedType.
@@ -385,7 +404,10 @@ module Suitcase
         room_data[:hotel_id] = hotel_id
         room_data[:supplier_type] = supplier_type
         room_data[:rooms] = params[:rooms]
-        binding.pry
+        room_data[:surcharges] = raw_data["RateInfo"]["ChargeableRateInfo"] &&
+          raw_data["RateInfo"]["ChargeableRateInfo"]["Surcharges"] &&
+          [raw_data["RateInfo"]["ChargeableRateInfo"]["Surcharges"]["Surcharge"]].
+          flatten.map { |s| Surcharge.parse(s) }
         room_data[:bed_types] = [raw_data["BedTypes"]["BedType"]].flatten.map do |x|
           BedType.new(id: x["@id"], description: x["description"])
         end if raw_data["BedTypes"] && raw_data["BedTypes"]["BedType"]

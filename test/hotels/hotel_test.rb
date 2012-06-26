@@ -107,7 +107,6 @@ describe Suitcase::Hotel do
       @rooms.each do |r|
         r.deposit_required.wont_be_nil
       end
-      binding.pry
     end
   end
 end
