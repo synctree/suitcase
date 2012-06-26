@@ -19,7 +19,7 @@ describe Suitcase::Hotel::Room do
 
   describe "#reserve!" do
     before :each do
-      @info = { email: "walter.john.nelson@gmail.com",
+      @info = { email: Keys::SENDING_EMAIL,
                 first_name: "Walter",
                 last_name: "Nelson",
                 home_phone: "3831039402",
