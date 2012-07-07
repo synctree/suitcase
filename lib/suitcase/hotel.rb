@@ -338,11 +338,14 @@ module Suitcase
         room_data[:rate_code] = raw_data["rateCode"]
         room_data[:room_type_code] = raw_data["roomTypeCode"]
         room_data[:room_type_description] = raw_data["roomTypeDescription"]
+        room_data[:rate_description] = raw_data["rateDescription"]
         room_data[:promo] = raw_data["RateInfo"]["@promo"].to_b
         room_data[:price_breakdown] = raw_data["RateInfo"]["ChargeableRateInfo"]["NightlyRatesPerRoom"]["NightlyRate"].map do |raw|
           NightlyRate.new(raw)
         end if raw_data["RateInfo"]["ChargeableRateInfo"] && raw_data["RateInfo"]["ChargeableRateInfo"]["NightlyRatesPerRoom"] && raw_data["RateInfo"]["ChargeableRateInfo"]["NightlyRatesPerRoom"]["NightlyRate"].is_a?(Array)
         room_data[:total_price] = raw_data["RateInfo"]["ChargeableRateInfo"]["@total"]
+        room_data[:max_nightly_rate] = raw_data["RateInfo"]["ChargeableRateInfo"]["@maxNightlyRate"]
+        room_data[:rate_change] = raw_data["rateChange"]
         room_data[:nightly_rate_total] = raw_data["RateInfo"]["ChargeableRateInfo"]["@nightlyRateTotal"]
         room_data[:average_nightly_rate] = raw_data["RateInfo"]["ChargeableRateInfo"]["@averageRate"]
         room_data[:arrival] = info[:arrival]

@@ -9,7 +9,7 @@ module Suitcase
                     :room_type_description, :price_breakdown, :total_price,
                     :average_nightly_rate, :promo, :arrival, :departure, :rooms,
                     :bed_types, :cancellation_policy, :non_refundable,
-                    :deposit_required, :surcharges, :raw
+                    :deposit_required, :surcharges, :rate_description, :raw
 
       extend Helpers
 
@@ -103,6 +103,17 @@ module Suitcase
           @total_price
         else
           @max_nightly_rate
+        end
+      end
+      
+      # Public: The description of the displayed rate.
+      #
+      # Returns the rate description based on the `rate_change` attribute.
+      def room_rate_description
+        if @rate_change
+          "rate changes during the dates requested and the single nightly rate displayed is the highest nightly rate of the dates requested without taxes and fees."
+        else
+          "highest single night rate during the dates selected without taxes or fees"
         end
       end
     end
