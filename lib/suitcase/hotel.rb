@@ -323,12 +323,14 @@ module Suitcase
           Configuration.cache.save_query(:avail, params, parsed)
         end
       end
-      hotel_id = parsed["HotelRoomAvailabilityResponse"]["hotelId"]
-      rate_key = parsed["HotelRoomAvailabilityResponse"]["rateKey"]
-      supplier_type = parsed["HotelRoomAvailabilityResponse"]["HotelRoomResponse"][0]["supplierType"]
+      res = parsed["HotelRoomAvailabilityResponse"]
+      hotel_room_res = [res["HotelRoomResponse"]].flatten
+      hotel_id = res["hotelId"]
+      rate_key = res["rateKey"]
+      supplier_type = hotel_room_res[0]["supplierType"]
       Hotel.update_session(parsed, info[:session])
 
-      parsed["HotelRoomAvailabilityResponse"]["HotelRoomResponse"].map do |raw_data|
+      hotel_room_res.map do |raw_data|
         room_data = {}
         room_data[:non_refundable] = raw_data["nonRefundable"]
         room_data[:deposit_required] = raw_data["depositRequired"]

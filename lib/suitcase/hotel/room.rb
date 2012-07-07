@@ -35,7 +35,8 @@ module Suitcase
         params["arrivalDate"] = @arrival
         params["departureDate"] = @departure
         params["supplierType"] = @supplier_type
-        params["rateKey"] = @rate_key
+        # Only submit the rateKey if it is a merchant hotel
+        params["rateKey"] = @rate_key if @supplier_type == "E"
         params["rateTypeCode"] = @room_type_code
         params["rateCode"] = @rate_code
         params["roomTypeCode"] = @room_type_code
