@@ -65,8 +65,8 @@ module Suitcase
           params["room#{index}"] = "#{room[:adults].to_s},#{room[:children_ages].join(",")}"
           params["room#{index}FirstName"] = room[:first_name] || params["firstName"] # defaults to the billing
           params["room#{index}LastName"] = room[:last_name] || params["lastName"] # person's name
-          params["room#{index}BedTypeId"] = room[:bed_type].id
-          params["room#{index}SmokingPreference"] = room[:smoking_preference] or "E"
+          params["room#{index}BedTypeId"] = room[:bed_type].id if @supplier_type == "E"
+          params["room#{index}SmokingPreference"] = room[:smoking_preference] || "E"
         end
         params["stateProvinceCode"] = info[:province]
         params["countryCode"] = info[:country]
@@ -79,11 +79,18 @@ module Suitcase
         res = session.post uri.request_uri, {}
         parsed = JSON.parse res.body
 
-
-        r = Reservation.new(itinerary_id: parsed["HotelRoomReservationResponse"]["itineraryId"],
-                            confirmation_numbers: parsed["HotelRoomReservationResponse"]["confirmationNumbers"],
-                            surcharges: [parsed["HotelRoomReservationResponse"]["RateInfo"]["ChargeableRateInfo"]["Surcharges"]["Surcharge"]].flatten.map { |s| Surcharge.parse(s) } 
-                           )
+        reservation_res = parsed["HotelRoomReservationResponse"]
+        surcharges = if @supplier_type == "E"
+          [reservation_ees["RateInfo"]["ChargeableRateInfo"]["Surcharges"]["Surcharge"]].
+            flatten.map { |s| Surcharge.parse(s) }
+        else
+          []
+        end
+        r = Reservation.new(
+          itinerary_id: reservation_res["itineraryId"],
+          confirmation_numbers: reservation_res["confirmationNumbers"],
+          surcharges: surcharges 
+        )
         r.raw = parsed
         r
       end
@@ -101,3 +108,4 @@ module Suitcase
     end
   end
 end
+
