@@ -334,6 +334,7 @@ module Suitcase
         room_data = {}
         room_data[:non_refundable] = raw_data["nonRefundable"]
         room_data[:deposit_required] = raw_data["depositRequired"]
+        room_data[:guarantee_only] = raw_data["guaranteeRequired"]
         room_data[:cancellation_policy] = raw_data["cancellationPolicy"]
         room_data[:rate_code] = raw_data["rateCode"]
         room_data[:room_type_code] = raw_data["roomTypeCode"]

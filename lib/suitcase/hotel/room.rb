@@ -9,7 +9,8 @@ module Suitcase
                     :room_type_description, :price_breakdown, :total_price,
                     :average_nightly_rate, :promo, :arrival, :departure, :rooms,
                     :bed_types, :cancellation_policy, :non_refundable,
-                    :deposit_required, :surcharges, :rate_description, :raw
+                    :guarantee_required, :deposit_required, :surcharges,
+                    :rate_description, :raw
 
       extend Helpers
 
@@ -81,7 +82,7 @@ module Suitcase
 
         reservation_res = parsed["HotelRoomReservationResponse"]
         surcharges = if @supplier_type == "E"
-          [reservation_ees["RateInfo"]["ChargeableRateInfo"]["Surcharges"]["Surcharge"]].
+          [reservation_res["RateInfo"]["ChargeableRateInfo"]["Surcharges"]["Surcharge"]].
             flatten.map { |s| Surcharge.parse(s) }
         else
           []
