@@ -9,7 +9,8 @@ module Suitcase
                     :room_type_description, :price_breakdown, :total_price,
                     :average_nightly_rate, :promo, :arrival, :departure, :rooms,
                     :bed_types, :cancellation_policy, :non_refundable,
-                    :deposit_required, :surcharges, :raw
+                    :guarantee_required, :deposit_required, :surcharges,
+                    :rate_description, :raw
 
       extend Helpers
 
@@ -35,7 +36,8 @@ module Suitcase
         params["arrivalDate"] = @arrival
         params["departureDate"] = @departure
         params["supplierType"] = @supplier_type
-        params["rateKey"] = @rate_key
+        # Only submit the rateKey if it is a merchant hotel
+        params["rateKey"] = @rate_key if @supplier_type == "E"
         params["rateTypeCode"] = @room_type_code
         params["rateCode"] = @rate_code
         params["roomTypeCode"] = @room_type_code
@@ -64,8 +66,8 @@ module Suitcase
           params["room#{index}"] = "#{room[:adults].to_s},#{room[:children_ages].join(",")}"
           params["room#{index}FirstName"] = room[:first_name] || params["firstName"] # defaults to the billing
           params["room#{index}LastName"] = room[:last_name] || params["lastName"] # person's name
-          params["room#{index}BedTypeId"] = room[:bed_type].id
-          params["room#{index}SmokingPreference"] = room[:smoking_preference] or "E"
+          params["room#{index}BedTypeId"] = room[:bed_type].id if @supplier_type == "E"
+          params["room#{index}SmokingPreference"] = room[:smoking_preference] || "E"
         end
         params["stateProvinceCode"] = info[:province]
         params["countryCode"] = info[:country]
@@ -78,11 +80,18 @@ module Suitcase
         res = session.post uri.request_uri, {}
         parsed = JSON.parse res.body
 
-
-        r = Reservation.new(itinerary_id: parsed["HotelRoomReservationResponse"]["itineraryId"],
-                            confirmation_numbers: parsed["HotelRoomReservationResponse"]["confirmationNumbers"],
-                            surcharges: [parsed["HotelRoomReservationResponse"]["RateInfo"]["ChargeableRateInfo"]["Surcharges"]["Surcharge"]].flatten.map { |s| Surcharge.parse(s) } 
-                           )
+        reservation_res = parsed["HotelRoomReservationResponse"]
+        surcharges = if @supplier_type == "E"
+          [reservation_res["RateInfo"]["ChargeableRateInfo"]["Surcharges"]["Surcharge"]].
+            flatten.map { |s| Surcharge.parse(s) }
+        else
+          []
+        end
+        r = Reservation.new(
+          itinerary_id: reservation_res["itineraryId"],
+          confirmation_numbers: reservation_res["confirmationNumbers"],
+          surcharges: surcharges 
+        )
         r.raw = parsed
         r
       end
@@ -97,6 +106,18 @@ module Suitcase
           @max_nightly_rate
         end
       end
+      
+      # Public: The description of the displayed rate.
+      #
+      # Returns the rate description based on the `rate_change` attribute.
+      def room_rate_description
+        if @rate_change
+          "rate changes during the dates requested and the single nightly rate displayed is the highest nightly rate of the dates requested without taxes and fees."
+        else
+          "highest single night rate during the dates selected without taxes or fees"
+        end
+      end
     end
   end
 end
+
