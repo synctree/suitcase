@@ -10,7 +10,7 @@ module Suitcase
                     :average_nightly_rate, :promo, :arrival, :departure, :rooms,
                     :bed_types, :cancellation_policy, :non_refundable,
                     :guarantee_required, :deposit_required, :surcharges,
-                    :rate_description, :raw
+                    :rate_description, :raw, :rate_change, :guarantee_only
 
       extend Helpers
 
