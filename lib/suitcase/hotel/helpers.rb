@@ -58,7 +58,7 @@ module Suitcase
         params["apiKey"] = Configuration.hotel_api_key if builder[:include_key]
         params["cid"] = (Configuration.hotel_cid ||= 55505) if builder[:include_cid]
         params["sig"] = generate_signature if Configuration.use_signature_auth?
-        
+
         url = main_url(builder[:secure]) + method.to_s + (builder[:as_form] ? "" : "?")
 
         params.merge!(build_session_params(builder[:session]))
@@ -111,11 +111,41 @@ module Suitcase
             e = EANException.new("An unknown error occured: #{response.body}.")
             e.type = :unknown
           end
-        
+
           raise e
         end
 
         JSON.parse(Net::HTTP.get_response(uri).body)
+      end
+
+      # Internal: Raise the errors returned from the response.
+      #
+      # info - The parsed JSON to get the errors from.
+      #
+      # Returns nothing.
+      def handle_errors(info)
+        key = info.keys.first
+        if info[key] && info[key]["EanWsError"]
+          message = info[key]["EanWsError"]["presentationMessage"]
+          exception = EANException.new(message)
+          if message =~ /Multiple locations/ && (info = info[key]["LocationInfos"])
+            exception.type = :multiple_locations
+            exception.recovery = {
+              alternate_locations: info["LocationInfo"].map do |info|
+              Location.new(
+                destination_id: info["destinationId"],
+                type: info["type"],
+                city: info["city"],
+                province: info["stateProvinceCode"]
+              )
+              end
+            }
+          elsif message =~ /Data in this request could not be validated/
+            exception.type = :invalid_data
+          end
+
+          raise exception
+        end
       end
 
       # Internal: Get the base URL based on a Hash of info.

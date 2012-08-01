@@ -10,9 +10,10 @@ module Suitcase
                     :average_nightly_rate, :promo, :arrival, :departure, :rooms,
                     :bed_types, :cancellation_policy, :non_refundable,
                     :guarantee_required, :deposit_required, :surcharges,
-                    :rate_description, :raw
+                    :rate_description, :raw, :rate_change, :guarantee_only
 
       extend Helpers
+      include Helpers
 
       # Internal: Create a new Room from within a Room search query.
       #
@@ -50,12 +51,18 @@ module Suitcase
         params["extension"] = info[:work_phone_extension] if info[:work_phone_extension]
         params["faxPhone"] = info[:fax_phone] if info[:fax_phone]
         params["companyName"] = info[:company_name] if info[:company_name]
-        params["emailIntineraryList"] = info[:additional_emails].join(",") if info[:additional_emails]
+        if info[:additional_emails]
+          params["emailIntineraryList"] = info[:additional_emails].join(",")
+        end
         params["creditCardType"] = info[:payment_option].code
         params["creditCardNumber"] = info[:credit_card_number]
         params["creditCardIdentifier"] = info[:credit_card_verification_code]
         expiration_date = Date._parse(info[:credit_card_expiration_date])
-        params["creditCardExpirationMonth"] = (expiration_date[:mon].to_s.length == 1 ? "0" + expiration_date[:mon].to_s : expiration_date[:mon].to_s)
+        params["creditCardExpirationMonth"] = if expiration_date[:mon] < 10
+                                                "0" + expiration_date[:mon].to_s
+                                              else
+                                                expiration_date[:mon].to_s
+                                              end
         params["creditCardExpirationYear"] = expiration_date[:year].to_s
         params["address1"] = info[:address1]
         params["address2"] = info[:address2] if info[:address2]
@@ -73,7 +80,13 @@ module Suitcase
         params["countryCode"] = info[:country]
         params["postalCode"] = info[:postal_code]
 
-        uri = Room.url :method => "res", :params => params, :include_key => true, :include_cid => true, :secure => true
+        uri = Room.url(
+          method: "res",
+          params: params,
+          include_key: true,
+          include_cid: true,
+          secure: true
+        )
         session = Patron::Session.new
         session.timeout = 30000
         session.base_url = "https://" + uri.host
@@ -81,7 +94,8 @@ module Suitcase
         parsed = JSON.parse res.body
 
         reservation_res = parsed["HotelRoomReservationResponse"]
-        surcharges = if @supplier_type == "E"
+        handle_errors(parsed)
+        surcharges = if @supplier_type == "E" && reservation_res["RateInfo"]["ChargeableRateInfo"]["Surcharges"]
           [reservation_res["RateInfo"]["ChargeableRateInfo"]["Surcharges"]["Surcharge"]].
             flatten.map { |s| Surcharge.parse(s) }
         else
