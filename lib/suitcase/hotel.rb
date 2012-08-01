@@ -251,34 +251,6 @@ module Suitcase
       images || []
     end
 
-    # Internal: Raise the errors returned from the response.
-    #
-    # info - The parsed JSON to get the errors from.
-    #
-    # Returns nothing.
-    def self.handle_errors(info)
-      key = info.keys.first
-      if info[key] && info[key]["EanWsError"]
-        message = info[key]["EanWsError"]["presentationMessage"]
-        exception = EANException.new(message)
-        if message =~ /Multiple locations/ && (info = info[key]["LocationInfos"])
-          exception.type = :multiple_locations
-          exception.recovery = {
-            alternate_locations: info["LocationInfo"].map do |info|
-              Location.new(
-                destination_id: info["destinationId"],
-                type: info["type"],
-                city: info["city"],
-                province: info["stateProvinceCode"]
-              )
-            end
-          }
-        end
-
-        raise exception
-      end
-    end
-
     # Internal: Split an Array of multiple Hotels.
     #
     # parsed - The parsed JSON of the Hotels.

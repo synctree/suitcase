@@ -13,6 +13,7 @@ module Suitcase
                     :rate_description, :raw, :rate_change, :guarantee_only
 
       extend Helpers
+      include Helpers
 
       # Internal: Create a new Room from within a Room search query.
       #
@@ -93,6 +94,7 @@ module Suitcase
         parsed = JSON.parse res.body
 
         reservation_res = parsed["HotelRoomReservationResponse"]
+        handle_errors(parsed)
         surcharges = if @supplier_type == "E" && reservation_res["RateInfo"]["ChargeableRateInfo"]["Surcharges"]
           [reservation_res["RateInfo"]["ChargeableRateInfo"]["Surcharges"]["Surcharge"]].
             flatten.map { |s| Surcharge.parse(s) }

@@ -41,5 +41,10 @@ describe Suitcase::Hotel::Room do
       reservation = @room.reserve!(@info)
       reservation.must_be_kind_of(Suitcase::Hotel::Reservation)
     end
+
+    it "raises errors on invalid info" do
+      lambda { @room.reserve!(@info.merge(credit_card_number: "")) }.must_raise Suitcase::Hotel::EANException
+    end
   end
 end
+
