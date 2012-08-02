@@ -312,26 +312,32 @@ module Suitcase
         room_data[:room_type_code] = raw_data["roomTypeCode"]
         room_data[:room_type_description] = raw_data["roomTypeDescription"]
         room_data[:rate_description] = raw_data["rateDescription"]
-        room_data[:promo] = raw_data["RateInfo"]["@promo"].to_b
-        room_data[:price_breakdown] = raw_data["RateInfo"]["ChargeableRateInfo"]["NightlyRatesPerRoom"]["NightlyRate"].map do |raw|
+
+        rate_info = raw_data["RateInfos"]["RateInfo"]
+
+        room_data[:promo] = rate_info["@promo"].to_b
+        room_data[:price_breakdown] = rate_info["ChargeableRateInfo"]["NightlyRatesPerRoom"]["NightlyRate"].map do |raw|
           NightlyRate.new(raw)
-        end if raw_data["RateInfo"]["ChargeableRateInfo"] && raw_data["RateInfo"]["ChargeableRateInfo"]["NightlyRatesPerRoom"] && raw_data["RateInfo"]["ChargeableRateInfo"]["NightlyRatesPerRoom"]["NightlyRate"].is_a?(Array)
-        room_data[:total_price] = raw_data["RateInfo"]["ChargeableRateInfo"]["@total"]
-        room_data[:max_nightly_rate] = raw_data["RateInfo"]["ChargeableRateInfo"]["@maxNightlyRate"]
+        end if rate_info["ChargeableRateInfo"] &&
+                rate_info["ChargeableRateInfo"]["NightlyRatesPerRoom"] &&
+                rate_info["ChargeableRateInfo"]["NightlyRatesPerRoom"]["NightlyRate"].is_a?(Array)
+        room_data[:total_price] = rate_info["ChargeableRateInfo"]["@total"]
+        room_data[:max_nightly_rate] = rate_info["ChargeableRateInfo"]["@maxNightlyRate"]
+        room_data[:nightly_rate_total] = rate_info["ChargeableRateInfo"]["@nightlyRateTotal"]
+        room_data[:average_nightly_rate] = rate_info["ChargeableRateInfo"]["@averageRate"]
+        room_data[:surcharges] = rate_info["ChargeableRateInfo"] &&
+          rate_info["ChargeableRateInfo"]["Surcharges"] &&
+          [rate_info["ChargeableRateInfo"]["Surcharges"]["Surcharge"]].
+            flatten.map { |s| Surcharge.parse(s) }
+
         room_data[:rate_change] = raw_data["rateChange"]
-        room_data[:nightly_rate_total] = raw_data["RateInfo"]["ChargeableRateInfo"]["@nightlyRateTotal"]
-        room_data[:average_nightly_rate] = raw_data["RateInfo"]["ChargeableRateInfo"]["@averageRate"]
         room_data[:arrival] = info[:arrival]
         room_data[:departure] = info[:departure]
         room_data[:rate_key] = rate_key
         room_data[:hotel_id] = hotel_id
         room_data[:supplier_type] = supplier_type
         room_data[:rooms] = params[:rooms]
-        room_data[:surcharges] = raw_data["RateInfo"]["ChargeableRateInfo"] &&
-          raw_data["RateInfo"]["ChargeableRateInfo"]["Surcharges"] &&
-          [raw_data["RateInfo"]["ChargeableRateInfo"]["Surcharges"]["Surcharge"]].
-          flatten.map { |s| Surcharge.parse(s) }
-        room_data[:bed_types] = [raw_data["BedTypes"]["BedType"]].flatten.map do |x|
+                room_data[:bed_types] = [raw_data["BedTypes"]["BedType"]].flatten.map do |x|
           BedType.new(id: x["@id"], description: x["description"])
         end if raw_data["BedTypes"] && raw_data["BedTypes"]["BedType"]
 

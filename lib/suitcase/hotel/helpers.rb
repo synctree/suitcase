@@ -58,6 +58,7 @@ module Suitcase
         params["apiKey"] = Configuration.hotel_api_key if builder[:include_key]
         params["cid"] = (Configuration.hotel_cid ||= 55505) if builder[:include_cid]
         params["sig"] = generate_signature if Configuration.use_signature_auth?
+        params["minorRev"] = Configuration.ean_revision
 
         url = main_url(builder[:secure]) + method.to_s + (builder[:as_form] ? "" : "?")
 

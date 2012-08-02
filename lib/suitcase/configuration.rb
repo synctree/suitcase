@@ -8,7 +8,12 @@ module Suitcase
       attr_accessor :hotel_api_key, :hotel_cid, :hotel_shared_secret,
                     :hotwire_api_key, :hotwire_linkshare_id
 
+      attr_writer :ean_revision
       attr_reader :cache
+
+      def ean_revision
+        @ean_revision || 15
+      end
 
       def cache=(mechanism)
         @cache = Suitcase::Hotel::Cache.new(mechanism)

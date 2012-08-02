@@ -95,8 +95,9 @@ module Suitcase
 
         reservation_res = parsed["HotelRoomReservationResponse"]
         handle_errors(parsed)
-        surcharges = if @supplier_type == "E" && reservation_res["RateInfo"]["ChargeableRateInfo"]["Surcharges"]
-          [reservation_res["RateInfo"]["ChargeableRateInfo"]["Surcharges"]["Surcharge"]].
+        rate_info = reservation_res["RateInfos"]["RateInfo"]
+        surcharges = if @supplier_type == "E" && rate_info["ChargeableRateInfo"]["Surcharges"]
+          [rate_info["ChargeableRateInfo"]["Surcharges"]["Surcharge"]].
             flatten.map { |s| Surcharge.parse(s) }
         else
           []
