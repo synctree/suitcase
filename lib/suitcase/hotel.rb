@@ -313,6 +313,8 @@ module Suitcase
         room_data[:room_type_description] = raw_data["roomTypeDescription"]
         room_data[:rate_description] = raw_data["rateDescription"]
 
+        room_data[:deep_link] = raw_data["deepLink"] || ""
+
         rate_info = raw_data["RateInfos"]["RateInfo"]
 
         room_data[:promo] = rate_info["@promo"].to_b
